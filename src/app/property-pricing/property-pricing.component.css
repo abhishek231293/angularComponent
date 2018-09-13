@@ -1,0 +1,47 @@
+
+.next-button{
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: #009050;
+}
+.back-button{
+    padding: 5px 15px;
+    font-size: 16px;
+}
+
+.active-stepy{
+    background-color: #133962 !important;
+}
+
+.disable-stepy{
+    background-color: #cecbcb !important;
+}
+
+.active-stepy-text{
+    color: #133962 !important;
+}
+
+.disable-stepy-text{
+    color: #cecbcb !important;
+}
+.sub-heading{
+    background-color: #006FA5;
+    text-align: center;
+    color:white;
+    margin-bottom: 10px;
+    padding: 6px 15px;
+}
+.field_element{
+    margin-top: 10px;
+}
+.table-input {
+    width: 102px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid gainsboro;
+
+}
+.construction-cost{
+    border-radius: 10px;
+   height:45px;
+}

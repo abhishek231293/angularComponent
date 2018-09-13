@@ -1,0 +1,23 @@
+ .heading{
+     background-color: #006FA5;
+     margin-bottom: 10px;
+     color:white;
+     padding: 6px 15px;
+
+ }
+ .sub-heading{
+     background-color: #006FA5;
+     color:white;
+     margin-bottom: 10px;
+     padding: 6px 15px;
+ }
+ .side-contain{
+     min-height: 870px;
+     /*border: 1px solid #BBBBBB;*/
+     margin-top: 10px;
+
+ }
+ .estimated-time{
+     min-height: 90px;
+     border-bottom: inset;
+ }

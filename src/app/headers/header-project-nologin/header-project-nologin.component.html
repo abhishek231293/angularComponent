@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Case No: {{projects[0]['case_no']}}</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-6" style="padding-left: 38px">
+            <table style="list-style: none">
+              <tr><td><strong>Request By </strong></td> <td>: {{ projects[0]['first_name']}}</td></tr>
+              <tr><td><strong>Branch Code </strong></td> <td>: <span > {{projects[0]['branch_code']}}</span></td></tr>
+              <tr><td><strong>Purpose </strong></td> <td>: {{projects[0]['purpose']}}</td></tr>
+            </table>
+            <!-- /.chart-responsive -->
+          </div>
+          <div class="col-md-offset-2 col-md-4">
+            <table >
+              <tr><td><strong>Deadline </strong></td> <td>: <span *ngIf="projects[0]['project_age']>=72" style="color:red">
+              0 Hrs
+              </span>
+              <span *ngIf="projects[0]['project_age']<72">
+              {{72 - (projects[0]['project_age'] | number:'1.0-0')}} Hrs
+              </span></td></tr>
+              <tr><td><strong>Created At </strong></td> <td>: {{projects[0]['created_at'] | date: 'dd/MM/yyyy hh:mm' }}</td></tr>
+              <tr><td><strong>Last Updated At </strong></td> <td>: {{projects[0]['updated_at'] | date: 'dd/MM/yyyy hh:mm'}}</td></tr>
+            </table>
+            <!-- /.chart-responsive -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>                      <!-- nav-tabs-custom -->
+    </div>
+  </div>
+</div>
+

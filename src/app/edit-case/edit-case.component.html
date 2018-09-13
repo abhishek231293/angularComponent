@@ -1,0 +1,401 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 2px" >
+      <h1>
+        Project Details
+        <small>{{mode |titlecase }} Project</small>
+        <div class="pull-right p-t-10" style="    margin-right: -15px;">
+          <div class="pull-right p-5" *ngIf="(user_access_role === 1 || user_access_role === 6) && !read && hideCtrl==1" style="padding-right: 0px">
+            <a class="pull-right"><button (click)="updateProjectStatus(projectId,'rejected')" type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['reject']" >Reject <i [ngClass]="{'fa':updateEnable['reject'],'fa-spinner':updateEnable['reject'],'fa-spin':updateEnable['reject']}"></i> </button></a>
+          </div>
+          <!--<div class="pull-right p-5" *ngIf="!read && hideCtrl==1">-->
+          <div class="pull-right p-5" *ngIf="(user_access_role === 1 || user_access_role === 6) && !read && hideCtrl==1">
+            <a class="pull-right"><button (click)="updateProjectStatus(projectId,'accepted')" type="button" class="btn btn-success next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['accept']" >Accept <i [ngClass]="{'fa':updateEnable['accept'],'fa-spinner':updateEnable['accept'],'fa-spin':updateEnable['accept']}"></i> </button></a>
+          </div>
+          <!--<div  class="pull-right p-5" *ngIf="!read && hideCtrl==1">-->
+          <div  class="pull-right p-5" *ngIf="(user_access_role === 1 || user_access_role === 6) && mapTerritory === 0 && !read && hideCtrl==1">
+            <a class="pull-right"><button (click)="submitCase(projectId);" type="button" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Save</button></a>
+          </div>
+          <div class="pull-right" *ngIf="!read && hideCtrl==0" style="padding-right: 0px">
+            <!--<a class="pull-right"><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['reject']" >Cancel <i [ngClass]="{'fa':updateEnable['reject'],'fa-spinner':updateEnable['reject'],'fa-spin':updateEnable['reject']}"></i> </button></a>-->
+            <div class="pull-right p-5" style="padding-right: 0px">
+              <a class="pull-right"><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['reject']" >Reject <i [ngClass]="{'fa':updateEnable['reject'],'fa-spinner':updateEnable['reject'],'fa-spin':updateEnable['reject']}"></i> </button></a>
+            </div>
+            <!--<div class="pull-right p-5" *ngIf="!read && hideCtrl==1">-->
+            <div class="pull-right p-5">
+              <a class="pull-right"><button type="button" class="btn btn-success next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['accept']" >Accept <i [ngClass]="{'fa':updateEnable['accept'],'fa-spinner':updateEnable['accept'],'fa-spin':updateEnable['accept']}"></i> </button></a>
+            </div>
+            <!--<div  class="pull-right p-5" *ngIf="!read && hideCtrl==1">-->
+            <div  class="pull-right p-5">
+              <a class="pull-right"><button type="button" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Save</button></a>
+            </div>
+          </div>
+          <!--<div class="pull-right p-5" *ngIf="!read && hideCtrl==0">
+            <a class="pull-right"><button type="button" class="btn btn-success next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['accept']" >Save <i [ngClass]="{'fa':updateEnable['accept'],'fa-spinner':updateEnable['accept'],'fa-spin':updateEnable['accept']}"></i> </button></a>
+          </div>-->
+          <!--<div class="pull-right p-5" *ngIf="mapTerritory === 1 && !read && hideCtrl==1">
+            <button style="margin-top: -10px;margin-left: 10px" class="btn btn-outline-primary" (click)="openSavedImage(apiBaseUrl,projectDet[0].map_url)">
+              Saved Map Image
+            </button>
+          </div>-->
+        </div>
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+
+      <app-header-project></app-header-project>
+
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Custom Tabs -->
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab" (click)="changeCtrls('')">Site Profile</a></li>
+              <li><a href="#tab_2" data-toggle="tab" (click)="changeCtrls('')">Site Type</a></li>
+              <li><a href="#tab_3" data-toggle="tab" (click)="changeCtrls('')">Resources</a></li>
+              <li><a href="#tab_4" data-toggle="tab" (click)="changeCtrls('mapTerritory')">Map Territory</a></li>
+              <!--<li *ngIf="disabledClass == 'disabled'" class="disabled">
+                <a>Candidate Sites</a>
+              </li>-->
+              <!--<li *ngIf="disabledClass == ''" >-->
+              <li>
+                <a href="#tab_5" data-toggle="tab" (click)="changeCtrls('candidateSites')">Candidate Sites</a>
+              </li>
+              <li>
+                <a href="#tab_6" data-toggle="tab" (click)="changeCtrls('')" >Task</a>
+              </li>
+              <li>
+                <a href="#tab_7" data-toggle="tab" (click)="changeCtrls('valutationSites')" >Valuation</a>
+              </li>
+              <li >
+                <a href="#tab_9" data-toggle="tab" (click)="changeCtrls('')" >Site Report</a>
+              </li>
+              <li >
+                <a href="#tab_10" data-toggle="tab" (click)="changeCtrls('')" >PF</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+                <div class="col-md-12"  style="padding-left: 0px">
+                  <div class="box-info p-5 col-md-7">
+                    <div class="col-sm-12" style="position: absolute;left: 0px;bottom: 2px;">
+                    </div>
+                    <div class="form-horizontal" style="margin-top: -10px">
+                      <div class="box-body m-t-10" style="padding-left: 0px">
+                        <div class="form-group">
+                          <label for="branchCode" class="col-sm-3">Enter code of branch you wish to relocate<span style="color:red">*</span>
+                          </label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="branchCode" [value]="projectDet[0]['branch_code']" [readonly]="read" [(ngModel)]="newProjectObject.siteProfile.branchCode" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-3">Prority<span style="color:red">*</span> :</label>
+                          <div class="col-sm-9">
+                            <select class="form-control clickable" [value]="projectDet[0]['priority']" [disabled]="read" [(ngModel)]="newProjectObject.siteProfile.priority">
+                              <option value="low">Low</option>
+                              <option value="medium">Medium</option>
+                              <option value="high">High</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-3">Deadline<span style="color:red">*</span> :</label>
+                          <div class="col-sm-9">
+                            <input [(ngModel)]="newProjectObject.siteProfile.deadline" class="form-control" [disabled]="read"  id="deadline" placeholder="Enter Deadline"
+                                   #dpYMD="bsDatepicker"
+                                   bsDatepicker [outsideClick]="true"
+                                   [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-3">Reason(s) for moving<span style="color:red">*</span></label>
+                          <div class="col-sm-9">
+                            <textarea class="form-control" rows="3" placeholder="" [value]="projectDet[0]['reason']" [readonly]="read" required [(ngModel)]="newProjectObject.siteProfile.reason"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="col-md-3">
+
+                      </div>
+                      <div class="col-md-9" style="border:1px solid lightgrey">
+                        <div class="col-md-6 text-center">
+                          <div class="row" style="margin-top: 31px">
+                            <label class="label label-success" style="border-radius: 13px;padding: 8px">On Schedule</label>
+                           </div>
+                          <div class="row m-t-10">
+                            <span style="font-size: 13px"><b>EST. TARGET DATE:</b> 27 Sep 2019</span>
+                          </div>
+                          <div class="row">
+                            <span style="font-size: 13px"><b>TARGET DATE:</b> 27 Sep 2019</span>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <mwl-gauge class="pull-right"
+                                  [max]="100"
+                                  [dialStartAngle]="-90"
+                                  [dialEndAngle]="-90.001"
+                                  [label]="percentageValue"
+                                  [value]="gaugeValues[3]"
+                                  [animated]="true"
+                                  [animationDuration]="1">
+                          </mwl-gauge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="mapDiv" style="width: 100%;height: 405px;margin-top:15px;border:1px solid #d2d6de">
+                      <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+                        <agm-marker *ngIf="markerStatus"  [latitude]="lat" [longitude]="lng" [iconUrl]="icon">
+                          <agm-info-window [disableAutoPan]="false">
+                            <div class="info-window">
+                              <table class="table table-striped">
+                                <tr>
+                                  <td><strong>Branch Code</strong></td>
+                                  <td>{{newProjectObject['branch_code']}}</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Branch Name</strong></td>
+                                  <td>{{branchName}}</td>
+                                </tr>
+                              </table>
+                            </div>
+                          </agm-info-window>
+                        </agm-marker>
+                      </agm-map>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_2">
+                <div class="box-info p-5" style="border:0px;height:470px">
+                  <span style="font-size:11px;color: black;font-weight: 600;">Select the branch model for this request</span>
+                  <div class="col-md-12 m-t-10" style="height:375px;padding-left: 0px">
+                    <div class="col-lg-6 p-5" style="height:375px;padding-left: 0px">
+                      <span class="adj-text1" style="">{{imgCaption}}</span>
+                      <a href="#" data-toggle="modal" data-target="#modal-default" class="adj-btn1" style="margin-top: 7px;margin-right: 7px"
+                      >Technical Drawing</a>
+                      <div class="modal fade" id="modal-default" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header" style="border-bottom:none">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body" style="margin-top: -22px">
+                              <div class="col-md-12" style="text-align: center">
+                                <img src="../../assets/img/technicaldrawing.png" alt="">
+                              </div>
+                              <div class="box-body" style="padding: 20px;">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.modal-_content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <img [src]="imgsr" class="cu-100-perc m-t-5" alt="User Image" id="main-image">
+                    </div>
+                    <div class="col-lg-4 p-5" style="height:375px;margin-top: -2px">
+                      <div class="col-md-6 text-center" style="height:126.6px;padding: 8px" *ngFor="let image of imageArray;let index = index">
+                        <img id="img-{{index}}" src="../../assets/img/{{image.name}}" class="cu-99-perc clickable borderImg" alt="User Image" (click)="setSrc(image,index, $event);newProjectObject.branchType = image.id;"
+                             [ngClass]="{ 'img-active': isActive[index]}">
+                        <figcaption style="font-size: 10px;margin-top: 3px;padding-bottom: 3px">{{image.caption}}</figcaption>
+                      </div>
+                    </div>
+                    <!--<div style="position: absolute;bottom: -13%;right:18.8%;">
+                      <button type="submit" class="btn btn-success pull-right" style="padding: 5px 15px;" data-toggle="collapse" data-target="#accordion3" (click)="closeAccord('ac2'+i);toggle('ac3'+i)">Update</button>
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_3">
+                <div class="box-info" style="border:0px;height:413px;margin-top: -10px">
+                  <div class="box-body col-md-12"  style="padding-bottom: 40px;padding-left: 4px">
+                    <!--<img src="../../assets/img/staff.png" alt="">-->
+                    <!--<img src="../../assets/img/staffimage.png" alt="" style="width: 100%">-->
+                    <div class="col-sm-6">
+                      <span class="sub-title-stepy" style="color:#a94442;position: relative;left:-15px">{{staffInfoErrorMessage}}</span>
+                    </div>
+                    <!--<div class="col-md-9 p-t-5 setLabel" style="background-color: #406b83;padding: 16px 10px 10px 10px">-->
+                    <div class="col-md-9 p-t-5 setLabel" style="padding: 16px 10px 10px 10px">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Branch Manager</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.branchManager" [value]="projectDet[0]['total_branch_manager']" [readonly]="read" id="bm">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Operations Manager</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.operationManager" [value]="projectDet[0]['total_operation_manager']" [readonly]="read" id="om">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Lounge Manager</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.loungeManager" [value]="projectDet[0]['total_lounge_manager']" [readonly]="read" id="lm">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Showroom Supervisor</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.showroomSupervisor" [value]="projectDet[0]['total_showroom_supervisor']" [readonly]="read" id="ss">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Head Teller</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.headTeller" [value]="projectDet[0]['total_head_teller']" [readonly]="read" id="ht">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Teller</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.teller" [value]="projectDet[0]['total_teller']" [readonly]="read" id="tel">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">VIP Teller</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.vipTeller" [value]="projectDet[0]['total_vip_teller']" [readonly]="read" id="vt">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Relationship Manager</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.relationshipManager" [value]="projectDet[0]['total_relation_manager']" [readonly]="read" id="rm">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Customer Assistance</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.customerAssistance" [value]="projectDet[0]['total_customers_assistance']" [readonly]="read" id="ca">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Sales Advisor</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.salesAdvisor" [value]="projectDet[0]['total_sales_advisor']" [readonly]="read" id="sa">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Sales Manager:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.salesManager" [value]="projectDet[0]['total_sales_manager']" [readonly]="read" id="sm">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Sales Service Rep</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.salesServiceRep" [value]="projectDet[0]['total_sales_representative']" [readonly]="read" id="ssr">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Service Teller Rep</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.serviceTellerRep" [value]="projectDet[0]['total_branch_manager']" [readonly]="read" id="str">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Guard</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.guard" [value]="projectDet[0]['total_guard']" [readonly]="read" id="gu">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="bm">Total Staff</label>
+                          <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.totalStaff" [value]="projectDet[0]['total_staff']" [readonly]="read" id="ts">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab_4">
+                <div class="box-body p-10">
+                  <div *ngIf="mode === 'edit'" class="col-lg-12">
+                    <app-map *ngIf="showMapData" [projectId]="projectId"></app-map>
+                  </div>
+                  <div *ngIf="!showMapData" class="col-md-12 p-5" style="">
+                    <img src="{{apiBaseUrl}}/storage/{{projectDet[0].map_url}}" alt="test" style="width: 100%;">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab_5" >
+                <div class="box-body p-10">
+                  <app-project-candidate-sites></app-project-candidate-sites>
+                </div>
+              </div>
+
+
+              <!--task component-->
+              <div class="tab-pane" id="tab_6" >
+                <div class="box-body p-10">
+                    <app-project-task></app-project-task>
+                </div>
+              </div>
+
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="tab_7" >
+                <div class="box-body p-10">
+                  <app-project-valuation></app-project-valuation>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab_9" >
+                <div class="box-body p-10">
+                  <app-site-report></app-site-report>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab_10" >
+                <div class="box-body p-10">
+                  <app-land-approve></app-land-approve>
+                </div>
+              </div>
+            </div>
+            <!-- /.tab-content -->
+            <div *ngIf="activeTab != 'candidateSites' && activeTab != 'valutationSites' " class="box-footer" style="padding: 18px 12px 5px 8px;">
+              <div class="pull-left p-5">
+                <a class="pull-left">
+                  <button routerLink="/cases" type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['reject']" >Back</button>
+                </a>
+              </div>
+                <div *ngIf="mode === 'edit'" class="pull-right" style="margin-top: -9px;">
+                  <!--<div class="pull-right p-5" *ngIf="(mapTerritory === 1 && !read && hideCtrl==1) && showMapData">
+                    <button type="button" class="btn btn-outline-primary"
+                            (click)="openSavedImage(apiBaseUrl,projectDet[0].map_url)">
+                      Saved Map
+                    </button>
+                  </div>-->
+                  <div class="pull-right p-5" *ngIf="(mapTerritory === 1 && !read && hideCtrl==1) && showMapData">
+                    <a (click)="showMap(0)" class="clickable">
+                      Previous Map
+                    </a>
+                  </div>
+                  <div class="pull-right p-5" *ngIf="(mapTerritory === 1 && !read && hideCtrl==1) && !showMapData">
+                    <button style="color: white;background-color: #296099;" type="button" class="btn btn-outline-primary" (click)="showMap(1)">
+                      <i title="Edit Map" class="fa fa-edit iconSize clickable"></i>Edit Map
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- nav-tabs-custom -->
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

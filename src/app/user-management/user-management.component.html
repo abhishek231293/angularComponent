@@ -1,0 +1,155 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 0px" >
+      <!--  <h1>
+          <small>New Request</small>
+        </h1>-->
+      <h1>
+        Users
+        <small>User List | Manage Users</small>
+        <a class="pull-right"><button type="button" class="btn btn-primary next-button" style="padding: 5px 15px;margin-bottom: 12px;" (click)="addUser()">Add User</button></a>
+      </h1>
+        <!--<div  class="pull-right p-t-10">-->
+            <!--<a class="pull-left"><button type="button" class="btn btn-primary next-button" style="padding: 5px 15px;margin-bottom: 12px;" (click)="addUser()">Add User</button></a>-->
+        <!--</div>-->
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <div class="row">
+        <div class="col-md-12" >
+          <div class="box">
+            <div class="box-body" style="overflow: hidden">
+              <div class="col-md-2" style="margin-bottom: 10px;padding: 9px;">
+                <!--<button type="button" class="btn btn-block btn-default btn-flat totalCount" style="margin-left: -7px;">-->
+                <strong>Total Users: {{total}}</strong>
+                <!--</button>-->
+              </div>
+              <div class="col-md-2">
+                <select class="form-control" id="department" [(ngModel)]="searchDepartment" (change)="searchDropDown()">
+                  <option value="" [selected]=true>-- Select Department --</option>
+                  <option [value]="department.id" *ngFor="let department of departments">{{department.name}}</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <select class="form-control" id="role" [(ngModel)]="searchRole" (change)="searchDropDown()">
+                  <option value="" [selected]=true>-- Select Role --</option>
+                  <option [value]="role.id" *ngFor="let role of roles">{{role.name}}</option>
+                </select>
+              </div>
+              <div class="col-md-3" style="margin-bottom: 10px;">
+                <div class="input-group input-group-sm pull-left" >
+                  <input  type="text"
+                          class="form-control pull-right"
+                          placeholder="Search By Username"  (keydown)="onKeydown($event)"  [(ngModel)]="searchData" style="height: 34px !important;">
+                  <div class="input-group-btn">
+                    <button (click)="SearchList()" class="btn btn-success btn-flat" style="height: 34px !important;margin-left: 3px" title="search">
+                      <i class="fa fa-search"></i>
+                    </button>
+                    <button (click)="refreshList()" class="btn btn-primary btn-flat" style="height: 34px !important;margin-left: 3px" title="reset">
+                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--<div class="col-md-2">
+                <select class="form-control clickable">
+                  <option>Select Role</option>
+                  <option>Admin</option>
+                  <option>Guest</option>
+                  <option>Manager</option>
+                  <option>Supervisor</option>
+                </select>
+              </div>
+              <div class="col-md-2" style="padding: 0px;">
+                <select class="form-control clickable">
+                  <option>Select Department</option>
+                  <option>ARB</option>
+                  <option>RE/Projects</option>
+                  <option>FM</option>
+                </select>
+              </div>-->
+              <div class="col-md-3" style="margin-bottom: 10px;">
+                <div class="pull-right" style="margin-right: 10px;">
+                  <table *ngIf="paginate.last_page != 1" class="">
+                    <colgroup>
+                      <col style="width: 45%;">
+                    </colgroup>
+                    <tbody><tr>
+                      <td>
+                        <a class="gray clickable" (click)="previousPage()" style="color: #296099">
+                          <i class="fa fa-backward" title="Previous"></i>
+                        </a>
+                        <span style="margin-left: 25% ! important;"></span>
+                        <a class="gray clickable" style="color: #296099" (click)="nextPage()">
+                          <i class="fa fa-forward" title="Next" ></i>
+                        </a>
+                      </td>
+                      <td>
+                        <!--<div class="form-group">-->
+                        <select style="" class="form-control clickable" id="pagination" name="pagination" [(ngModel)]="currentPage" (change)="changePage()"
+                        >
+                          <option *ngFor="let item of pages" [value]="item">{{item}}</option>
+                        </select>
+                        <!--</div>-->
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <table class="table table-hover" style="font-size: 13px;color: #303030;">
+                <tr>
+                  <th *ngFor = "let field of fields;index as i" [ngStyle]="{'width':field.width,'text-align':field.title==('Action')?'center':''}">
+                    <span *ngIf="field.sort">{{field.title}}</span>
+                    <a class="clickable" *ngIf="field.sort">
+                      <i class="fa fa-sort" id="fa-{{field.field}}" style="padding-left: 5px" (click)="sortBy(field.field, $event)"></i>
+                    </a>
+                    <span *ngIf="!field.sort">{{field.title}}</span>
+                  </th>
+                </tr>
+                <tr *ngIf="loader">
+                  <td colspan="6" class="text-center"><div class="loading">Loading&#8230;</div></td>
+                </tr>
+                <ng-template ngFor let-i="index" let-userData [ngForOf]="listData" >
+                  <tr>
+                    <td style="padding-top: 13px">{{i+1}}</td>
+                    <td  style="padding-top: 13px;" >{{userData['name']}}</td>
+                    <td  style="padding-top: 13px;" >{{userData['email']}}</td>
+                    <td  style="padding-top: 13px;" >{{userData['role_name']}}</td>
+                    <td  style="padding-top: 13px;" >{{userData['department_name']}}</td>
+                    <td  style="padding: 10px 0px 0px 14px;">
+                        <ui-switch [checked]="userData['is_active'] ? true : false" size="small" title="User Status" (change)="userIsActive(userData['id'],userData['email'],$event)"></ui-switch>
+                    </td>
+                    <td  style="padding-top: 13px"><label class="label label-primary" style="padding-top: 6px">{{userData['created_at'] | date: 'dd/MM/yyyy h:mm'}}</label></td>
+                    <td style="font-weight: 100">
+                      <div class="text-center" style="position: relative;top:-3px">
+                        <i class="fa fa-2x fa-eye iconSize clickable p-0-9-n m-l-5" title="View User" style="color: #296099;" (click)="viewUser(userData['id'],userData['email'])"></i>
+                        <i  title="Edit User" class="fa fa-2x fa-edit iconSize clickable p-0-9-n m-l-5" style="color: #296099;" (click)="editUser(userData['id'],userData['email'])"></i>
+                        <i  title="Delete User" id="accept1{{i}}" class="fa fa-2x fa-close iconSize clickable p-0-9-n m-l-5" style="color: #dd4b39;" (click)="deleteUser(userData['id'],userData['email'])"></i>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+                  <tr *ngIf="listData.length < 1">
+                      <td colspan="8" style="text-align: center">
+                          <span class="label label-danger">No Record Found</span>
+                      </td>
+                  </tr>
+              </table>
+            </div>
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

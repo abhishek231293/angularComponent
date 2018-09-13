@@ -1,0 +1,16 @@
+.content-wrapper{
+    min-height: 916px;
+}
+
+/*!*.dropdown-list[_ngcontent-c4] {*!
+.multiselect-dropdown .dropdown-list {
+    position: inherit !important;
+}
+
+.multiselect-parent .dropdown-list { overflow: auto; }
+
+.dropdown-list{position:absolute;}*/
+
+agm-map {
+    height: 250px;
+}

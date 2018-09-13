@@ -1,0 +1,179 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 0px" >
+      <!--  <h1>
+          <small>New Request</small>
+        </h1>-->
+      <h1>
+        Property Valuation
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <app-header-project></app-header-project>
+      <div class="row">
+        <div class="col-md-12" >
+          <div class="box">
+            <div class="box-body" style="overflow: hidden">
+              <div class="col-md-9">
+              </div>
+              <div class="col-md-3" style="margin-bottom: 10px;">
+              </div>
+              <div class="row">
+                <form [formGroup]="valuationPropertyForm" (ngSubmit)="valuationPropertySubmit()">
+                  <div class="box-body">
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label for="project_reference">Project Reference</label>
+                        <input type="text" disabled value="{{caseNo}}" class="form-control" id="project_reference" placeholder="Enter Project Reference">
+                        <!--<div *ngIf="submitted && valuationPropertyForm.controls['project_reference'].errors">-->
+                          <!--<span [hidden]="!valuationPropertyForm.controls['project_reference'].errors.required" class="help-block" style="color: red !important;">-->
+                              <!--Project reference is missing.-->
+                          <!--</span>-->
+                        <!--</div>-->
+                      </div>
+
+                      <div class="form-group">
+                        <label for="asset_type">Asset Type</label>
+                        <input type="text" formControlName="asset_type" class="form-control" id="asset_type" placeholder="Enter Asset Type">
+                        <div *ngIf="submitted && valuationPropertyForm.controls['asset_type'].errors">
+                          <span [hidden]="!valuationPropertyForm.controls['asset_type'].errors.required" class="help-block" style="color: red !important;">
+                              Asset type is missing.
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="asset_size">Asset Size (in sqm)</label>
+                        <input type="number" formControlName="asset_size" class="form-control" id="asset_size" placeholder="Enter Asset Size">
+                        <div *ngIf="submitted && valuationPropertyForm.controls['asset_size'].errors">
+                          <span [hidden]="!valuationPropertyForm.controls['asset_size'].errors.required" class="help-block" style="color: red !important;">
+                              Asset size is missing or incorrect input (Only numeric value accepted).
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="street_width">Street Width</label>
+                        <input type="number" formControlName="street_width" class="form-control" id="street_width" placeholder="Enter Street Width">
+                        <div *ngIf="submitted && valuationPropertyForm.controls['street_width'].errors">
+                          <span [hidden]="!valuationPropertyForm.controls['street_width'].errors.required" class="help-block" style="color: red !important;">
+                              Street width is missing or incorrect input (Only numeric value accepted).
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input formControlName="deadline" class="form-control" id="deadline"
+                               placeholder="Select Deadline"
+                               #dpYMD="bsDatepicker"
+                               bsDatepicker [outsideClick]="true"
+                               [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue'}">
+                        <div *ngIf="submitted && valuationPropertyForm.controls['deadline'].errors">
+                          <span [hidden]="!valuationPropertyForm.controls['deadline'].errors.required" class="help-block" style="color: red !important;">
+                              Deadline is missing.
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group" [hidden]="vendors?0:1">
+                        <label for="vendor">Select Vendor</label>
+                        <ng-multiselect-dropdown
+                                id="vendor"
+                                name="vendor"
+                                style="position: inherit"
+                                [placeholder]="'Select Vendor'"
+                                [data]="vendors"
+                                formControlName="vendor"
+                                [disabled]="disabled"
+                                [settings]="dropdownSettings"
+                                (onSelect)="onItemSelect($event)">
+                        </ng-multiselect-dropdown>
+                        <div *ngIf="submitted && valuationPropertyForm.controls['vendor'].errors">
+                          <span [hidden]="!valuationPropertyForm.controls['vendor'].errors.required" class="help-block" style="color: red !important;">
+                              Vendor is missing.
+                          </span>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-xs-6">
+                      <label>Upload Briefing Documents</label>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <input (change)="changeListener($event.target.files,1)" id="image_upload1" formControlName="image_upload1" class="form-control" type="file"
+                                   class="dropify" accept=".png, .jpg, .jpeg"
+                                   data-allowed-file-extensions="jpg png jpeg"
+                                   data-show-loader="true"
+                                   data-max-file-size="5M" data-height="300">
+                            <div *ngIf="submitted && valuationPropertyForm.controls['image_upload1'].errors">
+                          <span [hidden]="!valuationPropertyForm.controls['image_upload1'].errors.required" class="help-block" style="color: red !important;">
+                              File is missing,please upload atleast one file.
+                          </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <input (change)="changeListener($event.target.files,2)" id="image_upload2" formControlName="image_upload2" class="form-control" type="file"
+                                   class="dropify" accept=".png, .jpg, .jpeg"
+                                   data-allowed-file-extensions="jpg png jpeg"
+                                   data-show-loader="true"
+                                   data-max-file-size="5M" data-height="300">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <input (change)="changeListener($event.target.files,3)" id="image_upload3" formControlName="image_upload3" class="form-control" type="file"
+                                   class="dropify" accept=".png, .jpg, .jpeg"
+                                   data-allowed-file-extensions="jpg png jpeg"
+                                   data-show-loader="true"
+                                   data-max-file-size="5M" data-height="300">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="other_details"></label>
+                        <textarea formControlName="other_details" class="form-control" id="other_details"
+                                  placeholder="Please use this space to enter further details" cols="30" rows="6">
+                        </textarea>
+                        <!--<div *ngIf="submitted && searchPropertyForm.controls['project_reference'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['project_reference'].errors.required" class="help-block" style="color: red !important;">
+                              Project reference is missing.
+                          </span>
+                        </div>-->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <div  class="pull-right p-t-10" style="padding-right: 17px;">
+                      <a class="pull-right"><button type="submit" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>
+                    </div>
+                    <div  class="pull-right p-t-10" style="margin-right: 5px">
+                    <a><button (click)="resetEvaluationForm()" type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" >Cancel</button></a>
+                  </div>
+                    <div  class="p-t-10" style="padding-right: 5px;margin-left: 10px;">
+                      <a class=""><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px" (click)="goBack()">Back</button></a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,178 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 0px" >
+      <!--  <h1>
+          <small>New Request</small>
+        </h1>-->
+      <h1>
+        RFP Property Search
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+
+      <app-header-project></app-header-project>
+
+      <div class="row">
+        <div class="col-md-12" >
+          <div class="box">
+            <div class="box-body" style="overflow: hidden">
+              <div class="col-md-9">
+              </div>
+              <div class="col-md-3" style="margin-bottom: 10px;">
+              </div>
+              <div class="row">
+                <form [formGroup]="searchPropertyForm" (ngSubmit)="searchPropertySubmit()">
+                  <div class="box-body">
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label for="project_reference">Project Reference</label>
+                        <input type="text" disabled value="{{caseNo}}" class="form-control" id="project_reference" placeholder="Enter Project Reference">
+                        <!--<div *ngIf="submitted && searchPropertyForm.controls['project_reference'].errors">-->
+                          <!--<span [hidden]="!searchPropertyForm.controls['project_reference'].errors.required" class="help-block" style="color: red !important;">-->
+                              <!--Project reference is missing.-->
+                          <!--</span>-->
+                        <!--</div>-->
+                      </div>
+
+                      <div class="form-group">
+                        <label for="asset_type">Asset Type</label>
+                        <input type="text" formControlName="asset_type" class="form-control" id="asset_type" placeholder="Enter Asset Type">
+                        <div *ngIf="submitted && searchPropertyForm.controls['asset_type'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['asset_type'].errors.required" class="help-block" style="color: red !important;">
+                              Asset type is missing.
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="asset_type">Asset Size (in sqm)</label>
+                        <input type="number" formControlName="asset_size" class="form-control" id="asset_size" placeholder="Enter Asset Size">
+                        <div *ngIf="submitted && searchPropertyForm.controls['asset_size'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['asset_size'].errors.required" class="help-block" style="color: red !important;">
+                              Asset size is missing or incorrect input (Only numeric value accepted).
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="price_range">Price Range (in SR)</label>
+                        <input type="number" formControlName="price_range" class="form-control" id="price_range" placeholder="Enter Price Range">
+                        <div *ngIf="submitted && searchPropertyForm.controls['price_range'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['price_range'].errors.required" class="help-block" style="color: red !important;">
+                              Price range is missing or incorrect input (Only numeric value accepted).
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="street_width">Street Width</label>
+                        <input type="number" formControlName="street_width" class="form-control" id="street_width" placeholder="Enter Street Width">
+                        <div *ngIf="submitted && searchPropertyForm.controls['street_width'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['street_width'].errors.required" class="help-block" style="color: red !important;">
+                              Street width is missing or incorrect input (Only numeric value accepted).
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input formControlName="deadline" class="form-control" id="deadline"
+                               placeholder="Select Deadline"
+                               #dpYMD="bsDatepicker"
+                               bsDatepicker [outsideClick]="true"
+                               [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue'}">
+                        <div *ngIf="submitted && searchPropertyForm.controls['deadline'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['deadline'].errors.required" class="help-block" style="color: red !important;">
+                              Deadline is missing.
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group" [hidden]="vendors?0:1">
+                        <label for="vendor">Select Vendor</label>
+
+                        <ng-multiselect-dropdown
+                                id="vendor"
+                                name="vendor"
+                                style="position: inherit"
+                                [placeholder]="'Select Vendor'"
+                                [data]="vendors"
+                                formControlName="vendor"
+                                [disabled]="disabled"
+                                [settings]="dropdownSettings"
+                                (onSelect)="onItemSelect($event)">
+                        </ng-multiselect-dropdown>
+                        <div *ngIf="submitted && searchPropertyForm.controls['vendor'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['vendor'].errors.required" class="help-block" style="color: red !important;">
+                              Vendor is missing.
+                          </span>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-xs-6">
+                      <label>Geo-location</label>
+                      <div class="mapDiv" style="width: 100%;height: 255px;border:1px solid #d2d6de">
+                        <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+                          <agm-marker *ngIf="markerStatus"  [latitude]="lat" [longitude]="lng" [iconUrl]="icon">
+                              <agm-info-window [disableAutoPan]="false">
+                                <div class="info-window">
+                                  <table class="table table-striped">
+                                    <tr>
+                                      <td><strong>Branch Code</strong></td>
+                                      <td>{{branchDetail[0]['code']}}</td>
+                                    </tr>
+                                    <tr>
+                                      <td><strong>Branch Name</strong></td>
+                                      <td>{{branchDetail[0]['name']}}</td>
+                                    </tr>
+                                  </table>
+                                </div>
+                              </agm-info-window>
+                          </agm-marker>
+                        </agm-map>
+                      </div>
+                      <div class="form-group">
+                        <label for="other_details"></label>
+                        <textarea formControlName="other_details" class="form-control" id="other_details"
+                                  placeholder="Please use this space to enter further details" cols="30" rows="10">
+                        </textarea>
+                        <!--<div *ngIf="submitted && searchPropertyForm.controls['project_reference'].errors">
+                          <span [hidden]="!searchPropertyForm.controls['project_reference'].errors.required" class="help-block" style="color: red !important;">
+                              Project reference is missing.
+                          </span>
+                        </div>-->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <div  class="pull-right p-t-10" style="padding-right: 17px;">
+                      <a class="pull-right"><button type="submit" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>
+                    </div>
+                    <div  class="pull-right p-t-10" style="margin-right: 5px">
+                      <a><button (click)="resetEvaluationForm()" type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" >Cancel</button></a>
+                    </div>
+                    <div  class="p-t-10" style="padding-right: 5px;margin-left: 10px;">
+                      <a class=""><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px" (click)="goBack()">Back</button></a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

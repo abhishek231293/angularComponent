@@ -1,0 +1,26 @@
+
+.next-button{
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: #009050;
+}
+.back-button{
+    padding: 5px 15px;
+    font-size: 16px;
+}
+
+.active-stepy{
+    background-color: #133962 !important;
+}
+
+.disable-stepy{
+    background-color: #989898 !important;
+}
+
+.active-stepy-text{
+    color: #133962 !important;
+}
+
+.disable-stepy-text{
+    color: #989898 !important;
+}

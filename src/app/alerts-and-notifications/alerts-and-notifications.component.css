@@ -1,0 +1,15 @@
+.content-wrapper{
+    min-height: 700px;
+}
+.alert-radio{
+margin-left: 25px;
+}
+.switch_alert{
+    margin-left: 30px;
+}
+.switch_button{
+    margin-right: 10px;
+}
+.starting,.milestone{
+    margin-left: 35px;
+}

@@ -1,0 +1,144 @@
+<div class="col-md-2" style="margin-bottom: 10px;padding: 9px;">
+  <!--<button type="button" class="btn btn-block btn-default btn-flat totalCount" style="margin-left: -7px;">-->
+  <!--<strong>Total Proposals: {{total}}</strong>-->
+  <strong>Total Proposals: {{valuationData?valuationData.length:0}}</strong>
+  <!--</button>-->
+</div>
+<div class="col-md-4" style="margin-bottom: 10px;">
+  <div class="input-group input-group-sm pull-left" >
+    <input  type="text"
+            class="form-control pull-right"
+            placeholder="Search By Vendor" [(ngModel)]="searchData" style="height: 34px !important;">
+    <div class="input-group-btn">
+      <button (click)="getValuationList()" class="btn btn-success btn-flat" style="height: 34px !important;margin-left: 3px" title="search">
+        <i class="fa fa-search"></i>
+      </button>
+      <button (click)="refreshValuationList()" class="btn btn-primary btn-flat" style="height: 34px !important;margin-left: 3px" title="reset">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="col-md-6" style="margin-bottom: 10px;">
+  <div class="pull-right" style="margin-right: 10px;">
+    <table *ngIf="paginate.last_page != 1" class="">
+      <colgroup>
+        <col style="width: 45%;">
+      </colgroup>
+      <tbody><tr>
+        <td>
+          <a class="gray clickable" (click)="previousPage()" style="color: #296099">
+            <i class="fa fa-backward" title="Previous"></i>
+          </a>
+          <span style="margin-left: 25% ! important;"></span>
+          <a class="gray clickable" style="color: #296099" (click)="nextPage()">
+            <i class="fa fa-forward" title="Next" ></i>
+          </a>
+        </td>
+        <td>
+          <!--<div class="form-group">-->
+          <select style="" class="form-control clickable" id="pagination_valuation" name="pagination" [(ngModel)]="currentPage" (change)="changePage()"
+          >
+            <option *ngFor="let item of pages" [value]="item">{{item}}</option>
+          </select>
+          <!--</div>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<table class="table table-hover" style="font-size: 13px;color: #303030;">
+  <tr>
+    <th *ngIf="user_role == 6" style="width:5%">
+      <!--<input type="checkbox" class="clickable" [(ngModel)]="selectedAll" (change)="selectAll();" title="Select All" />-->
+    </th>
+    <th *ngFor = "let field of valuationFields;index as i" [ngStyle]="{'width':field.width,'text-align':field.title=='Action'?'center':''}">
+      <span *ngIf="field.sort">{{field.title}}</span> &nbsp;
+      <a class="clickable" *ngIf="field.sort">
+        <i class="fa fa-sort" id="" (click)="sortBy(field.field, $event)"></i>
+      </a>
+      <span *ngIf="!field.sort">{{field.title}}</span>
+    </th>
+  </tr>
+  <!--<tr>
+    <th style="width: 8%">Case No <i class="fa fa-sort theme-cl clickable"></i></th>
+    <th style="width: 12%;">Requested By <i class="fa fa-sort theme-cl clickable"></i></th>
+    <th style="width: 32%">Purpose <i class="fa fa-sort theme-cl clickable"></i></th>
+    <th style="width:13%">Date <i class="fa fa-sort theme-cl clickable"></i></th>
+    <th style="width: 9%">Deadline <i class="fa fa-sort theme-cl clickable"></i></th>
+    <th class="text-center" style="width:30%">Action</th>
+  </tr>-->
+  <!--<tr *ngIf="loader">
+    <td colspan="6" class="text-center"><div class="loading">Loading&#8230;</div></td>
+  </tr>-->
+  <ng-template ngFor let-i="index" let-project [ngForOf]="valuationData" >
+    <tr>
+      <td *ngIf="user_role == 6" style="width:5%">
+        <input [disabled]="valuationData.length < 3 || !enabledMode" [title]="((valuationData.length < 3) ? 'Waiting for more responses (Min. 3 required)': (!enabledMode ? 'One proposal already approved.' : 'Click to perform action'))" type="radio" class="clickable" name="actionSelector" (change)="checkIfAllSelected(project.task_property_evaluation_vendor_id, $event.target.checked)">
+      </td>
+      <td style="padding-top: 13px">{{project['name']?project['name']:'NA'}}</td>
+      <td  style="padding-top: 13px;"><label class="label label-primary date_lable" style="padding-top: 6px" >{{project['created_at'] | date: 'dd/MM/yyyy hh:mm'}}</label></td>
+      <td style="padding-top: 13px">{{project['evaluation_amount']?project['evaluation_amount']:0}}</td>
+      <!--<td>{{project['created_at'] | date: 'dd/MM/yyyy'}}</td>-->
+      <td style="padding-top: 13px">
+        <label class="label date_lable" [ngClass]="project['status'] == 'pending' ? 'label-danger': project['status'] == 'approved' ? 'label-success':'label-warning' " style="text-transform: capitalize;" >
+          {{project['status']?project['status']:'Pending'}}
+        </label>
+      </td>
+      <td style="font-weight: 100">
+        <!--<div (click)="goVendorDetails(projectId)" class="text-center" style="position: relative;top:-3px">-->
+          <a [routerLink]="['/evaluation-view']" [queryParams]="{project_id: project['fk_project_id'],eval_id: project['task_property_evaluation_vendor_id'],mode:'view',total:valuationData?valuationData.length:0}" [target]="'_blank'" class="text-center" style="position: relative;top:-3px">
+            <i class="fa fa-2x fa-eye iconSize clickable p-0-9-n m-l-5" title="View" style="color: #296099;"></i>
+          </a>
+      </td>
+    </tr>
+  </ng-template>
+</table>
+<div *ngIf="( projectData ? ((projectData.length < 3 && projectData.length > 0) ? 1 : 0) : 0 )" style="color: red; font-size: 12px; font-style: italic;">
+  *In order to approve any vendor we need min 3 responses.
+</div>
+
+<div *ngIf="!showList" style="text-align: center;">
+  <span class="label label-warning">No record found</span>
+</div>
+
+<div *ngIf="declaration" style="padding-top: 15px">
+  <label>
+    <div class="col-md-12">
+      I hereby confirm that I have visited the selected sites and found it suitable as a
+      <select [(ngModel)]="selectedTask.branchTypeId" name="branchType" class="select-button clickable">
+        <option *ngFor="let branch of imageArray" [ngValue]="branch.id">{{branch.caption}}</option>
+      </select>
+      asset type. This is subject to the technical validation of the site, by Engineering department for proceeding with the purchase
+
+    </div>
+  </label>
+  <textarea class="form-control" [(ngModel)]="selectedTask.comment" rows="5" placeholder="Leave feedback"></textarea>
+</div>
+
+<div *ngIf="declaration" class="col-md-12" style="margin-top: 15px;">
+
+  <div class="box-footer" style="padding: 18px 12px 5px 8px;">
+    <div class="pull-left p-5" style="width: 15%;">
+      <a class="pull-left">
+        <button routerLink="/cases" type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px" [disabled]="updateEnable['reject']" >Back</button>
+      </a>
+    </div>
+
+    <div class="pull-left" style="font-weight: 800;color: red !important; width: 45%; text-align: center;" *ngIf="error">
+      {{errorResponse}}
+    </div>
+
+    <div class="pull-right" style="width: 30%;">
+      <div style="width: 50%;" class="pull-right">
+        <button (click)="actionPerformer('approved')" class="btn btn-primary" style="color: #fff; font-weight: 900; width: 80%;">Submit</button>
+      </div>
+
+      <div style="width: 50%;" class="pull-right">
+        <button (click)="actionPerformer('rejected')" class="btn btn-danger" style="color: #fff; font-weight: 900; width: 80%;">Abort</button>
+      </div>
+    </div>
+  </div>
+
+</div>

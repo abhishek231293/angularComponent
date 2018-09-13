@@ -1,0 +1,69 @@
+<div class="box box-warning">
+  <div class="box-header with-border">
+    <h3 class="box-title">Activity Board</h3>
+    
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body table-responsive no-padding">
+    <div class="pull-right">
+      <table *ngIf="paginate.last_page != 1" class="">
+        <colgroup>
+          <col style="width: 45%;">
+        </colgroup>
+        <tbody><tr>
+          <td>
+            <a class="gray" (click)="previousPage()">
+              <i class="fa fa-backward" title="Previous"></i>
+            </a>
+            <span style="margin-left: 25% ! important;"></span>
+            <a class="gray">
+              <i class="fa fa-forward" title="Next" (click)="nextPage()"></i>
+            </a>
+          </td>
+          <td>
+            <select class="form-control" id="pagination" name="pagination"
+                    [(ngModel)]="currentPage" (change)="changePage()">
+
+              <option *ngFor="let item of pages" [value]="item">{{item}}</option>
+            </select>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th *ngFor = "let field of fields;index as i" [ngStyle]="{'width':field.width}">
+          <span *ngIf="field.sort">{{field.title}}</span>
+          <a *ngIf="field.sort">
+            <i class="fa fa-sort" id="fa-{{field.field}}" (click)="sortBy(field.field, $event)"></i>
+          </a>
+          <span *ngIf="!field.sort">{{field.title}}</span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor = "let data of listData;index as i">
+        <td *ngFor = "let field of fields;index as i" [ngStyle]="{'width':field.width}">
+          <span *ngIf="field.field != 'Status' && field.field != 'created_at'" >{{data[field.field]}}</span>
+          <span *ngIf="field.field == 'created_at'" >{{data[field.field] | date: 'dd/MM/yy'}}</span>
+          <div *ngIf="field.field == 'Status'" >
+            <!--
+              <span *ngIf="data[field.field] == 'Completed'" class="label label-primary">{{data[field.field]}}</span>
+              <span *ngIf="data[field.field] == 'Overdue'" class="label label-danger">{{data[field.field]}}</span>
+              <span *ngIf="data[field.field] == 'In progress'" class="label label-warning">{{data[field.field]}}</span>
+            -->
+            <span class="label label-warning">In progress</span>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="listData.length < 1">
+        <td colspan="6" style="text-align: center">
+          <span class="label label-warning">No record found.</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

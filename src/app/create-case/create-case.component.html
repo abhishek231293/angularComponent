@@ -1,0 +1,543 @@
+<div class="wrapper">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+                 size="medium"
+                 color="#ffffff"
+                 type="ball-clip-rotate-pulse"></ngx-spinner>
+    <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+        <section class="content-header" style="padding: 0px;">
+            <h1 *ngIf="activeOption == 'selectType'" style="padding: 15px; padding-bottom: 0px; margin-bottom: 5px;">
+                Project Type
+            </h1>
+            <div class="row" *ngIf="activeOption != 'selectType'">
+                <div class="col-xs-12 no-padding" style="margin-top: -16px">
+                    <div class="box" style="border: none; padding-top: 10px;">
+                        <div class="box-body no-padding" style="margin-left: 20px; margin-top: 10px;">
+                            <div class="col-lg-12" style="padding: 6px 10px 6px 6px;">
+
+                                <div style="text-align: center;"  class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+
+                                    <div class="col-lg-12">
+                                        <span style="width: 25px !important;margin:0 26%" class="info-box-icon box-series" [ngClass]="{'active-stepy':!activeOptionCss[1],'disable-stepy':activeOptionCss[1]}"><span style="position: relative;top:-14px">1</span></span>
+                                    </div>
+                                    <div style="text-align: center;padding-top: 5px" class="col-lg-12 ">
+                                        <span [ngClass]="{'active-stepy-text':!activeOptionCss[1],'disable-stepy-text':activeOptionCss[1]}"><strong style="margin-left: -74px;" class="stepy-title">Project Purpose</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                                    <div class="col-lg-12">
+                                        <span style="width: 25px !important;margin:0 26%" class="info-box-icon box-series" [ngClass]="{'active-stepy':!activeOptionCss[2],'disable-stepy':activeOptionCss[2]}"><span style="position: relative;top:-14px">2</span></span>
+                                    </div>
+                                    <div style="text-align: center;padding-top: 5px"  class="col-lg-12 ">
+                                        <span [ngClass]="{'active-stepy-text':!activeOptionCss[2],'disable-stepy-text':activeOptionCss[2]}"><strong style="margin-left: -76px;" class="stepy-title">Site Profile</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                                    <div  class="col-lg-12 ">
+                                        <span style="width: 25px !important;margin:0 26%"class="info-box-icon box-series" [ngClass]="{'active-stepy':!activeOptionCss[3],'disable-stepy':activeOptionCss[3]}"><span style="position: relative;top:-14px">3</span></span>
+                                    </div>
+                                    <div style="text-align: center;padding-top: 5px"  class="col-lg-12 ">
+                                        <span [ngClass]="{'active-stepy-text':!activeOptionCss[3],'disable-stepy-text':activeOptionCss[3]}"><strong style="margin-left: -77px;" class="stepy-title">Site Type</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                                    <div style="text-align: center;"  class="col-lg12 ">
+                                        <span style="width: 25px !important;margin:0 26%" class="info-box-icon box-series" [ngClass]="{'active-stepy':!activeOptionCss[4],'disable-stepy':activeOptionCss[4]}"><span style="position: relative;top:-14px">4</span></span>
+                                    </div>
+
+                                    <div class="col-lg-12 " style="padding-top: 5px">
+                                        <span [ngClass]="{'active-stepy-text':!activeOptionCss[4],'disable-stepy-text':activeOptionCss[4]}"><strong style="margin-left: 15px;" class="stepy-title">Map Territory</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div *ngIf="activeOption == 'selectType'"  class="row">
+                <div class="col-lg-12">
+                    <div class="box" style="border: none; padding-top: 20px; padding-left: 10px;">
+                        <div *ngIf="projectCategory" class="box-body no-padding" style="padding-top: 20px;">
+                            <div style="min-height: 400px; padding: 0px; padding-right: 5px;" class="col-md-12">
+                                <div *ngFor="let category of projectCategory" class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="padding: 2%; padding-bottom: 0%; padding-top: 0px; cursor: pointer;" (click)="setCss(category.id)">
+                                    <div [ngClass]="{'selected-box-shadow':activeCat[category.id]}" class="box topic-box box-full-info" style="height: 260px; " id="div{{category.id}}" >
+                                        <div class="box-header" style="text-align: center;">
+                                            <div class="col-md-12" style="margin-top: 3%;">
+                                                <img src="../../assets/img/case-images/{{category.icon}}" style=" width: 45px; height: 45px" id="img{{category.id}}" >
+                                            </div>
+                                            <div class="col-md-12 m-t-10" style="font-size: 18px;">
+                                                <h5 class="box-title" [ngClass]="{'selected-text':activeCat[category.id]}" style="margin-top: 5%; font-size: 17px;">{{category.title}}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="box-body" style="margin-top: 0%;">
+                                            <div class="col-md-12" style="text-align: center; font-size: 12px;">
+                                                {{category.description}}
+                                            </div>
+                                        </div>
+                                        <div [ngClass]="{'box-footer-stepy-disable':category.id}">
+                                            <button (click)="setProjectType(category.id)" style="font-size: 13px;margin-left: -9px" *ngIf="activeCat[category.id]" type="button" [ngClass]="{'disabled': !activeCat[category.id],'btn btn-round btn-sm selBtn':category.id}">SELECT</button>
+                                            <a style="color: #555; font-size: 13px;" *ngIf="!activeCat[category.id]" [ngClass]="{'disabled': !activeCat[category.id]}">SELECT</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right" style="padding: 10px 31px; margin-bottom: 20px;">
+                                <a (click)="goToNextOption('purpose');"><button style="margin-left: 4%;" type="button" class="btn btn-success next-button">Next</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="activeOption == 'purpose'" class="row">
+                <div class="col-lg-12">
+                    <div class="box" style="border: none;padding: 15px 6px 5px 5px;">
+                        <div class="box-body" style="min-height: 440px">
+                            <div class="col-md-12">
+                                <span class="heading">1. Purpose</span>
+                                <h6 class="sub-title-stepy">
+                                    Select the reason for this purchase.
+                                </h6>
+                            </div>
+                            <div class="col-md-12" style="margin-top: 35px">
+                                <div class="col-md-10 rounded-div" [ngClass]="{ 'radio-active': newProjectObject.purpose==1}">
+                                    <label class="container">This land will be used to open a new branch
+                                        <input type="radio" [(ngModel)]="newProjectObject.purpose"  name="purpose" [value]="1">
+                                        <span class="checkmark pull-right"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12" style="margin-top: 20px;">
+                                <div class="col-md-10 rounded-div" [ngClass]="{ 'radio-active': newProjectObject.purpose==2}">
+                                    <label class="container">This land will be used to relocate an existing branch
+                                        <input type="radio" [(ngModel)]="newProjectObject.purpose"  name="purpose" [value]="2">
+                                        <span class="checkmark pull-right"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div style="position: absolute;bottom: 5%;right:2%;">
+                                <a (click)="goToNextOption('siteProfile');"><button type="button" class="btn btn-success pull-right next-button"
+                                                                                    [disabled]="newProjectObject.purpose==1">Next</button></a>
+                                <a (click)="goToNextOption('selectType');"><button type="button" class="btn btn-default pull-right back-button" style="margin-right: 10px">Back</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="activeOption == 'siteProfile'" class="row">
+                <div class="col-lg-12">
+                    <div class="box" style="border: none;padding: 22px 2px 5px 13px;">
+                        <div class="box-body" style="min-height: 375px;padding-bottom: 75px">
+                            <div class="col-md-12" >
+                                <span class="heading">2. Site Profile</span><br/><br/>
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-6" style="padding-left: 9px;">
+                                    <h6 class="sub-title-stepy" style="color:#a94442">{{siteProfileErrorMessage}}</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-7">
+                                    <div class="form-horizontal" style="">
+                                        <div class="form-group">
+                                            <label for="branchCode" class="col-sm-5" style="padding-right: 0px;">Enter code of branch you wish to relocate<span style="color:red">*</span>
+                                                :
+                                            </label>
+                                            <div class="col-sm-7">
+                                                <input type="text" (focusout)="getLatLngBranch()" [(ngModel)]="newProjectObject.siteProfile.branchCode" class="form-control" id="branchCode" placeholder="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-5" style="padding-right: 0px;">Are you maintaining same Staff Count ?
+                                                <span style="color:red">*</span> :
+                                            </label>
+                                            <div class="col-sm-7">
+                                                <input type="radio" placeholder="" name="staffCount" [(ngModel)]="newProjectObject.siteProfile.staffSel" value="yes"> Yes
+                                                <input type="radio" placeholder="" name="staffCount" [(ngModel)]="newProjectObject.siteProfile.staffSel" value="no"> No
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-5">Priority<span style="color:red">*</span> :</label>
+                                            <div class="col-sm-7">
+                                                <select [(ngModel)]="newProjectObject.siteProfile.priority" class="form-control">
+                                                    <option value="" selected >Select Priority</option>
+                                                    <option value="low">Low</option>
+                                                    <option value="medium">Medium</option>
+                                                    <option value="high">High</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-5">Deadline<span style="color:red">*</span> :</label>
+                                            <div class="col-sm-7">
+                                                <input [(ngModel)]="newProjectObject.siteProfile.deadline" class="form-control" id="deadline" placeholder="Enter Deadline"
+                                                       #dpYMD="bsDatepicker"
+                                                       bsDatepicker [outsideClick]="true"
+                                                       [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-5">Reason(s) for moving<span style="color:red">*</span> :</label>
+                                            <div class="col-sm-7">
+                                                <textarea [(ngModel)]="newProjectObject.siteProfile.reason" class="form-control" rows="3" placeholder="" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- /.box-body -->
+
+                                    <!-- /.box-footer-stepy -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="mapDiv" style="width: 100%;height: 255px;border:1px solid #d2d6de">
+                                        <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+                                            <agm-marker *ngIf="markerStatus"  [latitude]="lat" [longitude]="lng" [iconUrl]="icon">
+                                                <agm-info-window [disableAutoPan]="false">
+                                                    <div class="info-window">
+                                                        <table class="table table-striped">
+                                                            <tr>
+                                                                <td><strong>Branch Code</strong></td>
+                                                                <td>{{newProjectObject['branch_code']}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Branch Name</strong></td>
+                                                                <td>{{branchName}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </agm-info-window>
+                                            </agm-marker>
+                                        </agm-map>
+                                    </div>
+                                    <div class="col-md-12 box-footer-stepy" style="position: absolute;bottom: -21%;left: 0%;">
+                                        <a data-toggle="modal" data-target="#modal-staff" class="clickable pull-left" style="position: relative;top: -2px;">Staff Count</a>
+                                        <div class="modal fade" id="modal-staff" style="display: none;">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span></button>
+                                                        <h4 class="modal-title">Resources</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="" style="border:none">
+                                                                    <div class="">
+                                                                        <div class="col-md-12">
+                                                                            <div class="col-sm-5">
+                                                                                <h6 class="sub-title-stepy" style="color:#a94442">{{staffInfoErrorMessage}}</h6>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="box-body">
+                                                                            <div class="col-md-12" style="padding: 19px 14px 14px 14px;">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Branch Manager</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.branchManager" type="text" class="form-control" id="bm">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Operations Manager</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.operationManager" type="text" class="form-control" id="om">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Lounge Manager</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.loungeManager" type="text" class="form-control" id="lm">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Showroom Supervisor</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.showroomSupervisor" type="text" class="form-control" id="ss">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Head Teller</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.headTeller" type="text" class="form-control" id="ht">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Teller</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.teller" type="text" class="form-control" id="tel">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">VIP Teller</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.vipTeller" type="text" class="form-control" id="vt">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Relationship Manager</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.relationshipManager" type="text" class="form-control" id="rm">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Customer Assistance</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.customerAssistance" type="text" class="form-control" id="ca">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Sales Advisor</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.salesAdvisor" type="text" class="form-control" id="sa">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Sales Manager:</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.salesManager" type="text" class="form-control" id="sm">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Sales Service Rep</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.salesServiceRep"  type="text" class="form-control" id="ssr">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Service Teller Rep</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.serviceTellerRep"  type="text" class="form-control" id="str">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Guard</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.guard"  type="text" class="form-control" id="gu">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group childLabel">
+                                                                                        <label for="bm">Total Staff</label>
+                                                                                        <input [(ngModel)]="newProjectObject.staffInfo.totalStaff"  type="text" class="form-control" id="ts">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default pull-left" id="closeStaffCountModalButton" data-dismiss="modal">Skip</button>
+                                                        <button (click)="goToNextOption('staffCount');" type="button" class="btn btn-success pull-right next-button">Save</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-_content -->
+                                            </div>
+
+                                        </div>
+                                        <a (click)="goToNextOption('branchType');"><button type="button" class="btn btn-success pull-right next-button">Next</button></a>
+                                        <a (click)="goToNextOption('purpose');"><button type="button" class="btn btn-default pull-right back-button" style="margin-right: 10px">Back</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="activeOption == 'branchType'" class="row">
+                <div class="col-lg-12">
+                    <div style="border: none;;">
+                        <div class="box-body" style="min-height:775px;margin-top: -30px">
+                            <div class="col-md-12" style="padding: 13px 9px 13px 22px;">
+                                <span class="heading">3. Site Type</span>
+                                <h6 class="sub-title-stepy">Select the branch model for this request.</h6>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="col-md-12" style="height:600px;padding-left: 0px; padding-right: 0px;">
+                                    <div class="col-lg-7 p-5" style="margin-top: -19px;height:568px">
+                                        <span class="adj-text1" style="position: relative;top: 41px;left: 12px;">{{imgCaption}}</span>
+                                        <a type="button" data-toggle="modal" data-target="#modal-default" class="clickable" style="position: absolute;right: 3%;top:7.8%;text-decoration: underline">Technical Drawing</a>
+                                        <img [src]="imgsr" class="cu-100-perc m-t-5" alt="User Image" id="main-image">
+                                    </div>
+                                    <div class="col-lg-5 p-5" style="padding-right: 0px;margin-top: -5px">
+                                        <div class="col-md-6 p-10 text-center" style="height:192.85px;" *ngFor="let image of imageArray;let index = index">
+                                            <img id="img-{{index}}" src="../../assets/img/{{image.name}}" class="cu-99-perc clickable borderImg" alt="User Image" (click)="setSrc(image,index); newProjectObject.branchType = image.id; "
+                                                 [ngClass]="{ 'img-active': isActive[index]}">
+                                            <figcaption style="font-size: 10px;margin-top: 5px">{{image.caption}}</figcaption>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 p-5 pull-right" style="padding-right: 11px;padding-top: 15px">
+                                        <a (click)="submitCase();" class="pull-right" ><button type="button" [disabled]="submitEnable" class="btn btn-success pull-right next-button">{{saveText}} <i [ngClass]="{'fa':submitEnable,'fa-spinner':submitEnable,'fa-spin':submitEnable}"></i></button></a>
+                                        <a (click)="goToNextOption('siteProfile');"><button type="button" class="btn btn-default pull-right back-button" style="margin-right: 10px">Back</button></a>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="modal-default" style="display: none;">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="border-bottom:none">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-md-12" style="text-align: center">
+                                                    <img src="../../assets/img/technicaldrawing.png" alt="">
+                                                </div>
+                                                <div class="box-body" style="padding: 20px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-_content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="activeOption == 'ggMap'" class="row">
+                <div class="col-lg-12">
+                    <div class="box" style="border: none;">
+                        <div class="box-body no-padding" style="min-height:605px">
+
+                            <div class="col-lg-12" style="padding: 0">
+                                <app-map [projectId]="projectId"></app-map>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div *ngIf="activeOption == 'inviteUser'" class="row">
+                <div class="col-lg-12">
+                    <div class="box">
+                        <div class="box-body no-padding">
+                            <div class="box-header">
+                                <h4 class="box-title">Invite Users</h4>
+                            </div>
+                            <form role="form">
+                                <div class="">
+                                    <table class="table table-responsive">
+                                        <thead>
+                                        <tr>
+                                            <th style="text-align: center;">
+                                                First Name
+                                            </th>
+                                            <th style="text-align: center;">
+                                                Last Name
+                                            </th>
+                                            <th style="text-align: center;">
+                                                Email Address
+                                            </th>
+                                            <th style="text-align: center;">
+                                                Roles
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter First Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Last Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Email Address">
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="sel1">
+                                                    <option>Administrator</option>
+                                                    <option>User</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter First Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Last Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Email Address">
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="sel2">
+                                                    <option>Administrator</option>
+                                                    <option>User</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter First Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Last Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Email Address">
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="sel3">
+                                                    <option>Administrator</option>
+                                                    <option>User</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter First Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Last Name">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" name="name"  placeholder="Enter Email Address">
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="sel4">
+                                                    <option>Administrator</option>
+                                                    <option>User</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <span style="color: #00c0ef;padding-left: 12px">Add another user</span>
+                                </div>
+                                <div class="box-footer-stepy pull-right">
+                                    <a (click)="goToNextOption('purpose');"><button [disabled]="1"  style="margin-left: 4%;" type="button" class="btn btn-success next-button">Next</button></a>
+                                    <!--<a><button (click)="submitCase();" type="button" class="btn btn-primary next-button"  [disabled]="1" >Submit</button></a>-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <app-footer></app-footer>
+</div>

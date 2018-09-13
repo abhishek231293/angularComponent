@@ -1,0 +1,25 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel" *ngIf="!is_evaluation_component">
+      <div *ngIf="auth_user['role']=='userA'" class="image text-center" style="margin-top: 10px;">
+        <!--<img style="max-width:56%;" src="{{API_BASE_URL}}/storage/{{auth_user['user_image']}}" alt="" class="img-circle elevation-2" alt="User Image">-->
+      </div>
+
+      <!--<div *ngIf="auth_user['role']=='userB'" class="image text-center" style="margin-top: 10px;">
+        <img style="max-width:56%;" src="{{API_BASE_URL}}/storage/{{auth_user['user_image']}}" alt="" class="img-circle elevation-2" alt="User Image">
+      </div>-->
+    </div>
+
+    <ul *ngIf="!is_evaluation_component" class="sidebar-menu" data-widget="tree" >
+      <li class="treeview" routerLinkActive="active menu-open">
+        <a>
+          <i class="fa fa-folder"></i>
+          <span class="nav-label">Vendor</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

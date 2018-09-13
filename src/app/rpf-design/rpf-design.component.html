@@ -1,0 +1,109 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 2px" >
+      <h1>
+       New Land Purchase(ARD-001)
+        <!--<small>{{mode |titlecase }} Project</small>-->
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <app-header-project></app-header-project>
+      <div class="row">
+        <div class="box">
+          <div class="box-body">
+          <div style="padding: 0px 15px">
+
+            <div class="col-md-12 h4">
+              RFP Design and Build
+            </div>
+
+            <div class="col-md-5 col-lg-5 col-xs-12 pull-right" style="margin-right: 8%;" >
+              <span class="col-md-9">Upload RFP Design and Build</span>
+              <div class="col-md-12" style="min-height: 210px; border:1px dashed grey;margin-top: 2%;">
+                <span style="margin-top:2%;" >Drag file to upload</span><br/>
+                <input type="file" value="Chose file" name="submit" style="margin-top:2%;">
+              </div>
+
+            </div>
+
+            <div class="col-md-6 pull-left">
+              <div class="form-group " style="margin-top: 2%;">
+                <label class="control-label col-sm-3" for="rpf-number">RPF number</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control " id="rpf-number" placeholder="Enter RPF number ">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 ">
+              <div class="form-group " style="margin-top: 2%;">
+                <label class="control-label col-sm-3" for="project_type">Project Type</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control " id="project_type" placeholder="Enter Project Type ">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 ">
+              <div class="form-group " style="margin-top: 2%;">
+                <label class="control-label col-sm-3" for="deadline_questions">Deadline for Questions</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control " id="deadline_questions" placeholder=" ">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 ">
+              <div class="form-group " style="margin-top: 2%;">
+                <label class="control-label col-sm-3" for="deadline_submission">Deadline for Submission</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control " id="deadline_submission" placeholder="Enter Deadline for Submission ">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 ">
+              <div class="form-group " style="margin-top: 2%;">
+                <label class="control-label col-sm-3" for="vendor">Select Vendor</label>
+                <div class="col-md-8">
+                  <button type="button" class="btn btn-primary" id="vendor">Vendor 1</button>
+                  <button type="button" class="btn btn-primary" id="vendor1" style="margin-left: 10px;">Vendor 2</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12 ">
+              <div class="form-group " style="margin-top: 2% ;">
+                <label class="control-label pull-left col-sm-2" for="summary_description" style="width:12%;">Summary Description</label>
+                <div class="col-md-10">
+                  <textarea rows="5"   id="summary_description" cols="101"></textarea>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="box-footer">
+            <div  class="pull-left p-t-10" style="margin-left: 2%;" >
+              <a ><button  class="btn btn-default" >Back</button></a>
+            </div>
+            <div  class="pull-right p-t-10" style="margin-right: 2%;">
+              <a ><button type="submit" class="btn btn-primary " >Submit</button></a>
+            </div>
+            <div  class="pull-right p-t-10" style="margin-right: 2%;">
+              <a ><button type="submit" class="btn btn-danger" >Cancle</button></a>
+            </div>
+            <!--<div  class="pull-right p-t-10" style="margin-right: 5px">-->
+            <!--<a><button type="button" class="btn btn-danger "  >ABORT</button></a>-->
+            <!--</div>-->
+          </div>
+            </div>
+
+        </div>
+        </div>
+
+
+      </section>
+  </div>
+</div>

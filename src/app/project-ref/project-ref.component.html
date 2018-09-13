@@ -1,0 +1,601 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="_content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 15px;">
+      <h1>
+        Project Details
+        <small>Project Tasks</small>
+      </h1>
+    </section>
+
+    <section class="content">
+      <app-header-project></app-header-project>
+      <!--<div *ngIf="projectDetails.length > 0" class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              &lt;!&ndash;<h3 class="box-title">Case No: {{projectDet[0]['case_no']}}{{projects[0]}}</h3>&ndash;&gt;
+              <h3 class="box-title">Case No: {{projectDetails[0]['case_no']}}</h3>
+
+            </div>
+            &lt;!&ndash; /.box-header &ndash;&gt;
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-6" style="padding-left: 38px">
+                  <table style="list-style: none">
+                    <tr><td><strong>Request By </strong></td> <td>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp; </td></tr>
+                    <tr><td><strong>Branch Code </strong></td> <td>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp; <span>{{projectDetails[0]['branch_code']}}</span></td></tr>
+                    <tr><td><strong>Purpose </strong></td> <td>&nbsp;&nbsp;&nbsp;:</td>{{projectDetails[0]['purpose']}}</tr>
+                  </table>
+                  &lt;!&ndash; /.chart-responsive &ndash;&gt;
+                </div>
+                <div class="col-md-offset-2 col-md-4">
+                  <table >
+                    <tr><td><strong>Deadline </strong></td> <td>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp; <span *ngIf="projectDetails[0]['project_age']>=72" style="color:red">
+                    0 Hrs
+                    </span>
+                    <span *ngIf="projectDetails[0]['project_age']<72">
+                    {{72 - (projectDetails[0]['project_age'] | number:'1.0-0')}} Hrs
+                    </span></td></tr>
+                    <tr><td><strong>Created At </strong></td> <td>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp; {{projectDetails[0]['project_created_at'] | date: 'dd/MM/yyyy hh:mm' }}</td></tr>
+                    <tr><td><strong>Last Updated At </strong></td> <td>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;{{projectDetails[0]['project_updated_at'] | date: 'dd/MM/yyyy hh:mm' }}</td></tr>
+                  </table>
+                  &lt;!&ndash; /.chart-responsive &ndash;&gt;
+                </div>
+                &lt;!&ndash; /.col &ndash;&gt;
+                <div class="col-md-4">
+
+                  &lt;!&ndash; /.progress-group &ndash;&gt;
+                </div>
+
+                <div class="col-md-4">
+
+                  &lt;!&ndash; /.progress-group &ndash;&gt;
+                </div>
+                &lt;!&ndash; /.col &ndash;&gt;
+              </div>
+              &lt;!&ndash; /.row &ndash;&gt;
+            </div>
+            &lt;!&ndash; ./box-body &ndash;&gt;
+
+            &lt;!&ndash; /.box-footer &ndash;&gt;
+          </div>
+          &lt;!&ndash; /.box &ndash;&gt;
+        </div>
+        &lt;!&ndash; /.col &ndash;&gt;
+      </div>-->
+      <div class="row">
+        <div class="col-md-12" >
+          <div class="box">
+            <div class="box-title" style="overflow: hidden">
+              <div class="col-md-2" style="margin-bottom: 10px;padding: 9px;">
+                <strong>Department : Assign Task</strong>
+              </div>
+              <div class="col-md-3 pull-right" style="margin-bottom: 10px;">
+              </div>
+
+              <!--<form [formGroup]="taskAssignForm" (ngSubmit)="submitTaskAssigned()">-->
+              <!--&lt;!&ndash;<form [formGroup]="taskAssignForm">&ndash;&gt;-->
+              <!--<table class="table table-hover" style="font-size: 13px;color: #303030;">-->
+                <!--<tr style="background-color: #f5f5f5">-->
+                    <!--<th class="text-center">Task Name</th>-->
+                    <!--<th class="text-center">Assign To</th>-->
+                    <!--<th class="text-center">Task Duration</th>-->
+                    <!--<th class="text-center">Priority</th>-->
+                    <!--&lt;!&ndash;<th class="text-center">Action</th>&ndash;&gt;-->
+                <!--</tr>-->
+                    <!--<tr formGroupName="tasks" *ngFor="let item of getSampleArrayControls();let i = index;">-->
+                      <!--<td ><div style="padding-top: 13px;" >{{taskDetail[i].task_name}}</div></td>-->
+                      <!--<td class="form-group">-->
+
+                        <!--<div [formGroupName]="i">-->
+                          <!--<select formControlName="fk_user_id" class="form-control" id="assign_user">-->
+                            <!--<option value="" [selected]=true>&#45;&#45; Select User &#45;&#45;</option>-->
+                            <!--<option [value]="assignedUser.id" *ngFor="let assignedUser of assignUserList">{{assignedUser.name}}</option>-->
+                          <!--</select>-->
+                          <!--<span *ngIf="item.get('fk_user_id').invalid && item.get('fk_user_id').dirty" class = "error help-block" style="color: red !important;">-->
+                              <!--User is missing.-->
+                          <!--</span>-->
+                        <!--</div>-->
+                      <!--</td>-->
+                      <!--<td class="form-group">-->
+                        <!--<div class="col-md-12">-->
+                          <!--<div class="col-md-6" [formGroupName]="i">-->
+                            <!--<input formControlName="task_duration_from" class="form-control" id="from_date" placeholder="Enter From Date"-->
+                                   <!--#dpYMD="bsDatepicker"-->
+                                   <!--bsDatepicker [outsideClick]="true"-->
+                                   <!--[bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}">-->
+                                <!--&lt;!&ndash;<span *ngIf="item.get('task_duration_from').invalid && item.get('task_duration_from').dirty" class = "error help-block" style="color: red !important;">-->
+                                    <!--From date is missing.-->
+                                <!--</span>&ndash;&gt;-->
+                          <!--</div>-->
+                          <!--<div class="col-md-6" [formGroupName]="i">-->
+                            <!--<input formControlName="task_duration_to" class="form-control" id="to_date" placeholder="Enter To Date"-->
+                                   <!--#dpYMD="bsDatepicker"-->
+                                   <!--bsDatepicker [outsideClick]="true"-->
+                                   <!--[bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}">-->
+                            <!--&lt;!&ndash;<span *ngIf="item.get('task_duration_to').invalid && item.get('task_duration_to').dirty" class = "error help-block" style="color: red !important;">-->
+                                  <!--To date is missing.-->
+                            <!--</span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div *ngIf="submitted && updatePasswordForm.controls['confirm_password'].errors">-->
+                            <!--<span *ngIf="updatePasswordForm.controls['confirm_password'].errors.required" class="help-block" style="color: red !important;">-->
+                                <!--Confirm password is missing.-->
+                            <!--</span>-->
+                            <!--</div>&ndash;&gt;-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</td>-->
+                      <!--<td class="form-group">-->
+                        <!--<div [formGroupName]="i">-->
+                          <!--<select formControlName="priority" class="form-control" id="task_priority">-->
+                            <!--<option value="" [selected]>&#45;&#45; Select Priority &#45;&#45;</option>-->
+                            <!--<option [value]="taskPriority" *ngFor="let taskPriority of taskPriority">{{taskPriority}}</option>-->
+                          <!--</select>-->
+                            <!--&lt;!&ndash;<span *ngIf="item.get('priority').invalid && item.get('priority').dirty" class = "error help-block" style="color: red !important;">-->
+                                    <!--Confirm password is missing.-->
+                            <!--</span>&ndash;&gt;-->
+                        <!--</div>-->
+
+                      <!--</td>-->
+                      <!--&lt;!&ndash;<td>-->
+                        <!--<div class="pull-right p-t-10">-->
+                          <!--<a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] === userDepartmentId"-->
+                             <!--title="Save" class="fa fa-2x fa-floppy-o clickable" style="padding: 5px 15px;margin-top: -9px;color: #296099;"-->
+                               <!--(click)="submitTaskAssigned(i)">-->
+                          <!--</a>-->
+                          <!--<a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] !== userDepartmentId"-->
+                             <!--title="Save" class="fa fa-2x fa-floppy-o" style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">-->
+                          <!--</a>-->
+                          <!--<a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] === 1" title="Save" class="fa fa-2x fa-floppy-o"-->
+                             <!--style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">-->
+                          <!--</a>-->
+                        <!--</div>-->
+                      <!--</td>&ndash;&gt;-->
+                    <!--</tr>-->
+              <!--</table>-->
+                <!--<div class="box-footer">-->
+                  <!--<div  class="pull-left p-t-10" style="margin-right: 5px">-->
+                    <!--<a><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px"  routerLink="/cases">Back</button></a>-->
+                  <!--</div>-->
+                  <!--&lt;!&ndash;item.get('is_assign').value&ndash;&gt;-->
+                  <!--<div  class="pull-right p-t-10">-->
+                    <!--<a ><button type="submit" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>-->
+                  <!--</div>-->
+                  <!--<div  class="pull-right p-t-10" style="margin-right: 5px">-->
+                    <!--<a><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" routerLink="/cases">Cancel</button></a>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</form>-->
+            </div>
+            <div class="box-body" style="padding: 0px;">
+                <div class="nav-tabs-custom">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#re_department" data-toggle="tab" (click)="getTaskDetail(projectId,3)">RE</a></li>
+                    <li><a href="#projects_department" data-toggle="tab" (click)="getTaskDetail(projectId,1)">PROJECTS</a></li>
+                    <li><a href="#arb_department" data-toggle="tab" (click)="getTaskDetail(projectId,2)">ARB</a></li>
+                    <li><a href="#fm_department" data-toggle="tab" (click)="getTaskDetail(projectId,4)">FM</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane" id="projects_department">
+                      <div   style="padding-left: 0px">
+                        <div class="box-info p-5">
+                          <div class="col-sm-12" style="position: absolute;left: 0px;bottom: 2px;">
+
+                          </div>
+                          <form [formGroup]="taskAssignForm" (ngSubmit)="submitTaskAssigned()">
+                            <!--<form [formGroup]="taskAssignForm">-->
+                            <table class="table table-hover" style="font-size: 13px;color: #303030;">
+                              <tr style="background-color: #f5f5f5">
+                                <th class="text-center">Task Name</th>
+                                <th class="text-center">Assign To</th>
+                                <th class="text-center">Task Duration</th>
+                                <th class="text-center">Priority</th>
+                                <!--<th class="text-center">Action</th>-->
+                              </tr>
+                              <tr formGroupName="tasks" *ngFor="let item of getSampleArrayControls();let i = index;">
+                                <td ><div style="padding-top: 13px;" >{{taskDetail[i].task_name}}</div></td>
+                                <td class="form-group">
+
+                                  <div [formGroupName]="i">
+                                    <select formControlName="fk_user_id" class="form-control" id="assign_user">
+                                      <option value="" [selected]=true>-- Select User --</option>
+                                      <option [value]="assignedUser.id" *ngFor="let assignedUser of assignUserList">{{assignedUser.name}}&nbsp;({{assignedUser.role_name}})</option>
+                                    </select>
+                            <!--<span *ngIf="item.get('fk_user_id').invalid && item.get('fk_user_id').dirty" class = "error help-block" style="color: red !important;">
+                            User is missing.
+                            </span>-->
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div class="col-md-12">
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_from" class="form-control" id="from_date" placeholder="Enter From Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween(item.get('task_duration_from').value,'task_duration_from')">
+                                      <!--<span *ngIf="item.get('task_duration_from').invalid && item.get('task_duration_from').dirty" class = "error help-block" style="color: red !important;">
+                                      From date is missing.
+                                      </span>-->
+                                    </div>
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_to" class="form-control" id="to_date" placeholder="Enter To Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween(item.get('task_duration_to').value,'task_duration_to')">
+                                      <!--<span *ngIf="item.get('task_duration_to').invalid && item.get('task_duration_to').dirty" class = "error help-block" style="color: red !important;">
+                                      To date is missing.
+                                      </span>-->
+                                      <!--<div *ngIf="submitted && updatePasswordForm.controls['confirm_password'].errors">
+                                      <span *ngIf="updatePasswordForm.controls['confirm_password'].errors.required" class="help-block" style="color: red !important;">
+                                      Confirm password is missing.
+                                      </span>
+                                      </div>-->
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div [formGroupName]="i">
+                                    <select formControlName="priority" class="form-control" id="task_priority">
+                                      <option value="" [selected]>-- Select Priority --</option>
+                                      <option [value]="taskPriority" *ngFor="let taskPriority of taskPriority">{{taskPriority}}</option>
+                                    </select>
+                                    <!--<span *ngIf="item.get('priority').invalid && item.get('priority').dirty" class = "error help-block" style="color: red !important;">
+                                    Confirm password is missing.
+                                    </span>-->
+                                  </div>
+
+                                </td>
+                                <!--<td>
+                                <div class="pull-right p-t-10">
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] === userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o clickable" style="padding: 5px 15px;margin-top: -9px;color: #296099;"
+                                (click)="submitTaskAssigned(i)">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] !== userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o" style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] === 1" title="Save" class="fa fa-2x fa-floppy-o"
+                                style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                </div>
+                                </td>-->
+                              </tr>
+                            </table>
+                            <div class="box-footer">
+                              <div  class="pull-left p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px"  routerLink="/cases">Back</button></a>
+                              </div>
+                              <!--item.get('is_assign').value-->
+                              <div  class="pull-right p-t-10">
+                                <a ><button type="submit" ngClass="{{disabledVal}}" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>
+                              </div>
+                              <div  class="pull-right p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" routerLink="/cases">Cancel</button></a>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="arb_department">
+                      <div   style="padding-left: 0px">
+                        <div class="box-info p-5">
+                          <div class="col-sm-12" style="position: absolute;left: 0px;bottom: 2px;">
+
+                          </div>
+                          <form [formGroup]="taskAssignForm" (ngSubmit)="submitTaskAssigned()">
+                            <!--<form [formGroup]="taskAssignForm">-->
+                            <table class="table table-hover" style="font-size: 13px;color: #303030;">
+                              <tr style="background-color: #f5f5f5">
+                                <th class="text-center">Task Name</th>
+                                <th class="text-center">Assign To</th>
+                                <th class="text-center">Task Duration</th>
+                                <th class="text-center">Priority</th>
+                                <!--<th class="text-center">Action</th>-->
+                              </tr>
+                              <tr formGroupName="tasks" *ngFor="let item of getSampleArrayControls();let i = index;">
+                                <td ><div style="padding-top: 13px;" >{{taskDetail[i].task_name}}</div></td>
+                                <td class="form-group">
+
+                                  <div [formGroupName]="i">
+                                    <select formControlName="fk_user_id" class="form-control" id="arb_assign_user">
+                                      <option value="" [selected]=true>-- Select User --</option>
+                                      <option [value]="assignedUser.id" *ngFor="let assignedUser of assignUserList">{{assignedUser.name}}&nbsp;({{assignedUser.role_name}})</option>
+                                    </select>
+                           <!-- <span *ngIf="item.get('fk_user_id').invalid && item.get('fk_user_id').dirty" class = "error help-block" style="color: red !important;">
+                            User is missing.
+                            </span>-->
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div class="col-md-12">
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_from" class="form-control" id="arb_from_date" placeholder="Enter From Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween(item.get('task_duration_from').value,'task_duration_from')">
+                                      <!--<span *ngIf="item.get('task_duration_from').invalid && item.get('task_duration_from').dirty" class = "error help-block" style="color: red !important;">
+                                      From date is missing.
+                                      </span>-->
+                                    </div>
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_to" class="form-control" id="arb_to_date" placeholder="Enter To Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween(item.get('task_duration_to').value,'task_duration_to')">
+                                      <!--<span *ngIf="item.get('task_duration_to').invalid && item.get('task_duration_to').dirty" class = "error help-block" style="color: red !important;">
+                                      To date is missing.
+                                      </span>-->
+                                      <!--<div *ngIf="submitted && updatePasswordForm.controls['confirm_password'].errors">
+                                      <span *ngIf="updatePasswordForm.controls['confirm_password'].errors.required" class="help-block" style="color: red !important;">
+                                      Confirm password is missing.
+                                      </span>
+                                      </div>-->
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div [formGroupName]="i">
+                                    <select formControlName="priority" class="form-control" id="arb_task_priority">
+                                      <option value="" [selected]>-- Select Priority --</option>
+                                      <option [value]="taskPriority" *ngFor="let taskPriority of taskPriority">{{taskPriority}}</option>
+                                    </select>
+                                    <!--<span *ngIf="item.get('priority').invalid && item.get('priority').dirty" class = "error help-block" style="color: red !important;">
+                                    Confirm password is missing.
+                                    </span>-->
+                                  </div>
+
+                                </td>
+                                <!--<td>
+                                <div class="pull-right p-t-10">
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] === userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o clickable" style="padding: 5px 15px;margin-top: -9px;color: #296099;"
+                                (click)="submitTaskAssigned(i)">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] !== userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o" style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] === 1" title="Save" class="fa fa-2x fa-floppy-o"
+                                style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                </div>
+                                </td>-->
+                              </tr>
+                            </table>
+                            <div class="box-footer">
+                              <div  class="pull-left p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px"  routerLink="/cases">Back</button></a>
+                              </div>
+                              <!--item.get('is_assign').value-->
+                              <div  class="pull-right p-t-10">
+                                <a ><button type="submit" ngClass="{{disabledVal}}"  class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>
+                              </div>
+                              <div  class="pull-right p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" routerLink="/cases">Cancel</button></a>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane active" id="re_department">
+                      <div   style="padding-left: 0px">
+                        <div class="box-info p-5">
+                          <div class="col-sm-12" style="position: absolute;left: 0px;bottom: 2px;">
+
+                          </div>
+                          <form [formGroup]="taskAssignForm" (ngSubmit)="submitTaskAssigned()">
+                            <!--<form [formGroup]="taskAssignForm">-->
+                            <table class="table table-hover" style="font-size: 13px;color: #303030;">
+                              <tr style="background-color: #f5f5f5">
+                                <th class="text-center">Task Name</th>
+                                <th class="text-center">Assign To</th>
+                                <th class="text-center">Task Duration</th>
+                                <th class="text-center">Priority</th>
+                                <!--<th class="text-center">Action</th>-->
+                              </tr>
+                              <tr formGroupName="tasks" *ngFor="let item of getSampleArrayControls();let i = index;">
+                                <td ><div style="padding-top: 13px;" >{{taskDetail[i].task_name}}</div></td>
+                                <td class="form-group">
+
+                                  <div [formGroupName]="i">
+                                    <select formControlName="fk_user_id" class="form-control" id="re_arb_assign_user">
+                                      <option value="" [selected]=true>-- Select User --</option>
+                                      <option [value]="assignedUser.id" *ngFor="let assignedUser of assignUserList">{{assignedUser.name}}&nbsp;({{assignedUser.role_name}})</option>
+                                    </select>
+                                    <!-- <span *ngIf="item.get('fk_user_id').invalid && item.get('fk_user_id').dirty" class = "error help-block" style="color: red !important;">
+                                     User is missing.
+                                     </span>-->
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div class="col-md-12">
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_from" class="form-control" id="re_arb_from_date" placeholder="Enter From Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween($event.target.value,'task_duration_from')">
+                                      <!--<span *ngIf="item.get('task_duration_from').invalid && item.get('task_duration_from').dirty" class = "error help-block" style="color: red !important;">
+                                      From date is missing.
+                                      </span>-->
+                                    </div>
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_to" class="form-control" id="re_arb_to_date" placeholder="Enter To Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween($event.target.value,'task_duration_to')">
+                                      <!--<span *ngIf="item.get('task_duration_to').invalid && item.get('task_duration_to').dirty" class = "error help-block" style="color: red !important;">
+                                      To date is missing.
+                                      </span>-->
+                                      <!--<div *ngIf="submitted && updatePasswordForm.controls['confirm_password'].errors">
+                                      <span *ngIf="updatePasswordForm.controls['confirm_password'].errors.required" class="help-block" style="color: red !important;">
+                                      Confirm password is missing.
+                                      </span>
+                                      </div>-->
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div [formGroupName]="i">
+                                    <select formControlName="priority" class="form-control" id="re_arb_task_priority">
+                                      <option value="" [selected]>-- Select Priority --</option>
+                                      <option [value]="taskPriority" *ngFor="let taskPriority of taskPriority">{{taskPriority}}</option>
+                                    </select>
+                                    <!--<span *ngIf="item.get('priority').invalid && item.get('priority').dirty" class = "error help-block" style="color: red !important;">
+                                    Confirm password is missing.
+                                    </span>-->
+                                  </div>
+
+                                </td>
+                                <!--<td>
+                                <div class="pull-right p-t-10">
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] === userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o clickable" style="padding: 5px 15px;margin-top: -9px;color: #296099;"
+                                (click)="submitTaskAssigned(i)">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] !== userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o" style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] === 1" title="Save" class="fa fa-2x fa-floppy-o"
+                                style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                </div>
+                                </td>-->
+                              </tr>
+                            </table>
+                            <div class="box-footer">
+                              <div  class="pull-left p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px"  routerLink="/cases">Back</button></a>
+                              </div>
+                              <!--item.get('is_assign').value-->
+                              <div  class="pull-right p-t-10">
+                                <a ><button type="submit" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>
+                              </div>
+                              <div  class="pull-right p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" routerLink="/cases">Cancel</button></a>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="fm_department">
+                      <div   style="padding-left: 0px">
+                        <div class="box-info p-5">
+                          <div class="col-sm-12" style="position: absolute;left: 0px;bottom: 2px;">
+
+                          </div>
+                          <form [formGroup]="taskAssignForm" (ngSubmit)="submitTaskAssigned()">
+                            <!--<form [formGroup]="taskAssignForm">-->
+                            <table class="table table-hover" style="font-size: 13px;color: #303030;">
+                              <tr style="background-color: #f5f5f5">
+                                <th class="text-center">Task Name</th>
+                                <th class="text-center">Assign To</th>
+                                <th class="text-center">Task Duration</th>
+                                <th class="text-center">Priority</th>
+                                <!--<th class="text-center">Action</th>-->
+                              </tr>
+                              <tr formGroupName="tasks" *ngFor="let item of getSampleArrayControls();let i = index;">
+                                <td ><div style="padding-top: 13px;" >{{taskDetail[i].task_name}}</div></td>
+                                <td class="form-group">
+
+                                  <div [formGroupName]="i">
+                                    <select formControlName="fk_user_id" class="form-control" id="fm_arb_assign_user">
+                                      <option value="" [selected]=true>-- Select User --</option>
+                                      <option [value]="assignedUser.id" *ngFor="let assignedUser of assignUserList">{{assignedUser.name}}&nbsp;({{assignedUser.role_name}})</option>
+                                    </select>
+                                    <!-- <span *ngIf="item.get('fk_user_id').invalid && item.get('fk_user_id').dirty" class = "error help-block" style="color: red !important;">
+                                     User is missing.
+                                     </span>-->
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div class="col-md-12">
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_from" class="form-control" id="fm_arb_from_date" placeholder="Enter From Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween(item.get('task_duration_from').value,'task_duration_from')">
+                                      <!--<span *ngIf="item.get('task_duration_from').invalid && item.get('task_duration_from').dirty" class = "error help-block" style="color: red !important;">
+                                      From date is missing.
+                                      </span>-->
+                                    </div>
+                                    <div class="col-md-6" [formGroupName]="i">
+                                      <input formControlName="task_duration_to" class="form-control" id="fm_arb_to_date" placeholder="Enter To Date"
+                                             #dpYMD="bsDatepicker"
+                                             bsDatepicker [outsideClick]="true"
+                                             [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY',containerClass:'theme-dark-blue'}" (blur)="taskBetween(item.get('task_duration_to').value,'task_duration_to')">
+                                      <!--<span *ngIf="item.get('task_duration_to').invalid && item.get('task_duration_to').dirty" class = "error help-block" style="color: red !important;">
+                                      To date is missing.
+                                      </span>-->
+                                      <!--<div *ngIf="submitted && updatePasswordForm.controls['confirm_password'].errors">
+                                      <span *ngIf="updatePasswordForm.controls['confirm_password'].errors.required" class="help-block" style="color: red !important;">
+                                      Confirm password is missing.
+                                      </span>
+                                      </div>-->
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="form-group">
+                                  <div [formGroupName]="i">
+                                    <select formControlName="priority" class="form-control" id="fm_arb_task_priority">
+                                      <option value="" [selected]>-- Select Priority --</option>
+                                      <option [value]="taskPriority" *ngFor="let taskPriority of taskPriority">{{taskPriority}}</option>
+                                    </select>
+                                    <!--<span *ngIf="item.get('priority').invalid && item.get('priority').dirty" class = "error help-block" style="color: red !important;">
+                                    Confirm password is missing.
+                                    </span>-->
+                                  </div>
+
+                                </td>
+                                <!--<td>
+                                <div class="pull-right p-t-10">
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] === userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o clickable" style="padding: 5px 15px;margin-top: -9px;color: #296099;"
+                                (click)="submitTaskAssigned(i)">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] !== 1 && this.taskAssignForm.value.tasks[i]['fk_department_id'] !== userDepartmentId"
+                                title="Save" class="fa fa-2x fa-floppy-o" style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                <a *ngIf="this.taskAssignForm.value.tasks[i]['is_assign'] === 1" title="Save" class="fa fa-2x fa-floppy-o"
+                                style="padding: 5px 15px;margin-top: -9px;color: grey;cursor: not-allowed !important;">
+                                </a>
+                                </div>
+                                </td>-->
+                              </tr>
+                            </table>
+                            <div class="box-footer">
+                              <div  class="pull-left p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px"  routerLink="/cases">Back</button></a>
+                              </div>
+                              <!--item.get('is_assign').value-->
+                              <div  class="pull-right p-t-10">
+                                <a ><button type="submit" ngClass="{{disabledVal}}"  class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Submit</button></a>
+                              </div>
+                              <div  class="pull-right p-t-10" style="margin-right: 5px">
+                                <a><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" routerLink="/cases">Cancel</button></a>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

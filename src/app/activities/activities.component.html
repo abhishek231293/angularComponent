@@ -1,0 +1,159 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header">
+      <!--<h1>
+        User Credential
+        <small>
+          Change Password
+        </small>
+      </h1>-->
+      <section class="content">
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="col-xs-6">
+            <div class="mapDiv" style="width: 100%;height: 255px;border:1px solid #d2d6de">
+              <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+                <!--<agm-marker *ngIf="markerStatus"  [latitude]="lat" [longitude]="lng"></agm-marker>-->
+                <agm-marker *ngFor="let marker of markers" [iconUrl]="marker.icon"
+                            [latitude]="marker.lat" [longitude]="marker.lang">
+                    <agm-info-window [disableAutoPan]="false">
+                      <div class="info-window">
+                        <table class="table table-striped">
+                          <tr>
+                              <td><strong>Branch Code</strong></td>
+                              <td>{{marker.code}}</td>
+                          </tr>
+                          <tr>
+                              <td><strong>Branch Name</strong></td>
+                              <td>{{marker.name}}</td>
+                          </tr>
+                          <tr>
+                              <td><strong>Project</strong></td>
+                              <td><a href="/edit-case?projectid={{marker.project_id}}&mode=view" target="_blank">{{marker.case_no}}</a></td>
+                          </tr>
+                          <tr>
+                              <td><strong>Status</strong></td>
+                              <td>{{marker.status}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </agm-info-window>
+
+                </agm-marker>
+              </agm-map>
+              <div class="map-footer col-md-12">
+                <div class="col-md-4"><i class="fa fa-circle" style="color: #00C357"></i>&nbsp;Inprogress</div>
+                <div class="col-md-4"><i class="fa fa-circle" style="color: #2971CB"></i>&nbsp;Completed</div>
+                <div class="col-md-4"><i class="fa fa-circle" style="color: #E32B2E"></i>&nbsp;Overdue</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua-gradient">
+                  <div class="inner text-center">
+                    <h3>{{analyticsData['totalProjects'] ? analyticsData['totalProjects'] : 0}}</h3>
+
+                    <p>New Projects</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-line-chart"></i>
+                  </div>
+                  <a class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red-active">
+                  <div class="inner text-center">
+                    <h3>{{analyticsData['overDueProjects'] ? analyticsData['overDueProjects'] : 0}}</h3>
+
+                    <p>Overdue Projects</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-area-chart"></i>
+                  </div>
+                  <a  class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+              <div class="row">
+              <!-- ./col -->
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow-gradient">
+                  <div class="inner text-center">
+                    <h3>{{analyticsData['completed'] ? analyticsData['completed'] : 0}}</h3>
+
+                    <p>Projects Completed</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-line-chart"></i>
+                  </div>
+                  <a class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box" style="background-color:#A0CB48;">
+                  <div class="inner text-center" style="color:white;">
+                    <h3>{{taskCompletionPercentage}}<sup style="font-size: 20px">%</sup></h3>
+
+                    <p>
+                      {{analyticsData['completedTask'] ? analyticsData['completedTask'] : 0}} out of
+                      {{analyticsData['totalTasks'] ? analyticsData['totalTasks'] : 0}} tasks completed
+                    </p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-pie-chart"></i>
+                  </div>
+                  <a  class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+        <div class="row" style="margin-bottom: 15px; font-size: 10px !important;">
+          <div class="col-lg-6">
+            <app-user-project></app-user-project>
+          </div>
+
+          <div class="col-lg-6">
+            <app-project-update></app-project-update>
+          </div>
+        </div>
+
+        <div class="row" style=" font-size: 10px !important;">
+          <div class="col-lg-6">
+              <app-users-chat></app-users-chat>
+          </div>
+          <div class="col-lg-6">
+            <app-user-activities></app-user-activities>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

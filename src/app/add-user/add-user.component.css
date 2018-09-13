@@ -1,0 +1,8 @@
+.imgBox{
+    height:120px;
+    width:120px;
+    border: 1px solid #d2d6de;
+}
+.content-wrapper{
+    min-height: 916px;
+}

@@ -1,0 +1,405 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 0px" >
+      <!--  <h1>
+          <small>New Request</small>
+        </h1>-->
+      <h1>
+        Projects
+        <small>Project Details | Manage Projects</small>
+        <div *ngIf="user_access_role === 4 || user_access_role === 1"  class="pull-right p-t-10" style="    margin-right: -15px;">
+          <a class="pull-right"><button type="button" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" routerLink="/create-case">Add Project</button></a>
+        </div>
+      </h1>
+
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <div class="row">
+        <div class="col-md-12" >
+          <div class="box">
+            <div class="box-body" style="overflow: hidden">
+              <div class="col-md-2" style="margin-bottom: 10px;padding: 9px;">
+                <!--<button type="button" class="btn btn-block btn-default btn-flat totalCount" style="margin-left: -7px;">-->
+                <strong>Total Projects: {{total}}</strong>
+                <!--</button>-->
+              </div>
+              <div class="col-md-4" style="margin-bottom: 10px;">
+                <div class="input-group input-group-sm pull-left" >
+                  <input  type="text"
+                          class="form-control pull-right"
+                          placeholder="Search By Case No" [(ngModel)]="searchData" style="height: 34px !important;">
+                  <div class="input-group-btn">
+                    <button (click)="SearchList()" class="btn btn-success btn-flat" style="height: 34px !important;margin-left: 3px" title="search">
+                      <i class="fa fa-search"></i>
+                    </button>
+                    <button (click)="refreshList()" class="btn btn-primary btn-flat" style="height: 34px !important;margin-left: 3px" title="reset">
+                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom: 10px;">
+                <div class="pull-right" style="margin-right: 10px;">
+                  <table *ngIf="paginate.last_page != 1" class="">
+                    <colgroup>
+                      <col style="width: 45%;">
+                    </colgroup>
+                    <tbody><tr>
+                      <td>
+                        <a class="gray clickable" (click)="previousPage()" style="color: #296099">
+                          <i class="fa fa-backward" title="Previous"></i>
+                        </a>
+                        <span style="margin-left: 25% ! important;"></span>
+                        <a class="gray clickable" style="color: #296099" (click)="nextPage()">
+                          <i class="fa fa-forward" title="Next" ></i>
+                        </a>
+                      </td>
+                      <td>
+                        <!--<div class="form-group">-->
+                        <select style="" class="form-control clickable" id="pagination" name="pagination" [(ngModel)]="currentPage" (change)="changePage()"
+                        >
+                          <option *ngFor="let item of pages" [value]="item">{{item}}</option>
+                        </select>
+                        <!--</div>-->
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <table class="table table-hover" style="font-size: 13px;color: #303030;">
+                <tr>
+                  <th *ngFor = "let field of fields;index as i" [ngStyle]="{'width':field.width,'text-align':field.title=='Action'?'center':''}">
+                    <span *ngIf="field.sort">{{field.title}}</span> &nbsp;
+                    <a class="clickable" *ngIf="field.sort">
+                      <i class="fa fa-sort" id="fa-{{field.field}}" (click)="sortBy(field.field, $event)"></i>
+                    </a>
+                    <span *ngIf="!field.sort">{{field.title}}</span>
+                  </th>
+                </tr>
+                <!--<tr>
+                  <th style="width: 8%">Case No <i class="fa fa-sort theme-cl clickable"></i></th>
+                  <th style="width: 12%;">Requested By <i class="fa fa-sort theme-cl clickable"></i></th>
+                  <th style="width: 32%">Purpose <i class="fa fa-sort theme-cl clickable"></i></th>
+                  <th style="width:13%">Date <i class="fa fa-sort theme-cl clickable"></i></th>
+                  <th style="width: 9%">Deadline <i class="fa fa-sort theme-cl clickable"></i></th>
+                  <th class="text-center" style="width:30%">Action</th>
+                </tr>-->
+                <tr *ngIf="loader">
+                  <td colspan="6" class="text-center"><div class="loading">Loading&#8230;</div></td>
+                </tr>
+                <tr *ngIf="projects?.length < 1">
+                  <td colspan="7" class="text-center">
+                    <label class="label label-danger">No Record Found</label>
+                  </td>
+                </tr>
+                <ng-template ngFor let-i="index" let-project [ngForOf]="projects" >
+                  <tr>
+                    <td [ngClass]="{ 'timeOut': project['project_age']>=72}" style="padding-top: 13px">{{project['case_no']?project['case_no']:'NA'}}</td>
+                    <td  style="padding-top: 13px;" [ngClass]="{ 'timeOut': project['project_age']>=72}">{{project['first_name']}}</td>
+                    <td [ngClass]="{ 'timeOut': project['project_age']>=72}" style="padding-top: 13px">{{project['purpose']}}</td>
+                    <!--<td>{{project['created_at'] | date: 'dd/MM/yyyy'}}</td>-->
+                    <td [ngClass]="{ 'timeOut': project['project_age']>=72}" style="padding-top: 13px"><label class="label label-primary" style="padding-top: 6px" >{{project['created_at'] | date: 'dd/MM/yyyy h:mm'}}</label></td>
+                    <td style="padding-top: 13px">
+                     <span *ngIf="project['project_age']>=72" style="color:red" class="flashInOut">
+                    0 Hrs
+                    </span>
+                    <span *ngIf="project['project_age']<72">
+                    {{72 - (project['project_age'] | number:'1.0-0')}} Hrs
+                    </span>
+                    </td>
+                    <td [ngClass]="{ 'timeOut': project['project_age']>=72}" style="padding-top: 13px;text-align: center">
+                      <span *ngIf="project['approve_status'] === 'accepted'"><i style="color: green;" class="fa fa-2x fa-check-circle"></i></span>
+                      <span *ngIf="project['approve_status'] === 'rejected'"><i style="color: red;" class="fa fa-2x fa-times-circle"></i></span>
+                      <span *ngIf="project['approve_status'] !== 'accepted' && project['approve_status'] !== 'rejected'">
+                       <i style="color: darkorange;" class="fa fa-2x fa-clock-o"></i>
+                      </span>
+                    </td>
+                    <td style="font-weight: 100">
+                      <div class="text-center" style="position: relative;top:-3px">
+                        <i class="fa fa-2x fa-eye iconSize clickable p-0-9-n" title="View" style="color: #296099;" (click)="editData(i, project['id'],'view',project['approve_status'])"></i>
+                        <span *ngIf="user_access_role === 6 || user_access_role === 1">
+                          <span *ngIf="project['approve_status'] === 'pending'">
+                            <i  title="Edit/Approve" class="fa fa-2x fa-edit iconSize clickable p-0-9-n" style="color: #296099;" (click)="editData(i, project['id'],'edit')"></i>
+                          </span>
+                          <span *ngIf="project['approve_status'] === 'accepted' || project['approve_status'] === 'rejected'">
+                            <i  title="Edit/Approve" class="fa fa-2x fa-edit iconSize p-0-9-n" style="color:grey ;cursor: not-allowed !important;"></i>
+                          </span>
+                        </span>
+                        <span *ngIf="user_access_role === 2 || user_access_role === 3 || user_access_role === 4 || user_access_role === 5">
+                          <i  title="Edit/Approve" class="disabled-action-icon fa fa-2x fa-edit iconSize p-0-9-n" style="color: grey;cursor: not-allowed !important;"></i>
+                        </span>
+                        <span *ngIf="user_access_role === 1">
+                            <i class="fa fa-2x fa-tasks iconSize clickable p-0-9-n" title="Assign Task" style="color: #296099;" (click)="goToTask(i, project['id'],project['approve_status'])"></i>
+                        </span>
+                        <span *ngIf="user_access_role === 3">
+                          <span *ngIf="project['approve_status'] === 'accepted'">
+                            <i class="fa fa-2x fa-tasks iconSize clickable p-0-9-n" title="Assign Task" style="color: #296099;" (click)="goToTask(i, project['id'],project['approve_status'])"></i>
+                          </span>
+                          <span *ngIf="project['approve_status'] === 'pending' || project['approve_status'] === 'rejected'">
+                            <i class="fa fa-2x fa-tasks iconSize p-0-9-n" title="Assign Task" style="color: grey;cursor: not-allowed !important;"></i>
+                          </span>
+                        </span>
+                        <span *ngIf="user_access_role === 2 || user_access_role === 6 || user_access_role === 4 || user_access_role === 5">
+                          <i class="fa fa-2x fa-tasks iconSize p-0-9-n" title="Assign Task" style="color: grey;cursor: not-allowed !important;"></i>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngIf="projectRow[i]">
+                    <td colspan="6">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="box box-solid" style="margin-bottom: 0px;padding-left: 0px;border: 0px">
+                            <!--<div class="box-header with-border">
+                              <h3 class="box-title">Collapsible Accordion</h3>
+                            </div>-->
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                              <div class="box-group">
+                                <div class="clickable cu-bottom p-5" id="ac1{{i}}" data-toggle="collapse" [attr.data-target]="'#accordion' + i" (click)="toggle('ac1'+i,false,'accord')">
+                                  <span class="cu-heading"><b>1. Site Profile</b></span><i class="fa fa-caret-up pull-right adj-i"></i>
+                                </div>
+                                <div class="box-body collapse" id="accordion{{i}}" style="padding-left: 0px">
+                                  <div class="box box-info p-5" style="padding-bottom: 20px;border: 0px">
+                                    <!--<span style="font-size:10px;color: black;font-weight: 600;" class="pull-left">Please fill in the blanks</span>-->
+                                    <div class="col-sm-6">
+                                      <span class="sub-title-stepy" style="color:#a94442;position: relative;left:118px">{{siteProfileErrorMessage}}</span>
+                                    </div>
+                                    <div class="form-horizontal" style="margin-top: -10px">
+                                      <div class="box-body m-t-10" style="padding-left: 0px">
+                                        <div class="form-group">
+                                          <label for="branchCode" class="col-sm-3">Enter code of branch you wish to relocate<span style="color:red">*</span>
+                                          </label>
+                                          <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="branchCode" [value]="projectDet[0]['branch_code']" [readonly]="read" [(ngModel)]="newProjectObject.siteProfile.branchCode" placeholder="">
+                                          </div>
+                                        </div>
+                                        <!--<div class="form-group">
+                                          <label for="costCenter" class="col-sm-3">Cost center</label>
+                                          <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="costCenter" [value]="projectDet[0]['cost_center']" [readonly]="read" [(ngModel)]="newProjectObject.siteProfile.costCenter" placeholder="">
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="budgetCap" class="col-sm-3">Budget Cap</label>
+                                          <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="budgetCap" placeholder="" [value]="projectDet[0]['budget_cap']" [(ngModel)]="newProjectObject.siteProfile.budgetCap" [readonly]="read">
+                                          </div>
+                                        </div>-->
+                                        <div class="form-group">
+                                          <label class="col-sm-3">Action</label>
+                                          <div class="col-sm-7">
+                                            <select class="form-control" [value]="projectDet[0]['action']" [disabled]="read" [(ngModel)]="newProjectObject.siteProfile.action">
+                                              <option value="reject">Action 1</option>
+                                              <option value="accept">Action 2</option>
+                                              <option value="pending">Action 3</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-sm-3">Reason(s) for moving<span style="color:red">*</span></label>
+                                          <div class="col-sm-7">
+                                            <textarea class="form-control" rows="3" placeholder="" [value]="projectDet[0]['reason']" [readonly]="read" required [(ngModel)]="newProjectObject.siteProfile.reason"></textarea>
+                                          </div>
+                                        </div>
+                                        <div style="position: absolute;bottom: 3%;right:18%;">
+                                          <button type="submit" class="btn btn-success pull-right" data-toggle="collapse" data-target="#accordion2" (click)="closeAccord('ac1'+i);toggle('ac2'+i,projectDet[0])" style="padding: 5px 15px;">Next</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.box-body -->
+                                      <!-- /.box-footer -->
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="clickable cu-bottom p-5 test" id="ac2{{i}}" data-toggle="collapse" [attr.data-target]="'#accordion2' + i" (click)="toggle('ac2'+i,projectDet[0],'accord')">
+                                  <span class="cu-heading"><b>2. Site Type</b></span><i class="fa fa-caret-up pull-right adj-i"></i>
+                                </div>
+                                <div class="box-body collapse" id="accordion2{{i}}" style="padding-bottom: 50px;padding-left: 0px">
+                                  <div class="box box-info p-5" style="border:0px">
+                                    <span style="font-size:11px;color: black;font-weight: 600;">Select the branch model for this request</span>
+                                    <div class="col-md-12 m-t-10" style="height:375px;padding-left: 0px">
+                                      <div class="col-lg-6 p-5" style="height:375px;padding-left: 0px">
+                                        <span class="adj-text1" style="">{{imgCaption}}</span>
+                                        <button type="button" class="btn btn-success btn-sm adj-btn1"
+                                                data-toggle="modal" data-target="#modal-default">Technical Drawing   </button>
+                                        <div class="modal fade" id="modal-default" style="display: none;">
+                                          <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                              <div class="modal-header" style="border-bottom:none">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              </div>
+                                              <div class="modal-body" style="margin-top: -22px">
+                                                <div class="col-md-12" style="text-align: center">
+                                                  <img src="../../assets/img/technicaldrawing.png" alt="">
+                                                </div>
+                                                <div class="box-body" style="padding: 20px;">
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <!-- /.modal-_content -->
+                                          </div>
+                                          <!-- /.modal-dialog -->
+                                        </div>
+                                        <img [src]="imgsr" class="cu-100-perc m-t-5" alt="User Image" id="main-image">
+                                      </div>
+                                      <div class="col-lg-4 p-5" style="height:375px;margin-top: -2px">
+                                        <div class="col-md-6 text-center" style="height:126.6px;padding: 8px" *ngFor="let image of imageArray;let index = index">
+                                          <img id="img-{{index}}" src="../../assets/img/{{image.name}}" class="cu-99-perc clickable borderImg" alt="User Image" (click)="setSrc(image,index, $event);newProjectObject.branchType = image.id;"
+                                               [ngClass]="{ 'img-active': isActive[index]}">
+                                          <figcaption style="font-size: 10px;margin-top: 3px;padding-bottom: 3px">{{image.caption}}</figcaption>
+                                        </div>
+                                      </div>
+                                      <div style="position: absolute;bottom: -13%;right:18.8%;">
+                                        <button type="submit" class="btn btn-success pull-right" style="padding: 5px 15px;" data-toggle="collapse" data-target="#accordion3" (click)="closeAccord('ac2'+i);toggle('ac3'+i)">Next</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="clickable cu-bottom p-5" id="ac3{{i}}" data-toggle="collapse" [attr.data-target]="'#accordion3' + i" (click)="toggle('ac3'+i, false,'accord')">
+                                  <span class="cu-heading"><b>3. Resources</b></span><i class="fa fa-caret-up pull-right adj-i"></i>
+                                </div>
+                                <div class="box-body col-md-12 p-10 collapse" id="accordion3{{i}}" style="padding-bottom: 40px;padding-left: 4px">
+                                  <!--<img src="../../assets/img/staff.png" alt="">-->
+                                  <img src="../../assets/img/staffimage.png" alt="" style="width: 100%">
+                                  <!--<div class="col-sm-6">
+                                    <span class="sub-title-stepy" style="color:#a94442;position: relative;left:-15px">{{staffInfoErrorMessage}}</span>
+                                  </div>
+                                  <div class="col-md-9 p-t-5 setLabel" style="background-color: #406b83;padding: 16px 10px 10px 10px">
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Branch Manager</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.branchManager" [value]="projectDet[0]['total_branch_manager']" [readonly]="read" id="bm">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Operations Manager</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.operationManager" [value]="projectDet[0]['total_operation_manager']" [readonly]="read" id="om">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Lounge Manager</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.loungeManager" [value]="projectDet[0]['total_lounge_manager']" [readonly]="read" id="lm">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Showroom Supervisor</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.showroomSupervisor" [value]="projectDet[0]['total_showroom_supervisor']" [readonly]="read" id="ss">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Head Teller</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.headTeller" [value]="projectDet[0]['total_head_teller']" [readonly]="read" id="ht">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Teller</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.teller" [value]="projectDet[0]['total_teller']" [readonly]="read" id="tel">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">VIP Teller</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.vipTeller" [value]="projectDet[0]['total_vip_teller']" [readonly]="read" id="vt">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Relationship Manager</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.relationshipManager" [value]="projectDet[0]['total_relation_manager']" [readonly]="read" id="rm">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Customer Assistance</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.customerAssistance" [value]="projectDet[0]['total_customers_assistance']" [readonly]="read" id="ca">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Sales Advisor</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.salesAdvisor" [value]="projectDet[0]['total_sales_advisor']" [readonly]="read" id="sa">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Sales Manager:</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.salesManager" [value]="projectDet[0]['total_sales_manager']" [readonly]="read" id="sm">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Sales Service Rep</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.salesServiceRep" [value]="projectDet[0]['total_sales_representative']" [readonly]="read" id="ssr">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Service Teller Rep</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.serviceTellerRep" [value]="projectDet[0]['total_branch_manager']" [readonly]="read" id="str">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Guard</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.guard" [value]="projectDet[0]['total_guard']" [readonly]="read" id="gu">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label for="bm">Total Staff</label>
+                                        <input type="text" class="form-control" [(ngModel)]="newProjectObject.staffInfo.totalStaff" [value]="projectDet[0]['total_staff']" [readonly]="read" id="ts">
+                                      </div>
+                                    </div>
+                                  </div>-->
+                                  <!--<div *ngIf="!read" class="col-md-3" style="position: relative;top:380px;left:14px">
+                                    <button type="submit" (click)="closeAccord('ac3'+i);" class="btn btn-danger" style="padding: 2px  23px;" >Cancel</button>
+                                    <button type="reset" class="btn btn-success m-l-5" style="padding: 2px 23px;" >Save</button>
+                                  </div>-->
+                                </div>
+                                <div class="clickable cu-bottom p-5 p-5" id="ac4{{i}}" data-toggle="collapse" [attr.data-target]="'#accordion4' + i" (click)="toggle('ac4'+i, false,'accord')">
+                                  <span class="cu-heading"><b>4. Map Territory</b></span><i class="fa fa-caret-up pull-right adj-i"></i>
+                                </div>
+                                <div class="box-body p-10 collapse" id="accordion4{{i}}">
+                                  <div class="col-md-12 p-5" style="">
+                                    <img src="{{apiBaseUrl}}/storage/{{projectDet[0].map_url}}" alt="test" style="width: 100%;">
+                                  </div>
+                                  <div class="col-md-2" class="pull-right" *ngIf="!read">
+                                    <a class="pull-right"><button (click)="submitCase(project['id']);" type="button" class="btn btn-success next-button" style="padding: 5px 15px;margin-top: 5px" [disabled]="updateEnable" >Update <i [ngClass]="{'fa':updateEnable,'fa-spinner':updateEnable,'fa-spin':updateEnable}"></i> </button></a>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                          <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

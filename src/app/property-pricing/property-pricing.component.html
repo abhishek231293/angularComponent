@@ -1,0 +1,349 @@
+<div class="wrapper">
+  <app-header-vendor></app-header-vendor>
+  <app-sidebar-vendor></app-sidebar-vendor>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="_content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding: 0px;">
+      <h1 *ngIf="activeOption == 'selectType'" style="padding: 15px; padding-bottom: 0px; margin-bottom: 5px;">
+        Project Type
+      </h1>
+      <div class="row" *ngIf="activeOption != 'selectType'">
+        <div class="col-xs-12 no-padding form-group" style="margin-top: -16px">
+          <div class="box" style="border: none; padding-top: 10px;">
+            <div class="box-body no-padding" style="margin-left: 20px; margin-top: 10px;">
+              <div class="col-lg-12" style="padding: 6px 10px 6px 6px;">
+
+                <div style="text-align: center;"  class="col-md-3 col-xs-12 col-md-offset-3 ">
+
+                  <div class="col-lg-10 " >
+                    <span style="width: 25px !important;margin:0 35%" class="info-box-icon box-series" [ngClass]="{'active-stepy':activeOption === 'property','disable-stepy':activeOption != 'property'}"><span style="position: relative;top:-14px">1</span></span>
+                  </div>
+                  <div style="text-align: center;padding-top: 5px" class="col-lg-12 ">
+                    <span [ngClass]="{'active-stepy-text':activeOption === 'property','disable-stepy-text':activeOption != 'property'}"><strong style="margin-left: -76px;" class="stepy-title">Property</strong></span>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-xs-12">
+                  <div class="col-lg-8 ">
+                    <span style="width: 25px !important;margin:0 34%" class="info-box-icon box-series" [ngClass]="{'active-stepy':activeOption === 'pricing','disable-stepy':activeOption != 'pricing'}"><span style="position: relative;top:-14px">2</span></span>
+                  </div>
+                  <div style="text-align: center;padding-top: 5px"  class="col-lg-11 ">
+                    <span [ngClass]="{'active-stepy-text':activeOption === 'pricing','disable-stepy-text':activeOption != 'pricing'}"><strong style="margin-left: -76px;" class="stepy-title">Pricing</strong></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="min-height: 600px">
+      <div *ngIf="activeOption == 'property'" class="row">
+        <div class="col-lg-12 form-group">
+            <div class="box" style="border: none;padding: 15px 6px 5px 4px;">
+            <div class="col-md-12  sub-heading"> Iteams</div>
+            <div class="box-body " style="min-height: 375px;padding-top: 40px">
+
+              <div class=""  style="width:100%;">
+                <div class=" sub-heading " style="width:47%;float:left;margin-left:14px;" >
+                  option
+                </div>
+
+                <div class=" sub-heading" style="width:50%;float:left;margin-left:14px;" >
+                  study with and without land cost
+                </div>
+                </div>
+                <div class="col-md-12 table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th>      </th>
+                      <th>Building cost/m2</th>
+                      <th>Building total cost</th>
+                      <th>Parking(m2)</th>
+                      <th>Parking cost/m2</th>
+                      <th>Parking area total cost</th>
+                      <th>Total cost</th>
+                      <th>Duration design/build </th>
+                      <th>Leased area</th>
+                      <th>Annual rent rate</th>
+                      <th>Annual return (SAR)</th>
+                      <th>Total annual return (SAR)</th>
+                      <th>Pay back(Y)</th>
+                      <th>Pay back(Y) include land cost</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>Land Price</td>
+                      <!--<td>Basement</td>-->
+                      <!--<td>Showroom</td>-->
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>Basement</td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>Showroom</td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>Service Area</td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>Offices</td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>F&B</td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>Branch</td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    <tr>
+                      <td>Total</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td></td>
+                      <td></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td></td>
+                      <td><input type="text" class="table-input"/></td>
+                      <td><input type="text" class="table-input"/></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div class="col-md-6 col-md-offset-6" style="margin-top: 30px;">
+                <label class="control-label col-md-3" for="land_price" > Construction Cost </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control construction-cost" name="construction-cost" placeholder="">
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="box-footer">
+
+
+              <div  class="pull-right p-t-10">
+                <a (click)="goToNextOption('pricing', 'info');infoForm=true;"><button type="button" class="btn btn-success "  >NEXT</button></a>
+              </div>
+              <div  class="pull-right p-t-10" style="margin-right: 10px;">
+                <a ><button type="button" class="btn btn-danger "  >CANCEL </button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeOption == 'pricing'" class="row">
+        <div class="col-lg-12 ">
+          <div class="box" style="border: none;padding: 15px 6px 5px 4px; ">
+            <div class="col-md-12  ">
+              <label class="control-label pull-left" for="method" style="margin-top: 13px;">LOTE AREA(M2)</label>
+              <div class="col-md-10 ">
+              <input type="text" class="form-control field_element" id="method" placeholder="Method" >
+              </div>
+
+            </div>
+            <div class="box-body" style="min-height: 375px;padding-top: 59px;margin-left:10px;">
+              <div class="col-md-12 " style="margin-left: 10px;" >
+                <div class="col-md-5  sub-heading" >
+                  Property Limits (m)
+
+                </div>
+                <div class="col-md-6 sub-heading"  style="margin-left: 5px;">
+                  Setback (m)
+                </div>
+                </div>
+              <div class="col-md-5" style="margin-top: 29px;">
+              <div class="col-md-12">
+                <label class="control-label col-md-2" for="method">North</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control " id="north" placeholder="" >
+                </div>
+              </div>
+              <div class="col-md-12" style="margin-top: 10px; ">
+                <label class="control-label col-md-2" for="east">East </label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control " id="east" placeholder="" >
+                </div>
+              </div>
+              <div class="col-md-12" style="margin-top: 10px; ">
+                <label class="control-label col-md-2" for="west">West</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control " id="west" placeholder="" >
+                </div>
+              </div>
+              <div class="col-md-12" style="margin-top: 10px; ">
+                <label class="control-label col-md-2" for="south">South</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control " id="south" placeholder="" >
+                </div>
+              </div>
+              </div>
+
+
+               <div class="col-md-5">
+                 <div class="col-md-6" >
+                  <label class="control-label " for="regulations">Regulations</label>
+                    <input type="text" class="form-control field_element " id="regulations" placeholder="" >
+                    <input type="text" class="form-control field_element" id="regulations1" placeholder="" >
+                    <input type="text" class="form-control field_element" id="regulations2" placeholder="" >
+                    <input type="text" class="form-control field_element" id="regulations3" placeholder="" >
+                </div>
+              <div class="col-md-6">
+                <label class="control-label " for="design">Design</label>
+                <input type="text" class="form-control field_element" id="design" placeholder="" >
+                <input type="text" class="form-control field_element" id="design1" placeholder="" >
+                <input type="text" class="form-control field_element" id="design2" placeholder="" >
+                <input type="text" class="form-control field_element" id="design3" placeholder="" >
+              </div>
+                 </div>
+              <div class="col-md-4">
+                <div class="col-md-12">
+                  <label class="control-label col-md-2" for="anex">Anex</label>
+                  <input type="radio" id="anex" name="anex" placeholder="" style="margin-left: 30px;">Required
+                  <input type="radio"   name="anex" placeholder="" style="margin-left: 30px;">Not Required
+                </div>
+              </div>
+              <div class="col-md-6 " style="margin-top: 10px;margin-left: 11px; ">
+                <label class="control-label col-md-2" for="parking" style="width:75px;">Parking</label>
+                <div class="col-md-5 ">
+                  <input type="text" class="form-control " id="parking" placeholder="" >
+                </div>
+                <div class="col-md-5">
+                  <input type="text" class="form-control " id="" placeholder="" >
+                </div>
+              </div>
+              <div class="col-md-5 col-md-offset-4" style="margin-top: 10px; ">
+                <label class=" pull-left" for="land_price" style="width:75px;margin-left:12px; ">Land Price </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control " id="land_price" placeholder=""  style="width:380px;">
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="box-footer">
+              <div  class="pull-left p-t-10">
+                <a class="" (click)="goToNextOption('property', 'info');infoForm=true;"><button type="button" class="btn btn-default "  >Back</button></a>
+              </div>
+              <div  class="pull-right p-t-10">
+                <a ><button type="button" class="btn btn-primary "  >Submit</button></a>
+              </div>
+              <div  class="pull-right p-t-10" style="margin-right: 10px;">
+                <a ><button type="button" class="btn btn-danger reject-button"  >CANCEL </button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>
+

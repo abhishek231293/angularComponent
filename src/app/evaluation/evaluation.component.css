@@ -1,0 +1,48 @@
+.title{
+    font-size: 12px;
+    color:#00a8e6;
+    font-weight: 900;
+}
+
+.competition-text{
+    background-color: #EAEAEA;
+    padding: 10px;
+    font-weight: 900;
+    border-radius: 5px;
+}
+.competition-text div{
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.upload-file{
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 2px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.sub-title{
+    margin-left: 20px;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.radio-button{
+    width: 20px;
+    height: 20px;
+}
+.panel-heading{
+    background-color: #006FA5;
+    text-align: left;
+    color: #fff;
+}
+
+.panel, .panel-heading{
+    border-radius: 0px;
+}
+.panel-heading {
+    padding: 6px 15px;
+}

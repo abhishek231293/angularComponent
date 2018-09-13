@@ -1,0 +1,143 @@
+<!--<div class="alert alert-info">
+    Username: test<br />
+    Password: test
+</div>-->
+<!--<h2>Login</h2>
+<div *ngIf="isLoginError" class="alert alert-danger"> <strong>Incorrect! </strong> username or password</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Username</label>
+        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Login</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+</form>-->
+
+<!--<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+
+        </div>
+        <div style="margin-bottom: -65px;" class="logo-name"><img src="assets/img/logo.png" width="300" height="150"></div>
+        <h2 style="margin-bottom: -2px">Branches</h2>
+        &lt;!&ndash;<small style="margin-left: 132px">BETA</small>&ndash;&gt;
+        <p>&nbsp;</p>
+
+        &lt;!&ndash;<h4>LOGIN</h4>&ndash;&gt;
+        <div class="border-less-input btn-rounded">
+
+            <div *ngIf="isLoginError" class="alert alert-danger"> <strong>Incorrect! </strong> username or password</div>
+            <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()" >
+
+                <div class="form-group">
+                    <input formControlName="name"  class="form-control" placeholder="Login ID" >
+
+                    <div *ngIf="loginForm.controls['name'].errors && !loginForm.controls['name'].pristine" class="alert alert-danger">
+                        <div [hidden]="!loginForm.controls['name'].errors.required"> Login Id is required.</div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="password" type="password" class="form-control" placeholder="Password" >
+                    <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="alert alert-danger">
+                        <div [hidden]="!loginForm.controls['password'].errors.required"> Password is required. </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button [disabled]="loginForm.invalid || isLoader" class="btn btn-primary block full-width m-b"> <i class="fa fa-btn fa-sign-in"></i> Login
+                        &nbsp;&nbsp;&nbsp;<i *ngIf="isLoader" class="fa fa-spinner fa-spin"></i>
+                    </button>
+                </div>
+
+                <div class="form-group text-center">
+                    &lt;!&ndash;<a (click) ="forgetPassword()" class="btn btn-link" data-toggle="modal" href="#forgotPass"> Forgot Password?</a>&ndash;&gt;
+                </div>
+
+            </form>
+        </div>
+        &lt;!&ndash;<p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>&ndash;&gt;
+    </div>
+</div>-->
+
+<!--theme login-->
+<!--<div class="hold-transition login-page animated fadeInDown">-->
+
+    <div class=" login-page login-box">
+        <div class="login-box-body bounceInDown">
+            <div class="login-logo">
+                <!--<a href=""><b>Saudi</b>Branches</a>-->
+                <a>
+                    <!--<img src="../../assets/img/Team_ARD_v1.png" alt="Logo" title="Logo" style="width: 120px;background-color: #1e282c">-->
+                    <img src="assets/img/Team_ARD_v1.png" alt="Logo" title="Logo" style="width: 66%">
+                    <!--<img src="assets/img/team-ard.png" alt="Logo" title="Logo" style="width: 120px;background-color: #1e282c">-->
+                </a>
+                <!--<a><b>ARD</b></a>-->
+            </div>
+            <!-- /.login-logo -->
+            <p class="login-box-msg">
+                Sign in to start your session
+            </p>
+            <div *ngIf="isLoginError" class="alert alert-danger"> <strong>Incorrect! </strong> username or password</div>
+            <form [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
+                <div class="form-group has-feedback">
+                    <input formControlName="name"  class="form-control" placeholder="Login ID" >
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <div *ngIf="loginForm.controls['name'].errors && !loginForm.controls['name'].pristine">
+                        <div [hidden]="!loginForm.controls['name'].errors.required" class="alert alert-danger"> Login Id is required.</div>
+                        <!--<span [hidden]="!loginForm.controls['name'].errors.required" class="has-error help-block"> Login Id is required.</span>-->
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <input formControlName="password" type="password" class="form-control" placeholder="Password" >
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine">
+                        <div [hidden]="!loginForm.controls['password'].errors.required" class="alert alert-danger"> Password is required. </div>
+                        <!--<span [hidden]="!loginForm.controls['password'].errors.required" class="has-error help-block"> Password is required. </span>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <!--<div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                        </div>-->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <!--<button style="background-color: #234599" [disabled]="loginForm.invalid || isLoader" class="btn btn-primary btn-block btn-flat">
+                            <i class="fa fa-btn fa-sign-in"></i> Login
+                            &nbsp;&nbsp;&nbsp;<i *ngIf="isLoader" class="fa fa-spinner fa-spin"></i>
+                        </button>-->
+                        <button style="background-color: #234599"  class="btn btn-primary btn-block btn-flat">
+                            <i class="fa fa-btn fa-sign-in"></i> Login
+                            <i *ngIf="isLoader" class="fa fa-spinner fa-spin"></i>
+                        </button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+            <!--<a href="#">I forgot my password</a><br>
+            <a href="register.html" class="text-center">Register a new membership</a>-->
+
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+<!--</div>-->
+

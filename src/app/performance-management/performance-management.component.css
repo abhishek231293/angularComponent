@@ -1,0 +1,24 @@
+.card{
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.card-row{
+    border-bottom: 1px solid #d2d6de;padding: 5px;
+}
+.cu-round-y{
+    width: 20px;height: 20px;background-color: yellow;border-radius: 50%
+}
+.cu-round-g{
+    width: 20px;height: 20px;background-color: #55cd3c;border-radius: 50%
+}
+.cu-round-r{
+    width: 20px;height: 20px;background-color: red;border-radius: 50%
+}
+.cu-round-gray{
+    width: 20px;height: 20px;background-color: darkgray;border-radius: 50%
+}

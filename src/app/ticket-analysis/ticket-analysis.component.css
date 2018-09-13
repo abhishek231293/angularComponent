@@ -1,0 +1,95 @@
+h1{
+    margin: 0px;
+    font-size: 45px;
+    padding: 10px;
+}
+.panel-heading{
+    background-color: #006FA5;
+    text-align: left;
+}
+
+.panel, .panel-heading{
+    border-radius: 0px;
+}
+.panel-heading {
+    padding: 6px 15px;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+.list-group{
+    padding: 0px;
+    margin: 0px;
+}
+
+.badge-danger{
+    background-color: #EC6579;
+}
+
+.badge-warning{
+    background-color: #D4921B;
+}
+
+.badge-default{
+    background-color: #006EAA;
+}
+
+.list-group{
+    border: 0px;
+}
+
+.list-group-item{
+    border: 0px;
+    /*border-bottom: 1px solid red;*/
+    padding: 10px 10px;
+}
+.menu {
+    background-color: #fff;
+}
+.menu .list-group-item {
+    border-bottom: 1px;
+}
+.menu .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.menu a {
+    color: gray;
+    font-size: 16px;
+}
+.menu a span {
+    white-space: nowrap;
+}
+
+
+.block {
+    border: 1px solid red;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    /*behavior: url(PIE.htc);*/
+    /* remove if you don't care about IE8 */
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    background: red;
+    margin: 12px;
+    /*border: 1px solid #666;*/
+    color: #fff;
+    text-align: center;
+    font: 16px Arial, sans-serif;
+}
+
+.light-color{
+    color: #c0c0c0;
+}
+
+.col-md-4{
+    padding-left: 10px;
+    padding-right: 10px;
+}

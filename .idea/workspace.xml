@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8f326d83-c9a5-4978-855c-460b12a70079" name="Default" comment="Merge branch 'master' of https://bitbucket.org/aeologicteam/ard-management-web&#10;&#10;# Conflicts:&#10;#&#9;package.json&#10;#&#9;src/app/app.module.ts&#10;#&#9;src/app/app.routing.ts&#10;#&#9;src/app/create-case/create-case.component.ts&#10;#&#9;src/app/header/header.component.html&#10;#&#9;src/app/sidebar/sidebar.component.html&#10;#&#9;src/environments/environment.ts&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/Team_ARD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/Team_ARD_v1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/alert_notification.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/api.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/completed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/deadlines.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/inprogress.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/no_preview.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/overdue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/profile4c.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/profile_pic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/profile_pic_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/profile_pic_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/projects.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/alerts-notifications.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/api.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/deadlines.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/project.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/sms-gateway .png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/sms-gateway.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/task.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/user-management.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/vendor-management.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/setting-icon/vote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/sms_gateway.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/staffimage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/tasks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/team-ard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/team.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/teamard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/technicaldrawing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/user_management.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/vendor_management.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/img/vote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/_services/json.service.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/_services/json.service.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/activities/activities.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/activities/activities.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/activities/activities.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/activities/activities.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-user/add-user.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-user/add-user.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-user/add-user.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-user/add-user.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-vendor/add-vendor.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-vendor/add-vendor.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-vendor/add-vendor.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/add-vendor/add-vendor.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/alerts-and-notifications/alerts-and-notifications.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/alerts-and-notifications/alerts-and-notifications.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/alerts-and-notifications/alerts-and-notifications.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/alerts-and-notifications/alerts-and-notifications.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/board/board.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/board/board.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/board/board.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/board/board.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/change-password/change-password.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/change-password/change-password.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/change-password/change-password.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/change-password/change-password.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/control/control.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/edit-case/edit-case.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/edit-case/edit-case.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/edit-case/edit-case.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/edit-case/edit-case.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation-view/evaluation-view.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation-view/evaluation-view.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation-view/evaluation-view.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation-view/evaluation-view.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation/evaluation.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation/evaluation.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation/evaluation.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/evaluation/evaluation.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project-nologin/header-project-nologin.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project-nologin/header-project-nologin.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project-nologin/header-project-nologin.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project-nologin/header-project-nologin.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project/header-project.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project/header-project.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project/header-project.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-project/header-project.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-vendor/header-vendor.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-vendor/header-vendor.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-vendor/header-vendor.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/headers/header-vendor/header-vendor.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-approve/land-approve.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-approve/land-approve.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-approve/land-approve.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-approve/land-approve.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-purchase/land-purchase.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-purchase/land-purchase.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-purchase/land-purchase.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/land-purchase/land-purchase.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/my-task/my-task.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/my-task/my-task.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/my-task/my-task.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/my-task/my-task.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/new-case/new-case.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/new-case/new-case.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/new-edit/new-edit.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/performance-management/performance-management.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/performance-management/performance-management.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/performance-management/performance-management.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/performance-management/performance-management.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-candidate-sites/project-candidate-sites.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-candidate-sites/project-candidate-sites.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-candidate-sites/project-candidate-sites.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-candidate-sites/project-candidate-sites.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-ref/project-ref.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-ref/project-ref.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-ref/project-ref.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-ref/project-ref.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-task/project-task.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-task/project-task.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-task/project-task.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-task/project-task.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-update/project-update.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-update/project-update.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-update/project-update.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-update/project-update.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-valuation/project-valuation.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-valuation/project-valuation.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-valuation/project-valuation.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/project-valuation/project-valuation.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/projects-summary/projects-summary.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/projects-summary/projects-summary.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/projects-summary/projects-summary.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/projects-summary/projects-summary.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-pricing/property-pricing.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-pricing/property-pricing.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-pricing/property-pricing.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-pricing/property-pricing.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-search/property-search.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-search/property-search.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-search/property-search.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-search/property-search.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-valuation/property-valuation.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-valuation/property-valuation.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-valuation/property-valuation.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/property-valuation/property-valuation.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/rpf-design/rpf-design.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/rpf-design/rpf-design.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/rpf-design/rpf-design.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/rpf-design/rpf-design.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting-task/setting-task.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting-task/setting-task.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting-task/setting-task.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting-task/setting-task.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting/setting.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting/setting.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting/setting.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/setting/setting.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-setting/sidebar-setting.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-setting/sidebar-setting.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-setting/sidebar-setting.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-setting/sidebar-setting.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-vendor/sidebar-vendor.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-vendor/sidebar-vendor.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-vendor/sidebar-vendor.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sidebars/sidebar-vendor/sidebar-vendor.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/site-report/site-report.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/site-report/site-report.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/site-report/site-report.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/site-report/site-report.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sms-gateway/sms-gateway.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sms-gateway/sms-gateway.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sms-gateway/sms-gateway.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/sms-gateway/sms-gateway.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/task/task.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/task/task.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/task/task.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/task/task.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/team-performance/team-performance.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/team-performance/team-performance.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/team-performance/team-performance.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/team-performance/team-performance.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/ticket-analysis/ticket-analysis.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/ticket-analysis/ticket-analysis.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/ticket-analysis/ticket-analysis.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/ticket-analysis/ticket-analysis.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-activities/user-activities.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-activities/user-activities.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-activities/user-activities.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-activities/user-activities.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-management/user-management.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-management/user-management.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-management/user-management.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-management/user-management.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-project/user-project.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-project/user-project.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-project/user-project.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user-project/user-project.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user/user.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user/user.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user/user.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/user/user.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/users-chat/users-chat.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/users-chat/users-chat.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/users-chat/users-chat.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/users-chat/users-chat.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-details/vendor-details.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-details/vendor-details.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-details/vendor-details.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-details/vendor-details.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-management/vendor-management.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-management/vendor-management.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-management/vendor-management.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-management/vendor-management.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-panel/vendor-panel.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-panel/vendor-panel.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-panel/vendor-panel.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor-panel/vendor-panel.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor/vendor.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor/vendor.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor/vendor.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vendor/vendor.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vote/vote.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vote/vote.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vote/vote.component.spec.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/vote/vote.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/json/projectUpdate.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/json/userActivity.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/json/userProjects.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/create-case/create-case.component-copy.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/img/p1.png" afterPath="$PROJECT_DIR$/src/assets/img/p1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/img/p2.png" afterPath="$PROJECT_DIR$/src/assets/img/p2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/img/p3.png" afterPath="$PROJECT_DIR$/src/assets/img/p3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/img/p4.png" afterPath="$PROJECT_DIR$/src/assets/img/p4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/img/p5.png" afterPath="$PROJECT_DIR$/src/assets/img/p5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/img/p6.png" afterPath="$PROJECT_DIR$/src/assets/img/p6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular.json" afterPath="$PROJECT_DIR$/angular.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/_services/authentication.service.ts" afterPath="$PROJECT_DIR$/src/app/_services/authentication.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/_services/common.service.ts" afterPath="$PROJECT_DIR$/src/app/_services/common.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/cases/cases.component.css" afterPath="$PROJECT_DIR$/src/app/cases/cases.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/cases/cases.component.html" afterPath="$PROJECT_DIR$/src/app/cases/cases.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/cases/cases.component.ts" afterPath="$PROJECT_DIR$/src/app/cases/cases.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/create-case/create-case.component.css" afterPath="$PROJECT_DIR$/src/app/create-case/create-case.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/create-case/create-case.component.html" afterPath="$PROJECT_DIR$/src/app/create-case/create-case.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/header/header.component.css" afterPath="$PROJECT_DIR$/src/app/header/header.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" afterPath="$PROJECT_DIR$/src/app/header/header.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/login/login.component.html" afterPath="$PROJECT_DIR$/src/app/login/login.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/login/login.component.ts" afterPath="$PROJECT_DIR$/src/app/login/login.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/map/map.component.ts" afterPath="$PROJECT_DIR$/src/app/map/map.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/sidebar/sidebar.component.css" afterPath="$PROJECT_DIR$/src/app/sidebar/sidebar.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/sidebar/sidebar.component.html" afterPath="$PROJECT_DIR$/src/app/sidebar/sidebar.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/sidebar/sidebar.component.ts" afterPath="$PROJECT_DIR$/src/app/sidebar/sidebar.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/AdminLTE.css" afterPath="$PROJECT_DIR$/src/assets/css/AdminLTE.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" />
+    </list>
+    <ignored path="ard-management-web.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ard-management-web" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="csv-uploader.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="112" selection-start-line="23" selection-start-column="98" selection-end-line="23" selection-end-column="112" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#strong#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#strong#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="csv-uploader.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#240#281#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/src/app/create-case/create-case.component.html" />
+        <option value="$PROJECT_DIR$/src/app/error404/error404.component.html" />
+        <option value="$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.css" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/create-case/create-case.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/sidebar/sidebar.component.html" />
+        <option value="$PROJECT_DIR$/src/app/header/header.component.html" />
+        <option value="$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html" />
+        <option value="$PROJECT_DIR$/src/app/_services/common.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular6-modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="csv-uploader" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f326d83-c9a5-4978-855c-460b12a70079" name="Default" comment="" />
+      <created>1530526670209</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530526670209</updated>
+      <workItem from="1530526671890" duration="3026000" />
+      <workItem from="1530538639923" duration="2009000" />
+      <workItem from="1532945699998" duration="13920000" />
+      <workItem from="1533022137864" duration="8916000" />
+      <workItem from="1533111938323" duration="1586000" />
+      <workItem from="1535114649371" duration="1255000" />
+      <workItem from="1535354041403" duration="51000" />
+      <workItem from="1535535097619" duration="293000" />
+      <workItem from="1536824493839" duration="745000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changes as per karim.&#10;&#10;these are looking a bit stretched and big. please replace the text with:&#10;&#10;Branch type = Site type&#10;Staff information = Resources&#10;GG map = Map Territory&#10;">
+      <created>1530528374603</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1530528374603</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes">
+      <created>1530529032603</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1530529032603</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Routing redirect to create case if wrong">
+      <created>1530539038292</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1530539038292</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Error 404 page">
+      <created>1530540226547</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1530540226547</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="31801000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29083666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes as per karim.&#10;&#10;these are looking a bit stretched and big. please replace the text with:&#10;&#10;Branch type = Site type&#10;Staff information = Resources&#10;GG map = Map Territory&#10;" />
+    <MESSAGE value="Changes" />
+    <MESSAGE value="Routing redirect to create case if wrong" />
+    <MESSAGE value="Error 404 page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error 404 page" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#240#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="112" selection-start-line="23" selection-start-column="98" selection-end-line="23" selection-end-column="112" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#240#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="166" selection-start-line="84" selection-start-column="166" selection-end-line="84" selection-end-column="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="201" selection-start-line="23" selection-start-column="201" selection-end-line="23" selection-end-column="201" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#240#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/_services/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/cases/cases.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="210" column="7" selection-start-line="206" selection-start-column="6" selection-end-line="210" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sidebar/sidebar.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="166" selection-start-line="84" selection-start-column="166" selection-end-line="84" selection-end-column="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="201" selection-start-line="23" selection-start-column="201" selection-end-line="23" selection-end-column="201" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#240#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/_services/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/cases/cases.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="210" column="7" selection-start-line="206" selection-start-column="6" selection-end-line="210" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sidebar/sidebar.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="98" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#240#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/cases/cases.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="210" column="7" selection-start-line="206" selection-start-column="6" selection-end-line="210" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sidebar/sidebar.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5865">
+          <caret line="391" column="167" selection-start-line="391" selection-start-column="151" selection-end-line="391" selection-end-column="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3705">
+          <caret line="253" column="32" selection-start-line="253" selection-start-column="32" selection-end-line="253" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/error404/error404.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5865">
+          <caret line="391" column="167" selection-start-line="391" selection-start-column="151" selection-end-line="391" selection-end-column="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/error404/error404.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-426">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/environments/environment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="197" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sidebar/sidebar.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/cases/cases.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="210" column="7" selection-start-line="206" selection-start-column="6" selection-end-line="210" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1050">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/cases/cases.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/logo.png" />
+    <entry file="file://$PROJECT_DIR$/src/assets/img/default-50x50.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/default-user.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sidebar/sidebar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/rxjs/internal/Observable.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/create-case/create-case.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="166" selection-start-line="84" selection-start-column="166" selection-end-line="84" selection-end-column="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/_services/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="112" selection-start-line="23" selection-start-column="98" selection-end-line="23" selection-end-column="112" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/csv-uploader/csv-uploader.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#240#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

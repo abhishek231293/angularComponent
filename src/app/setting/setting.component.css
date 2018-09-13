@@ -1,0 +1,35 @@
+.content-wrapper{
+    min-height: 700px;
+}
+
+.vote,.vender_management,.user_management{
+    width: 100%;
+    height:150px;
+    border: 1px solid #BBBBBB;
+    padding-top: 26px;
+}
+.alerts_notification,.sms_gateway,.api{
+    width: 100%;
+    height:150px;
+    border: 1px solid #BBBBBB;
+    padding-top: 26px;
+}
+.project,.deadline,.task{
+    width: 100%;
+    height:150px;
+    border: 1px solid #BBBBBB;
+    padding-top: 26px;
+}
+.control-icon{
+    font-size:54px;
+    color:#7E7E7E;
+}
+
+/*.selBtn{*/
+    /*background-color: #2576BB;*/
+    /*color: white;*/
+    /*border-radius: 15px;*/
+    /*font-size: 14px;*/
+    /*outline: none;*/
+    /*padding: 3px 16px;*/
+/*}*/

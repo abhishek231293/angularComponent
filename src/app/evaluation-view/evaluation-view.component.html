@@ -1,0 +1,212 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 2px" >
+      <!--<h1>
+        <small>New Request</small>
+      </h1>-->
+      <h1>
+        Property Details
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <!--<div *ngIf="loader">
+        <div class="loading">Loading&#8230;</div>
+      </div>-->
+
+      <app-header-project></app-header-project>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="panel panel-primary">
+            <div class="panel-heading" style="text-align: center;">
+              <strong>EVALUATION FORM</strong>
+            </div>
+            <div class="panel-body">
+
+              <div class="col-md-12">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="evaluation_amount"><strong>Evaluation Amount (in SR)</strong></label>
+                    <input [disabled]="isView" [(ngModel)]="evaluationFormData.evaluation_amount" id="evaluation_amount" class="form-control" name="evaluation_amount" type="number" required min="0" step=".01" placeholder="Enter Evaluation Amount">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="competition"><strong>Competition</strong></label>
+                    <select [disabled]="isView" [(ngModel)]="evaluationFormData.competition" name="competition" class="form-control" id="competition">
+                      <option value="">Select Competition</option>
+                      <option value="light">Light</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+                </div>
+                <!--<div class="col-md-4 upload-file">-->
+                <!--<div class="form-group">-->
+                <!--<label for="file"><strong>Upload files</strong></label>-->
+                <!--<input style="color: #245D6F; font-weight: 900;" id="file" class="form-control" name="file" type="file">-->
+                <!--</div>-->
+                <!--<div>-->
+                <!--<div style="color: #245D6F;"><strong>Can attach more than one</strong></div>-->
+                <!--<div>-->
+                <!--<button type="button" class="btn btn-primary" style="margin-top: 10px;">-->
+                <!--&nbsp;&nbsp;Upload&nbsp;&nbsp;-->
+                <!--</button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="col-md-6" style="padding: 0px;">
+
+                  <div class="col-md-12">
+                    <label>Uploaded Documents</label>
+                    <br/>
+                    <div class="row">
+
+                      <div *ngIf="evaluationFormData.image1" class="col-lg-2" style="margin-left: 5%; padding: 5px;">
+                        <div class="form-group">
+                          <a download="" title="Click to download document" href="{{apiBaseUrl}}/{{evaluationFormData.image1}}"><i class="fa fa-file fa-3x"></i></a>
+                        </div>
+                      </div>
+                      <div *ngIf="evaluationFormData.image2" class="col-lg-2" style="margin-left: 5%; padding: 5px;">
+                        <div class="form-group">
+                          <a download="" title="Click to download document" href="{{apiBaseUrl}}/{{evaluationFormData.image2}}"><i class="fa fa-file fa-3x"></i></a>
+                        </div>
+                      </div>
+                      <div *ngIf="evaluationFormData.image3" class="col-lg-2" style="margin-left: 5%; padding: 5px;">
+                        <div class="form-group">
+                          <a download="" title="Click to download document" href="{{apiBaseUrl}}/{{evaluationFormData.image3}}"><i class="fa fa-file fa-3x"></i></a>
+                        </div>
+                      </div>
+
+                      <div *ngIf="noDocument" class="col-lg-12" style="margin-left: 10%; padding: 5px;">
+                        <div class="label label-danger">
+                          No documents uploaded
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div class="col-md-6" style="padding: 0px;">-->
+                    <!--<div class="col-md-12" style="padding: 0px;">-->
+                      <!--<div class="box" style="border-top: 1px solid #d2d6de;">-->
+                        <!--<div class="box-body">-->
+                          <!--<div style="margin-bottom: 30px;">-->
+                            <!--<span class="pull-left">Time estimated</span>-->
+                            <!--<span class="pull-right" >{{estimatedDays}} days</span>-->
+                          <!--</div>-->
+                          <!--<div class="progress" style="clear: both; height: 10px; margin-bottom: 5px;">-->
+                            <!--<div class="progress-bar" role="progressbar" aria-valuenow="70"-->
+                                 <!--aria-valuemin="0" aria-valuemax="100" style="background-color: #63E3D2; width:70%">-->
+                              <!--<span class="sr-only">70% Complete</span>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                </div>
+              </div>
+
+              <div class="col-md-12" style="margin-top: 10px;">
+                <div class="col-md-6" style="padding-left: 0px;">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" style="text-align: center;">
+                      <strong>Pros</strong>
+                    </div>
+                    <div class="panel-body" style="min-height: 150px;">
+
+                      <ol *ngIf="evaluationFormData['pros'].length"  class="sub-title">
+                        <li style="margin-bottom: 5px;" *ngFor = "let pros of evaluationFormData['pros'];">
+                          <strong style="color: green; text-transform: capitalize;">
+                            {{pros['text']}}
+                          </strong>
+                        </li>
+                      </ol>
+
+                      <div style="margin-left: 38%;" class="label label-danger" *ngIf="!evaluationFormData['pros'].length">No Pros Mentioned</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" style="padding-right: 0px;">
+                  <div class="panel  panel-default">
+                    <div class="panel-heading" style="text-align: center;">
+                      <strong>Cons</strong>
+                    </div>
+                    <div class="panel-body" style="min-height: 150px;">
+                      <ol *ngIf="evaluationFormData['cons'].length" class="sub-title">
+                        <li style="margin-bottom: 5px;" *ngFor = "let cons of evaluationFormData['cons'];let i = index" >
+                          <strong  style="color: red; text-transform: capitalize;">
+                            {{cons['text']}}
+                          </strong>
+                        </li>
+                      </ol>
+
+                      <div style="margin-left: 38%;" class="label label-danger" *ngIf="!evaluationFormData['cons'].length">No Cons Mentioned</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-6" style="padding-left: 0px;">
+                  <div class="form-group">
+                    <label for="recommendation">Broker Recommendation</label>
+                    <textarea [disabled]="isView" [(ngModel)]="evaluationFormData.recommendation" class="form-control" rows="5" id="recommendation" placeholder="Please use this space to enter further details"></textarea>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <label>Price Above Average Below Average Normal</label>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div style="text-align: center; color: #3A636D;"><strong>Above Average</strong></div>
+                        <div style="text-align: center"><input [disabled]="isView" [(ngModel)]="evaluationFormData.price" class="radio-button" value="above" type="radio" name="price" checked></div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div style="text-align: center; color: #3A636D;"><strong>Below Average</strong></div>
+                        <div style="text-align: center"><input [disabled]="isView" [(ngModel)]="evaluationFormData.price" class="radio-button" value="below" type="radio" name="price"></div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div style="text-align: center; color: #3A636D;"><strong>Normal</strong></div>
+                        <div style="text-align: center;"><input [disabled]="isView" [(ngModel)]="evaluationFormData.price" class="radio-button" value="normal" type="radio" name="price"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--<div class="col-md-12" style="margin-top: 15px;" *ngIf="total >= 3 && evaluationFormData.status == 'pending'" >-->
+                    <!--<div class="col-md-6">-->
+                      <!--<button (click)="actionPerformer('rejected')" class="btn btn-danger" style="width: 90%;">Reject</button>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6">-->
+                      <!--<button (click)="actionPerformer('approved')" class="btn btn-success" style="width: 90%;">Accept</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <app-footer></app-footer>
+</div>

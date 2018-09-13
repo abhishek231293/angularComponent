@@ -1,0 +1,246 @@
+<div class="wrapper">
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 2px" >
+      <h1>
+        Task Details
+        <!--<small>{{mode |titlecase }} Project</small>-->
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <app-header-project></app-header-project>
+    <div class="row">
+      <div style="padding: 0px 15px">
+      <div class="col-md-12  heading"><b>Land Description</b></div>
+      <div class="col-md-4 pull-right">
+        <div class="side-contain">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-body">
+                <div>
+                  <span class="pull-left">Time estimated</span>
+                  <span class="pull-right" >{{estimatedDays}} days</span>
+                </div>
+                <div class="progress" style="clear: both; height: 10px; margin-bottom: 5px;">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                       aria-valuemin="0" aria-valuemax="100" >
+                    <span class="sr-only">70% Complete</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-body">
+                <div style="height: 100px;" *ngFor = "let document of documentsList;index as i" class="col-md-4">
+                  <a href="{{document.file_name}}" download=""><i class="fa fa-4x fa-file-pdf-o"></i></a>
+                  <span style="font-size: 10px;">{{document.name}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-8 col-sm-8" style="margin-top: 10px;margin-bottom: 10px;">
+        <div class="input-group input-group-sm " >
+          <input  type="text"
+                  class="form-control"
+                  placeholder=""  style="height: 34px ">
+          <div class="input-group-btn">
+            <button class="btn  btn-default" style="height: 34px;">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--<div class="col-md-8 col-sm-8">-->
+        <!--<div class="col-md-12 col-sm-12 sub-heading">Land Description</div>-->
+      <!--</div>-->
+      <div class="col-md-8 col-sm-8">
+        <div class="col-md-12 col-sm-12 sub-heading center-bloc" style="text-align: center;"><b>Boundaries:</b></div>
+        <div class="col-md-9 col-sm-9">
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>North</b></label>
+                <input type="text" class="form-control"  name="north" placeholder="Enter the Direction" >
+              </div>
+            </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label><b>Length</b></label>
+                  <input type="text" class="form-control"  name="north_length" placeholder="Enter the Length" >
+                </div>
+              </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>South</b></label>
+                <input type="text" class="form-control form-horizontal"  name="south" placeholder="Enter the Direction" >
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>Length</b></label>
+                <input type="text" class="form-control"  name="South_length" placeholder="Enter the Length" >
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>East</b></label>
+                <input type="text" class="form-control"  name="East" placeholder="Enter the Direction" >
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>Length</b></label>
+                <input type="text" class="form-control"  name="" placeholder="Enter the Length" style="margin-left:5px;">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>West</b></label>
+                <input type="text" class="form-control"  name="" placeholder="Enter the Direction" style="margin-left:5px;">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label><b>Length</b></label>
+                <input type="text" class="form-control"  name="" placeholder="Enter the Length" style="margin-left:5px;">
+              </div>
+            </div>
+            </div>
+
+          <div class="col-md-3 col-md-3">
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label><b>No Seq</b></label>
+                  <textarea cols="12" rows="5" class="form-control"></textarea>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label><b>No Land</b></label>
+                  <textarea cols="12" rows="5" class="form-control"></textarea>
+                </div>
+              </div>
+            </div>
+        </div>
+      <div class="col-md-8 col-sm-8">
+        <div class="col-md-12 col-sm-12 sub-heading">
+          <span class="pull-left"><b>Location map</b></span>
+          <span class="pull-right"><b>Offer Description</b></span>
+          <span style="margin-left: 159px;"><b>Result of Appraisal</b></span>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Appraisal</b></label>
+            <input type="text" class="form-control "  name="aprisal" placeholder="Enter the Apprisal" >
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Price/m2</b></label>
+            <input type="text" class="form-control "  name="price/m2" placeholder="Enter the Price/m2" >
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Area</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter the Area">
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Price</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter the Price" >
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Average </b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter the Average">
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Ask Amount</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Ask Amount" >
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Commission</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Commission" >
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="form-group">
+            <label><b>Price/m2</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Price/m2" >
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-8">
+        <div class="col-md-6 col-sm-6">
+          <div class="form-group">
+            <label><b>Appraisal Average amount</b></label>
+            <input type="text" class="form-control "  name="" placeholder=" Appraisal Average Amount" >
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="form-group">
+            <label><b>Total Of Price</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Total of Price" >
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label><b>Purpose Of Purchase</b></label>
+            <input type="text" class="form-control"  name="" placeholder="Enter Purpose of Purchase" >
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="form-group">
+            <label><b>Profitability Of Current Branch</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Profitability of Current Branch" >
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="form-group">
+            <label><b>Project Profitability</b> </label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Project Profitability" >
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label><b>Retail Feasibility</b></label>
+            <input type="text" class="form-control "  name="" placeholder="Enter Retail Feasibility" >
+          </div>
+
+        </div>
+
+        </div>
+      <div class="box-footer">
+        <div  class="pull-left p-t-10 pull-left">
+          <a ><button  type="button" class="btn btn-default "  ><b>Back</b></button></a>
+        </div>
+        <div  class="pull-right p-t-10">
+          <a ><button type="button" class="btn btn-primary "  ><b>Reject</b></button></a>
+        </div>
+        <div  class="pull-right p-t-10" style="margin-right: 5px">
+          <a><button type="button" class="btn btn-primary " ><b>Approve</b></button></a>
+        </div>
+      </div>
+      </div>
+    </div>
+      </section>
+    </div>
+  <app-footer></app-footer>
+  </div>

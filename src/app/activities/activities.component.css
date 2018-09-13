@@ -1,0 +1,28 @@
+.content-wrapper{
+    min-height: 916px;
+}
+
+agm-map {
+    height: 277px;
+}
+
+.info-window>table>tbody>tr>td{
+    padding: 5px !important;
+    line-height: 1;
+}
+
+.info-window>table{
+    width:280px !important;
+    margin-top:15px !important;
+    margin-left: 20px !important;
+}
+
+.info-window .gm-style-iw{
+    top: 15px !important;
+    left: 30px !important;
+}
+
+.map-footer{
+    background-color: white;
+    margin-top: -20px;
+}

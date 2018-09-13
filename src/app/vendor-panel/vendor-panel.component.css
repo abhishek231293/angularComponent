@@ -1,0 +1,19 @@
+.content{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+ul > li > ul > li > a{
+    font-size: 12px;
+    padding-left: 30px;
+}
+
+.imgBox{
+    height:120px;
+    width:120px;
+    border: 1px solid #d2d6de;
+}
+
+.content-wrapper{
+    min-height: 916px;
+}

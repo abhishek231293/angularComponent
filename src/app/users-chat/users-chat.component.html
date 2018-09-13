@@ -1,0 +1,86 @@
+<div class="box box-warning direct-chat direct-chat-warning">
+  <div class="box-header with-border">
+    <h3 class="box-title">Team Room</h3>
+
+    <div class="box-tools pull-right">
+      <!--<span data-toggle="tooltip" title="" class="badge bg-yellow" data-original-title="3 New Messages">3</span>-->
+      <!--<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+      </button>-->
+    </div>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <!-- Conversations are loaded here -->
+    <div  class="direct-chat-messages" style="overflow-x: hidden;height: 304px;" ngx-auto-scroll>
+
+      <!-- Message. Default to the left -->
+      <div observe-attributes *ngFor = "let chats of chatData;index as i">
+
+          <div *ngIf="userId === chats.user_id" class="direct-chat-msg right">
+              <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name pull-right">{{chats.name}}</span>
+                  <span class="direct-chat-timestamp pull-left">{{chats.created_at | date:'MMM d, y h:mm:ss a'}}</span>
+              </div>
+              <!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="{{API_BASE_URL}}/storage/{{chats.user_image}}" alt="message user image">
+              <!-- /.direct-chat-img -->
+              <div class="direct-chat-text">
+                  {{chats.chat_text}}
+              </div>
+              <!-- /.direct-chat-text -->
+          </div>
+        <!--<div class="direct-chat-msg" *ngIf="i%2 === 0">-->
+        <div *ngIf="userId !== chats.user_id" class="direct-chat-msg">
+          <div class="direct-chat-info clearfix">
+            <span class="direct-chat-name pull-left">{{chats.name}}</span>
+            <span class="direct-chat-timestamp pull-right">{{chats.created_at | date:'MMM d, y h:mm:ss a'}}</span>
+          </div>
+          <!-- /.direct-chat-info -->
+          <img class="direct-chat-img" src="{{API_BASE_URL}}/storage/{{chats.user_image}}" alt="message user image">
+          <!-- /.direct-chat-img -->
+          <div class="direct-chat-text">
+            {{chats.chat_text}}
+          </div>
+          <!-- /.direct-chat-text -->
+        </div>
+        <!-- /.direct-chat-msg -->
+
+        <!-- Message to the right -->
+        <!--<div class="direct-chat-msg right" *ngIf="i%2 !== 0">-->
+
+        <!-- /.direct-chat-msg -->
+      </div>
+        <div class="row" *ngIf="isLoader == true" style="text-align: left;margin-left: 0px;margin-bottom: -5px;">
+            <span>Sending...</span>
+        </div>
+
+    </div>
+    <!--/.direct-chat-messages-->
+    <!-- /.direct-chat-pane -->
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <form [formGroup]="chatDataForm" (ngSubmit)="updateChatData()">
+      <div class="form-group input-group">
+        <input type="text" formControlName="chat_data" class="form-control" id="chat_data" placeholder="Type Message..." autocomplete="off">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-primary btn-flat" (scroll)="chatDataForm.controls['chat_data'].value">Send</button>
+        </span>
+      </div>
+      <div *ngIf="submitted && chatDataForm.controls['chat_data'].errors">
+              <span [hidden]="!chatDataForm.controls['chat_data'].errors.required" class="help-block" style="color: red !important;">
+                Please enter message..!
+              </span>
+      </div>
+      <!--<div class="input-group">
+        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+        <span class="input-group-btn">
+                            <button type="button" class="btn btn-warning btn-flat">Send</button>
+                          </span>
+      </div>-->
+    </form>
+  </div>
+  <!-- /.box-footer-->
+</div>

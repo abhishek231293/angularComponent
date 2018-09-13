@@ -1,0 +1,160 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header">
+      <h1>
+        Vendor Panel
+        <small>
+                    <span *ngIf="isDisabled == 'true'" >
+                        View Vendor
+                    </span>
+          <span *ngIf="isDisabled == 'false'" >
+                        Edit Vendor
+                    </span>
+        </small>
+      </h1>
+      <!--<ol class="breadcrumb">
+          &lt;!&ndash;<li><a href="#"><i class="fa fa-table"></i> Dashboard</a></li>&ndash;&gt;
+          <li class="active"><i class="fa fa-table"></i>&nbsp;Dashboard</li>
+      </ol>-->
+      <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                  <a class="" style="margin-left: 15px;">
+                  </a>
+                </h3>
+              </div>
+              <!-- /.box-header -->
+              <!-- form start -->
+              <!--<div *ngIf="isEditBranchError" class="alert alert-danger">
+                  <strong>Something Wrong! </strong> Please check and try again.
+              </div>-->
+              <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
+                <div class="box-body">
+                  <div class="col-xs-6">
+                    <!--<div class="form-group">
+                      <label for="city">City</label>
+                      <select formControlName="city" class="form-control" id="city" readonly>
+                        <option [value]="">Select City</option>
+                        <option [value]="city" *ngFor="let city of cities">{{city}}</option>
+                      </select>
+                      &lt;!&ndash;<input formControlName="city" class="form-control" id="city" placeholder="Enter City">&ndash;&gt;
+                      <div *ngIf="editBranchForm.controls['city'].errors && !editBranchForm.controls['city'].pristine">
+                        &lt;!&ndash;<div [hidden]="!editBranchForm.controls['name'].errors.required" class="alert alert-danger"> Branch name is missing.</div>&ndash;&gt;
+                        <span [hidden]="!editBranchForm.controls['type'].errors.required" class="help-block" style="color: red !important;">
+                                                            City is missing.
+                                                        </span>
+                      </div>
+                    </div>-->
+                    <div class="form-group">
+                      <label for="user_name">Name</label>
+                      <input formControlName="name" class="form-control" id="user_name" placeholder="Enter Name" required>
+                      <div *ngIf="editUserForm.controls['name'].errors && !editUserForm.controls['name'].pristine">
+                        <!--<div [hidden]="!editBranchForm.controls['name'].errors.required" class="alert alert-danger"> Branch name is missing.</div>-->
+                        <span [hidden]="!editUserForm.controls['name'].errors.required" class="help-block" style="color: red !important;">
+                                                            Name is missing.
+                                                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="user_email">Email</label>
+                      <input formControlName="email" class="form-control" id="user_email" placeholder="Enter Email" readonly>
+                      <div *ngIf="editUserForm.controls['email'].errors && !editUserForm.controls['email'].pristine">
+                        <!--<div [hidden]="!editBranchForm.controls['name'].errors.required" class="alert alert-danger"> Branch name is missing.</div>-->
+                        <span [hidden]="!editUserForm.controls['email'].errors.required" class="help-block" style="color: red !important;">
+                                                            Email is missing.
+                                                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>User Status</label>
+                      <div>
+                        <ui-switch id="uiSwitchId" formControlName="is_active" [checked]="editUserForm.controls['is_active'] ? true : false" size="medium" title="User Status" labelOn="Active" labelOff="Inactive" ></ui-switch>
+                      </div>
+                    </div>
+                    <!--<span *ngIf="isDisabled == 'false'" >
+                    <div class="form-group">
+                      <label for="user_password">Password</label>
+                      <input type="password" formControlName="password" class="form-control" id="user_password" placeholder="Enter Password" required>
+                      <div *ngIf="editUserForm.controls['password'].errors && !editUserForm.controls['password'].pristine">
+                        &lt;!&ndash;<div [hidden]="!editBranchForm.controls['name'].errors.required" class="alert alert-danger"> Branch name is missing.</div>&ndash;&gt;
+                        <span [hidden]="!editUserForm.controls['password'].errors.required" class="help-block" style="color: red !important;">
+                                                            Password is missing.
+                                                        </span>
+                      </div>
+                    </div>
+                      </span>-->
+                    <!--<div class="form-group">
+                        <label>
+                          User Status
+                        </label>
+                        <div>
+                          <label class="clickable">
+                            <input formControlName="user_status" type="radio" name="r3" id="user_status_active" class="form-control flat-red" checked>
+                            Active
+                          </label>
+                          <label class="p-l-10 clickable">
+                            <input formControlName="user_status" type="radio" name="r3" id="user_status_inactive" class="form-control flat-red">
+                            Inactive
+                          </label>
+                        </div>
+                      <div *ngIf="editUserForm.controls['is_active'].errors && !editUserForm.controls['is_active'].pristine">
+                        &lt;!&ndash;<div [hidden]="!editBranchForm.controls['name'].errors.required" class="alert alert-danger"> Branch name is missing.</div>&ndash;&gt;
+                        <span [hidden]="!editUserForm.controls['is_active'].errors.required" class="help-block" style="color: red !important;">
+                                                            Password is missing.
+                                                        </span>
+                      </div>
+                    </div>-->
+
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="form-group">
+                      <label for="type">Type</label>
+                      <select formControlName="type_id" class="form-control" id="type">
+                        <option value="" [selected]=true>Select Type</option>
+                        <option [value]="type.id" *ngFor="let type of types">{{type.name}}</option>
+                      </select>
+                      <div *ngIf="editUserForm.controls['type_id'].errors && !editUserForm.controls['type_id'].pristine">
+                        <span [hidden]="!editUserForm.controls['type_id'].errors.required" class="help-block" style="color: red !important;">
+                            Type is missing.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                  <!--<span *ngIf="isDisabled == 'true'">-->
+                  <div  class="pull-left p-t-10" style="padding-left: 5px">
+                    <a class="pull-left"><button type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px" (click)="goToUserList()">Back</button></a>
+                  </div>
+                  <!--</span>-->
+                  <span *ngIf="isDisabled == 'false'" >
+                  <div  class="pull-right p-t-10">
+                  <!--<a class="pull-left"><button type="submit" (click)="onSubmit()" class="btn btn-success next-button" style="padding: 5px 15px;margin-top: -9px" >Add</button></a>-->
+                  <a class="pull-right"><button type="submit" class="btn btn-primary next-button" style="padding: 5px 15px;margin-top: -9px" >Update</button></a>
+                  </div>
+                  <div  class="pull-right p-t-10" style="padding-right: 5px">
+                    <a class="pull-right"><button type="button" class="btn btn-danger next-button" style="padding: 5px 15px;margin-top: -9px" (click)="goToUserList()">Cancel</button></a>
+                  </div>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,135 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;min-height: 900px">
+    <section class="content-header" style="padding-left: 15px;">
+    </section>
+
+    <section class="content">
+      <div class="row">
+        <div class="form-group col-md-2 col-xs-12">
+          <select class="form-control clickable">
+            <option>Region</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-xs-12">
+          <select class="form-control clickable">
+            <option>Inspection</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-xs-12">
+          <select class="form-control clickable">
+            <option>Status</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-xs-12">
+          <select class="form-control clickable">
+            <option>Inspector</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-xs-12">
+          <select class="form-control clickable">
+            <option>Period</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 col-xs-12">
+          <select class="form-control clickable">
+            <option>Risk Level</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" style="margin-bottom: 10px;">
+          <div class="input-group input-group-sm pull-left" >
+            <input  type="text"
+                    class="form-control pull-right"
+                    placeholder="Company Name or Case Reference" style="height: 34px !important;">
+            <div class="input-group-btn">
+              <button  class="btn btn-success btn-flat" style="height: 34px !important;margin-left: 3px" title="search">
+                <i class="fa fa-search"></i>
+              </button>
+              <button class="btn btn-primary btn-flat" style="height: 34px !important;margin-left: 3px" title="reset">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div style="background-color: #163862;width: 100%;padding: 6px 4px 4px 4px;border-radius: 5px">
+            <span style="color: #ffffff;font-weight: 900;font-size: 18px;padding: 10px;">TEAM PERFORMANCE</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box m-t-10" style="border-top: 0px;">
+            <div class="box-body" style="color: #163862;padding: 10px 20px 30px 20px">
+              <div *ngFor="let member of team" class="col-md-4" style="margin-top: 10px">
+                <div class="col-md-6" style="font-weight: 900;font-size: 25px;padding: 32px 0px 0px 28px">
+                  <span>{{member.name}}</span><br>
+                  <span style="position: relative;top: -9px">{{member.last_name}}</span>
+                </div>
+                <div class="col-md-6">
+                  <img src="../../assets/img/profile_pic_2.png" alt="" style="width:85%;border-radius: 50%;margin-left: -12px">
+                </div>
+                <div class="col-md-12" style="padding: 0px 0px;">
+                  <div class="col-md-6" style="border-right: 1px solid #163862;text-align: right;font-size: 13px;padding-left: 0px">
+                    Number of Inspection <br>
+                    Avg. Inspection Time <br>
+                    Order Entry Accuracy <br>
+                    Number of Finess Issued
+                  </div>
+                  <div class="col-md-6">
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-primary" style="width: 75%"></div>
+                    </div>
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-primary" style="width: 60%"></div>
+                    </div>
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-primary" style="width: 50%"></div>
+                    </div>
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-primary" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

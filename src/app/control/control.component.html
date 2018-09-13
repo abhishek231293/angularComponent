@@ -1,0 +1,115 @@
+<div class="wrapper" xmlns="http://www.w3.org/1999/html">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 30px; padding-left: 30px;">
+    <section class="content-header" style="padding-left: 0px" >
+      <!--  <h1>
+          <small>New Request</small>
+        </h1>-->
+
+    </section>
+
+
+      <section class="content" >
+          <div class="box">
+              <div class="box-body" style="text-align: center">
+                  <div class="row" style="margin-bottom: 19px;">
+                      <div class="col-md-4">
+                          <div class="vote col-md-4" >
+                              <!--<i class="fa fa-street-view control-icon" ></i>-->
+                              <span class="logo-mini"><img src="assets/img/vote.png" alt=""></span>
+                              <div style="margin-top: 6px;color: grey;">VOTE</div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div class="vender_management col-md-4 col-lg-4 ">
+                              <!--<i class="fa fa-home control-icon" ></i>-->
+                              <a [routerLink]="['/vendor-management']" [target]="'_blank'">
+                                  <span class="logo-mini"><img src="assets/img/vendor_management.png" alt=""></span>
+                                  <div style="margin-top: 6px;color: grey;">VENDOR MANAGEMENT</div>
+                              </a>
+                          </div>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div class="user_management col-md-4">
+                              <a [routerLink]="['/user-management']" [target]="'_blank'">
+                                  <span class="logo-mini"><img src="assets/img/user_management.png" alt=""></span>
+                                  <div style="margin-top: 6px;color: grey;">USER MANAGEMENT</div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row" style="margin-bottom: 19px;">
+
+                      <div class="col-md-4">
+                          <div class="alerts_notification col-md-4" >
+                              <!--<i class="fa fa-credit-card control-icon"></i>-->
+                              <span class="logo-mini"><img src="assets/img/alert_notification.png" alt=""></span>
+                              <div style="margin-top: 6px;color: grey;">ALERTS AND NOTIFICATIONS</div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div class="sms_gateway col-md-4 col-lg-4 " >
+                              <!--<i class="fa fa-user control-icon" ></i>-->
+                              <span class="logo-mini"><img src="assets/img/sms_gateway.png" alt=""></span>
+                              <div style="margin-top: 6px;color: grey;">SMS GATEWAY</div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div class="user_management col-md-4">
+                              <!--<i class="fa fa-binoculars control-icon" ></i>-->
+                              <span class="logo-mini"><img src="assets/img/api.png" alt=""></span>
+                              <div style="margin-top: 6px;color: grey;">API</div>
+                          </div>
+                      </div>
+                  </div>
+
+
+              <div class="row">
+
+                  <div class="col-md-4">
+                      <a [routerLink]="['/cases']" [target]="'_blank'">
+                      <div class="project col-md-4" >
+                          <!--<i class="fa fa-folder control-icon" ></i>-->
+                              <span class="logo-mini"><img src="assets/img/projects.png" alt=""></span>
+                              <div style="margin-top: 6px;color: grey;">PROJECT</div>
+                      </div>
+                      </a>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="deadline col-md-4 col-lg-4 " >
+                          <!--<i class="fa fa-bullhorn control-icon" ></i>-->
+                          <span class="logo-mini"><img src="assets/img/deadlines.png" alt=""></span>
+                          <div style="margin-top: 6px;color: grey;"> DEADLINES</div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="task col-md-4">
+                          <!--<i class="fa fa-user control-icon" ></i>-->
+                          <span class="logo-mini"><img src="assets/img/tasks.png" alt=""></span>
+                          <div style="margin-top: 6px;color: grey;">TASKS</div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+        </div>
+    </section>
+
+
+    </div>
+  <app-footer></app-footer>
+</div>
+

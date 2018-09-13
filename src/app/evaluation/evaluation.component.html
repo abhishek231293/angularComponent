@@ -1,0 +1,243 @@
+<div class="wrapper">
+  <app-header-vendor></app-header-vendor>
+  <app-sidebar-vendor></app-sidebar-vendor>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 2px" >
+      <!--<h1>
+        <small>New Request</small>
+      </h1>-->
+      <h1>
+        Property Details
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <!--<div *ngIf="loader">
+        <div class="loading">Loading&#8230;</div>
+      </div>-->
+
+      <app-header-project-nologin></app-header-project-nologin>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="panel panel-primary">
+            <div class="panel-heading" style="text-align: center;">
+              <strong>SUBMIT YOUR EVALUATION FORM</strong>
+            </div>
+            <div class="panel-body">
+
+              <div class="col-md-12">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="evaluation_amount"><strong>Evaluation Amount (in SR)*</strong></label>
+                    <input [(ngModel)]="evaluationFormData.evaluation_amount" id="evaluation_amount" class="form-control" name="evaluation_amount" type="number" required min="0" step=".01" placeholder="Enter Evaluation Amount">
+                    <div *ngIf="evaluationFormError && evaluationFormData['evaluation_amount_error']">
+                          <span [hidden]="evaluationFormError && evaluationFormData['evaluation_amount_error']" class="help-block" style="color: red !important;">
+                              Evaluation amount is missing or incorrect input (Only numeric value accepted).
+                          </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="competition"><strong>Competition*</strong></label>
+                    <select [(ngModel)]="evaluationFormData.competition" name="competition" class="form-control" id="competition">
+                      <option value="">Select Competition</option>
+                      <option value="light">Light</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                    <div *ngIf="evaluationFormError && evaluationFormData['competition_error']">
+                          <span [hidden]="evaluationFormError && evaluationFormData['competition_error']" class="help-block" style="color: red !important;">
+                              Competition is missing.
+                          </span>
+                    </div>
+                  </div>
+                </div>
+                <!--<div class="col-md-4 upload-file">-->
+                  <!--<div class="form-group">-->
+                    <!--<label for="file"><strong>Upload files</strong></label>-->
+                    <!--<input style="color: #245D6F; font-weight: 900;" id="file" class="form-control" name="file" type="file">-->
+                  <!--</div>-->
+                  <!--<div>-->
+                    <!--<div style="color: #245D6F;"><strong>Can attach more than one</strong></div>-->
+                    <!--<div>-->
+                      <!--<button type="button" class="btn btn-primary" style="margin-top: 10px;">-->
+                        <!--&nbsp;&nbsp;Upload&nbsp;&nbsp;-->
+                      <!--</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div class="col-md-6">
+                  <label>Upload Briefing Documents*</label>
+                  <br/>
+                  <div style="font-size: 10px;"><strong>At least one required</strong></div>
+                  <div class="row">
+                    <div class="col-lg-4" style="padding: 5px;">
+                      <div class="form-group">
+                        <input (change)="changeListener($event.target.files,1)" id="image_upload1" class="form-control" type="file"
+                               class="dropify" accept=".png, .jpg, .jpeg"
+                               data-allowed-file-extensions="jpg png jpeg"
+                               data-show-loader="true"
+                               data-max-file-size="5M" data-height="150">
+                      </div>
+                    </div>
+                    <div class="col-lg-4" style="padding: 5px;">
+                      <div class="form-group">
+                        <input (change)="changeListener($event.target.files,2)" id="image_upload2" class="form-control" type="file"
+                               class="dropify" accept=".png, .jpg, .jpeg"
+                               data-allowed-file-extensions="jpg png jpeg"
+                               data-show-loader="true"
+                               data-max-file-size="5M" data-height="150">
+                      </div>
+                    </div>
+                    <div class="col-lg-4" style="padding: 5px;">
+                      <div class="form-group">
+                        <input (change)="changeListener($event.target.files,3)" id="image_upload3" class="form-control" type="file"
+                               class="dropify" accept=".png, .jpg, .jpeg"
+                               data-allowed-file-extensions="jpg png jpeg"
+                               data-show-loader="true"
+                               data-max-file-size="5M" data-height="150">
+                      </div>
+                    </div>
+                    <div *ngIf="evaluationFormError && evaluationFormData['image_error']">
+                          <span [hidden]="evaluationFormError && evaluationFormData['image_error']" class="help-block" style="color: red !important;">
+                              At least one image required.
+                          </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="margin-top: 10px;">
+                <div class="col-md-6" style="padding-left: 0px;">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" style="text-align: center;">
+                      <strong>Pros*</strong>
+                    </div>
+                    <div class="panel-body" style="min-height: 150px;">
+                      <div class="input-group" style="padding-top: 20px; width: 100%; margin-top: -9px; margin-left: 15px;">
+                        <input [(ngModel)]="evaluationFormData.prosText" style="width: 85%;" type="text" class="form-control" aria-label="Pros" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button (click)="addProsCons('pros')" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;" class="btn btn-outline-secondary btn-primary" type="button"><i class="fa fa-plus"></i></button>
+                        </div>
+                      </div>
+
+
+                      <div class="sub-title">
+                        <strong>Press + to add another field</strong>
+                      </div>
+                      <div *ngIf="evaluationFormError && evaluationFormData['pros_error']">
+                          <span [hidden]="evaluationFormError && evaluationFormData['pros_error']" class="help-block" style=" margin-left: 20px; color: red !important;">
+                              Pros is missing.
+                          </span>
+                      </div>
+                      <div class="sub-title">
+                        <div *ngFor = "let pros of evaluationFormData['pros'];" style="padding: 5px; margin-bottom: 10px; ">
+                          <div class="label label-success" style="padding: 10px; padding-top: 7px;padding-bottom: 7px; margin: 10px; text-transform: uppercase;">
+                            {{pros}} <a title="Remove this pros" style="cursor: pointer; color: white; text-decoration: none;" (click)="removeProsCons('pros',i)"><i class="fa fa-times"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" style="padding-right: 0px;">
+                  <div class="panel  panel-default">
+                    <div class="panel-heading" style="text-align: center;">
+                      <strong>Cons*</strong>
+                    </div>
+                    <div class="panel-body" style="min-height: 150px;">
+                      <div class="input-group" style=" padding-top: 20px;  width: 100%; margin-top: -9px; margin-left: 15px;">
+                        <input [(ngModel)]="evaluationFormData.consText" style="width: 85%;" type="text" class="form-control" aria-label="Cons" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button (click)="addProsCons('cons')" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;" class="btn btn-outline-secondary btn-primary" type="button"><i class="fa fa-plus"></i></button>
+                        </div>
+                      </div>
+                      <div class="sub-title">
+                        <strong>Press + to add another field</strong>
+                      </div>
+                      <div *ngIf="evaluationFormError && evaluationFormData['cons_error']">
+                          <span [hidden]="evaluationFormError && evaluationFormData['cons_error']" class="help-block" style=" margin-left: 20px; color: red !important;">
+                              Cons is missing.
+                          </span>
+                      </div>
+
+                      <div class="sub-title">
+                        <div *ngFor = "let cons of evaluationFormData['cons'];let i = index"  style="padding: 5px; margin-bottom: 10px; ">
+                          <p class="label label-danger" style="padding: 10px; padding-top: 7px;padding-bottom: 7px; margin: 10px; text-transform: uppercase;">
+                            {{cons}} <a title="Remove this cons" style="cursor: pointer; color: white; text-decoration: none;" (click)="removeProsCons('cons',i)"><i class="fa fa-times"></i></a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-md-6" style="padding-left: 0px;">
+                  <div class="form-group">
+                    <label for="recommendation">Broker Recommendation*</label>
+                    <textarea [(ngModel)]="evaluationFormData.recommendation" class="form-control" rows="5" id="recommendation" placeholder="Please use this space to enter further details"></textarea>
+                    <div *ngIf="evaluationFormError && evaluationFormData['recommendation_error']">
+                          <span [hidden]="evaluationFormError && evaluationFormData['recommendation_error']" class="help-block" style="color: red !important;">
+                              Recommendation is missing.
+                          </span>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>Price Above Average Below Average Normal</label>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div style="text-align: center; color: #3A636D;"><strong>Above Average</strong></div>
+                      <div style="text-align: center"><input [(ngModel)]="evaluationFormData.price" class="radio-button" value="above" type="radio" name="price" checked></div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div style="text-align: center; color: #3A636D;"><strong>Below Average</strong></div>
+                      <div style="text-align: center"><input [(ngModel)]="evaluationFormData.price" class="radio-button" value="below" type="radio" name="price"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div style="text-align: center; color: #3A636D;"><strong>Normal</strong></div>
+                      <div style="text-align: center;"><input [(ngModel)]="evaluationFormData.price" class="radio-button" value="normal" type="radio" name="price"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+
+                <div class="pull-right">
+                  <span style="margin-right: 15px;">
+                    <button type="button" class="btn btn-danger" (click)="resetEvaluationForm()" > &nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</button>
+                  </span>
+                  <span>
+                    <button type="button" class="btn btn-primary" (click)="submitEvaluationForm()">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <app-footer></app-footer>
+</div>

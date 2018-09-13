@@ -1,0 +1,258 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header">
+      <!--<h1>
+        User Credential
+        <small>
+          Change Password
+        </small>
+      </h1>-->
+      <section class="content">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+                     size="medium"
+                     color="#ffffff"
+                     type="ball-clip-rotate-pulse"></ngx-spinner>
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="col-xs-6">
+            <div class="mapDiv" style="width: 100%;height: 255px;border:1px solid #d2d6de">
+              <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+                <!--<agm-marker *ngIf="markerStatus"  [latitude]="lat" [longitude]="lng"></agm-marker>-->
+                <agm-marker *ngFor="let marker of markers" [iconUrl]="marker.icon"
+                            [latitude]="marker.lat" [longitude]="marker.lang"></agm-marker>
+              </agm-map>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua-gradient">
+                  <div class="inner text-center">
+                    <h3>{{analyticsData['totalProjects'] ? analyticsData['totalProjects'] : 0}}</h3>
+
+                    <p>New Projects</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-line-chart"></i>
+                  </div>
+                  <a class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red-active">
+                  <div class="inner text-center">
+                    <h3>{{analyticsData['overDueProjects'] ? analyticsData['overDueProjects'] : 0}}</h3>
+
+                    <p>Overdue Projects</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-area-chart"></i>
+                  </div>
+                  <a  class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- ./col -->
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow-gradient">
+                  <div class="inner text-center">
+                    <h3>{{analyticsData['completed'] ? analyticsData['completed'] : 0}}</h3>
+
+                    <p>Projects Completed</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-line-chart"></i>
+                  </div>
+                  <a class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-6 col-xs-6">
+                <!-- small box -->
+                <div class="small-box" style="background-color:#A0CB48;">
+                  <div class="inner text-center" style="color:white;">
+                    <h3>{{taskCompletionPercentage}}<sup style="font-size: 20px">%</sup></h3>
+
+                    <p>
+                      {{analyticsData['completedTask'] ? analyticsData['completedTask'] : 0}} out of
+                      {{analyticsData['totalTasks'] ? analyticsData['totalTasks'] : 0}} tasks completed
+                    </p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-pie-chart"></i>
+                  </div>
+                  <a  class="small-box-footer">
+                    more <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-2 col-xs-12">
+            <select class="form-control clickable">
+              <option>Vendor Name</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-xs-12">
+            <select class="form-control clickable">
+              <option>Mission Type</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-xs-12">
+            <select class="form-control clickable">
+              <option>Region</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-xs-12">
+            <select class="form-control clickable">
+              <option>Mission Status</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-xs-12">
+            <select class="form-control clickable">
+              <option>Period</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 col-xs-12">
+            <button class="btn btn-primary"><i class="fa fa-search"></i> Go</button>
+            <button class="btn btn-default" style="margin-left: 5px"><i class="fa fa-refresh"></i> Reset</button>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <i class="pull-right fa fa-file-pdf-o fa-2x clickable" style="color:red;" title="Download Pdf"></i>
+            </div>
+        </div>
+        <div class="row m-t-10">
+            <div class="col-md-6">
+                <!-- Box Comment -->
+                <div class="box">
+                    <div class="box-header with-border">
+                        <span>Key Performance Indicators/<strong>Executive Summary</strong></span>
+                        <!-- /.user-block -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="min-height: 226px;">
+                        <div class="col-md-4" style="height:100px;padding-left: 10px;padding-right: 10px">
+                            <div style="border: 2px solid #a6d2ea;border-radius:5px;width: 100%;height: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height:100px;padding-left: 10px;padding-right: 10px">
+                            <div style="border: 2px solid #a6d2ea;border-radius:5px;width: 100%;height: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height:100px;padding-left: 10px;padding-right: 10px">
+                            <div style="border: 2px solid #a6d2ea;border-radius:5px;width: 100%;height: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height:110px;padding-top: 10px;padding-left: 10px;padding-right: 10px">
+                            <div style="border: 2px solid #a6d2ea;border-radius:5px;width: 100%;height: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height:110px;padding-top: 10px;padding-left: 10px;padding-right: 10px">
+                            <div style="border: 2px solid #a6d2ea;border-radius:5px;width: 100%;height: 100px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height:110px;padding-top: 10px;padding-left: 10px;padding-right: 10px">
+                            <div style="border: 2px solid #a6d2ea;border-radius:5px;width: 100%;height: 100px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                    </div>
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="box">
+              <div class="box-header with-border">
+                <i class="fa fa-ticket"></i>
+                <span><strong>Vendor Ticket Details</strong></span>
+                <!-- /.user-block -->
+                <div class="box-tools">
+                  <button type="button" class="btn btn-box-tool"><i class="fa fa-envelope"></i></button>
+                  <button type="button" class="btn btn-box-tool"><i class="fa fa-download"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-bordered" style="font-weight: bold">
+                  <tr>
+                      <td>Total Ticekts</td><td class="text-center">
+                    <button class="btn btn-danger" style="padding:1px 0px;width:100px">22230</button></td>
+                  </tr>
+                  <tr>
+                    <td>Ticekts Resolved</td><td class="text-center">
+                    <button class="btn btn-success" style="padding:1px 0px;width:100px">22746</button></td>
+                  </tr>
+                  <tr>
+                    <td>Pending Ticekts</td><td class="text-center">
+                    <button class="btn btn-danger" style="padding:1px 0px;width:100px">9226</button></td>
+                  </tr>
+                  <tr>
+                    <td>Resolve Requested</td><td class="text-center">
+                    <button class="btn btn-success" style="padding:1px 0px;width:100px">330</button></td>
+                  </tr>
+                  <tr>
+                    <td>Rejected Resolution</td><td class="text-center">
+                    <button class="btn btn-danger" style="padding:1px 0px;width:100px">219</button></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-footer">
+              </div>
+              <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

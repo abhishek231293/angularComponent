@@ -1,0 +1,238 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)"
+               size="medium"
+               color="#ffffff"
+               type="ball-clip-rotate-pulse"></ngx-spinner>
+  <!--<div class="content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content-header" style="padding-left: 2px" >
+      <!--<h1>
+        <small>New Request</small>
+      </h1>-->
+      <h1>
+        Vendor Details
+      </h1>
+    </section>
+    <section class="content" style="padding: 17px 0px 10px 3px">
+      <!--<div *ngIf="loader">
+        <div class="loading">Loading&#8230;</div>
+      </div>-->
+      <div class="row">
+        <div class="col-md-12">
+
+          <app-header-project></app-header-project>
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="box" style="margin-bottom: 0px;">
+                <div class="box-body" style="padding-left: 0px; padding-right: 0px;">
+                  <div class="col-md-6" style="padding-right: 0px; padding-left: 0px;">
+                      <div class="form-group col-md-12">
+                        <label class="col-sm-6 ">Owner Name
+                        </label>
+                        <div class="col-sm-6">
+                          {{vendorDetail[0]['owner_name']?vendorDetail[0]['owner_name']:'NA'}}
+                        </div>
+                      </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">Number of surrounding streets
+
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['surrounding_street']?vendorDetail[0]['surrounding_street']:0}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">Number of parcels
+
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['parcels']?vendorDetail[0]['parcels']:0}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6" >Any buildings on the land (Please describe)
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['any_building_on_land']?vendorDetail[0]['any_building_on_land']:'NA'}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">Number of deeds
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['no_of_deeds']?vendorDetail[0]['no_of_deeds']:0}}
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-6" style="padding-right: 0px; padding-left: 0px;">
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">Agent Name
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['agent_name']?vendorDetail[0]['agent_name']:'NA'}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">
+                        Plot Size
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['plot_size']?vendorDetail[0]['plot_size']:0}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">
+                        Plot Number
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['plot_no']?vendorDetail[0]['plot_no']:'NA'}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">
+                        Masterplan Number
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['master_plan_no']?vendorDetail[0]['master_plan_no']:'NA'}}
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label class="col-sm-6 ">
+                        Deed Date
+                      </label>
+                      <div class="col-sm-6">
+                        {{vendorDetail[0]['created_at'] | date: 'dd/MM/yyyy hh:mm'}}
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-12" style="margin-left: 15px;">
+                    <label> Please tick if available</label><br/>
+                        <label  class="checkbox-inline">
+                          <input type="checkbox" value="water" disabled [checked]="vendorDetail[0]['is_water'] == 1">
+                          <span class="">Water</span>
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="checkbox" value="electricity" [checked]="vendorDetail[0]['is_electricity']" disabled >
+                          <span class="">Electricity</span>
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="checkbox" value="phone" disabled [checked]="vendorDetail[0]['is_phone']">
+                          <span class="">Phone</span>
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="checkbox" value="sewage" disabled [checked]="vendorDetail[0]['is_sewage']">
+                          <span class="">Sewage</span>
+                        </label>
+                  </div>
+
+                </div>
+              </div>
+              <div class="box-footer" style="padding: 18px 12px 5px 8px;">
+                <div class="pull-left p-5">
+                  <a class="pull-left"><button (click)="backToEdit()" type="button" class="btn btn-default next-button" style="padding: 5px 15px;margin-top: -9px">Back</button></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+
+              <!--<div class="col-md-12">-->
+                <!--<div class="box">-->
+                  <!--<div class="box-body">-->
+                    <!--<div style="margin-bottom: 30px;">-->
+                      <!--<span class="pull-left">Time estimated</span>-->
+                      <!--<span class="pull-right" >{{estimatedDays}} days</span>-->
+                    <!--</div>-->
+                    <!--<div class="progress" style="clear: both; height: 10px; margin-bottom: 5px;">-->
+                      <!--<div class="progress-bar" role="progressbar" aria-valuenow="70"-->
+                           <!--aria-valuemin="0" aria-valuemax="100" style="background-color: #63E3D2; width:70%">-->
+                        <!--<span class="sr-only">70% Complete</span>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <div class="col-md-12">
+                <div class="box">
+                  <div class="box-body">
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['architectural_drawing_url']">
+                        <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['architectural_drawing_url']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                        <div style="font-size: 10px;">Architectural Drawing</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['street_view_url1']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['street_view_url1']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">Street View 1</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['street_view_url2']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['street_view_url2']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">Street View 2</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['street_view_url3']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['street_view_url3']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">Street View 3</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['satellite_image_url']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['satellite_image_url']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">Satellite Image</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['masterplan_area_url']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['masterplan_area_url']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">General Scheme</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['deed_url']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['deed_url']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">Deed</div>
+                    </div>
+
+                    <div style="height: 100px;" class="col-md-4" *ngIf="vendorDetail[0]['seller_offer_url']">
+                      <a target="_blank" href="{{apiBaseUrl}}/{{vendorDetail[0]['seller_offer_url']}}" download=""><i class="fa fa-4x fa fa-file"></i></a>
+                      <div style="font-size: 10px;">Seller offer</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!--<div class="col-md-12" *ngIf="totalResponse >= 3 && vendorDetail[0]['approve_status'] == 'pending'" >-->
+                <!--<div class="col-md-6">-->
+                    <!--<button (click)="actionPerformer('rejected')" class="btn btn-danger" style="width: 90%;">Reject</button>-->
+                <!--</div>-->
+                <!--<div class="col-md-6">-->
+                    <!--<button (click)="actionPerformer('approved')" class="btn btn-success" style="width: 90%;">Accept</button>-->
+                <!--</div>-->
+              <!--</div>-->
+
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+    </section>
+
+  </div>
+
+
+  <app-footer></app-footer>
+</div>

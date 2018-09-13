@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <!--<div class="_content-wrapper" style="min-height: 916px;">-->
+  <div class="content-wrapper" style="padding-right: 15px; padding-left: 15px;">
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-6" style="margin-top: 10px;">
+          <div class="box" style="border: none; padding: 20px; padding-top: 5px; ">
+              <h2> CSV File Uploader</h2>
+
+              <div class="form-group">
+                  <select class="form-control"  [(ngModel)]="fileType">
+                    <option value="none">Select File Type</option>
+                    <option value="product">Product</option>
+                    <option value="component">Component</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <input type="file" class="form-control" (change)="changeListener($event.target.files)">
+              </div>
+
+              <div class="form-group">
+                  <button style="cursor: pointer;" type="button" class="btn btn-success" (click)="uploadListener()">{{uploadButton}} <i class="fa" [ngClass]="{'disabled': uploadButton=='Uploading','fa fa-upload':uploadButton == 'Upload','fa fa-spin fa-spinner':uploadButton == 'Uploading'}" ></i> </button>
+              </div>
+
+            <strong style="color: red; font-size: 14px; " *ngIf="error" class="error">
+              {{errorMessage}}
+            </strong>
+
+            <strong style="color: green; font-size: 14px; " *ngIf="success" class="success">
+              {{successMessage}}
+            </strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

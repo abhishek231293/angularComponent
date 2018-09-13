@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="col-md-4 p-0">
+    <div class="col-md-6 col-xs-12" style="padding-left: 0px">
+      <select class="form-control clickable" [(ngModel)]="searchData[0]['priority']">
+        <option value="">Select Priority</option>
+        <option value="High">High</option>
+        <option value="Normal">Normal</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <select class="form-control clickable" [(ngModel)]="searchData[0]['task_complete_status']">
+        <option value="">Select Status</option>
+        <option value="completed">Completed</option>
+        <option value="pending">Pending</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-5 col-xs-12 p-0">
+    <div class="col-md-6 col-xs-12">
+      <div class="form-group" >
+        <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input class="form-control"
+                 placeholder="Task Duration From" readonly  #dpYMD="bsDatepicker"
+                 bsDatepicker [outsideClick]="true"
+                 [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue'}" [(ngModel)]="this.searchData[0]['from']">
+          <!--<input type="text" class="form-control pull-right" id="datepicker">-->
+        </div>
+        <!-- /.input group -->
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="form-group">
+        <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input class="form-control"
+                 placeholder="Task Duration To" readonly  #dpYMD="bsDatepicker"
+                 bsDatepicker [outsideClick]="true"
+                 [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue'}" [(ngModel)]="this.searchData[0]['to']">
+        </div>
+        <!-- /.input group -->
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 p-0" style="margin-bottom: 10px;">
+    <div class="input-group input-group-sm pull-left" >
+      <input  type="text"
+              class="form-control pull-right"
+              placeholder="Search By Title" [(ngModel)]="searchData[0]['task_name']" style="height: 34px !important;">
+      <div class="input-group-btn">
+        <button (click)="SearchList()" class="btn btn-success btn-flat" style="height: 34px !important;margin-left: 3px" title="search">
+          <i class="fa fa-search"></i>
+        </button>
+        <button (click)="refreshList()" class="btn btn-primary btn-flat" style="height: 34px !important;margin-left: 3px" title="reset">
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="box">
+    <div class="box-body" style="text-align: center">
+      <div class="col-md-2" style="margin-bottom: 10px;padding: 9px;text-align: left">
+        <!--<button type="button" class="btn btn-block btn-default btn-flat totalCount" style="margin-left: -7px;">-->
+        <strong>Total Tasks: {{total}}</strong>
+        <!--</button>-->
+      </div>
+      <div class="col-md-1 p-0 pull-right" style="margin-bottom: 10px;">
+        <div class="pull-right" >
+          <table *ngIf="paginate.last_page > 1" class="">
+            <colgroup>
+              <col style="width: 45%;">
+            </colgroup>
+            <tbody><tr>
+              <td>
+                <a class="gray clickable" (click)="previousPage()" style="color: #296099">
+                  <i class="fa fa-backward" title="Previous" style="margin-left: -12px"></i>
+                </a>
+                <a class="gray clickable" style="color: #296099" (click)="nextPage()">
+                  <i class="fa fa-forward" title="Next" style="margin-left: 10px"></i>
+                </a>
+              </td>
+              <td>
+                <!--<div class="form-group">-->
+                <select style="" class="form-control clickable" id="pagination" name="pagination" [(ngModel)]="currentPage" (change)="changePage()"
+                >
+                  <option *ngFor="let item of pages" [value]="item">{{item}}</option>
+                </select>
+                <!--</div>-->
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+
+          <table class="table table-hover col-md-12">
+            <!--<tr>
+              <th class="text-center">Serial No</th>
+              <th class="text-center">Title</th>
+              <th class="text-center">Task Duration From</th>
+              <th class="text-center">Task Duration To</th>
+              <th class="text-center">Priority</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">View</th>
+            </tr>-->
+            <tr style="background-color: #f5f5f5">
+              <th *ngFor = "let field of fields;index as i" [ngStyle]="{'width':field.width,'text-align':center}">
+                <span *ngIf="field.sort">{{field.title}}</span> &nbsp;
+                <a class="clickable" *ngIf="field.sort">
+                  <i class="fa fa-sort" id="fa-{{field.field}}" (click)="sortBy(field.field, $event)"></i>
+                </a>
+                <span *ngIf="!field.sort">{{field.title}}</span>
+              </th>
+            </tr>
+            <tr *ngFor="let taskRow of tasks;let i = index">
+              <!--<td class="text-center">{{i+recordsPerPage*(currentPage-1)+1}}</td>-->
+              <td class="text-left">{{taskRow['task_name']}}</td>
+              <td class="text-left">{{taskRow['name']}}</td>
+              <td class="text-left">{{taskRow['task_duration_from'] | date: 'dd/MM/yyyy'}}</td>
+              <td class="text-left">{{taskRow['task_duration_to'] | date: 'dd/MM/yyyy'}}</td>
+              <td class="text-left">
+                <label *ngIf="taskRow['priority']=='High'" class="label label-danger">
+                  High
+                </label>
+                <label *ngIf="taskRow['priority']=='Normal'" class="label label-warning">
+                  Normal
+                </label>
+                <label *ngIf="taskRow['priority']=='Low'" class="label label-primary">
+                  Low
+                </label>
+              </td>
+              <td class="text-left">{{taskRow['task_complete_status']}}</td>
+              <td class="text-left"><i class="fa fa-2x fa-eye iconSize clickable p-0-9-n m-l-5" style="color: #296099;margin-top: -10px" title="View Task Detail" (click)="editData(taskRow['task_assignment_id'],taskRow['fk_project_id'],taskRow['task_id'])"></i></td>
+            </tr>
+            <tr *ngIf="tasks?.length < 1">
+              <td colspan="7" class="text-center">
+                <label class="label label-danger">No Record Found</label>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

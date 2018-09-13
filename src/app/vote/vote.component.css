@@ -1,0 +1,15 @@
+.content-wrapper{
+    min-height:700px;
+}
+
+.vote,.vender_management,.user_management{
+    width: 100%;
+    height:auto;
+    border: 1px solid #BBBBBB;
+    text-align: left;
+
+}
+.heading{
+    border-bottom: 1px solid #BBBBBB;
+    margin:10px;
+}
